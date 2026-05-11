@@ -29,6 +29,8 @@
             --red: #ef4444;
             --yellow: #eab308;
             --cyan: #06b6d4;
+            --purple: #a855f7;
+            --pink: #ec4899;
             --border: #27272a;
             --border-light: #3f3f46;
             --gradient-1: linear-gradient(135deg, #6366f1, #8b5cf6, #a78bfa);
@@ -305,7 +307,7 @@
         .hero-tagline {
             font-size: 1.15rem;
             color: var(--text-muted);
-            max-width: 600px;
+            max-width: 640px;
             margin: 0 auto 2.5rem;
             line-height: 1.8;
             animation: fadeInUp 0.8s ease 0.3s forwards;
@@ -970,6 +972,12 @@
             border: 1px solid rgba(6, 182, 212, 0.3);
         }
 
+        .badge-parttime {
+            background: rgba(168, 85, 247, 0.15);
+            color: var(--purple);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
         .exp-description {
             color: var(--text-secondary);
             font-size: 0.95rem;
@@ -1190,6 +1198,21 @@
             display: block;
         }
 
+        .project-award {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--orange);
+            background: rgba(249, 115, 22, 0.12);
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            padding: 0.2rem 0.6rem;
+            border-radius: 50px;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
         .project-tech {
             display: flex;
             flex-wrap: wrap;
@@ -1228,6 +1251,16 @@
             border-color: var(--accent);
             box-shadow: var(--shadow-glow);
             transform: translateY(-3px);
+        }
+
+        .achievement-card.featured {
+            border-color: rgba(249, 115, 22, 0.4);
+            background: linear-gradient(135deg, var(--bg-card), rgba(249, 115, 22, 0.04));
+        }
+
+        .achievement-card.featured:hover {
+            border-color: var(--orange);
+            box-shadow: 0 0 30px rgba(249, 115, 22, 0.15);
         }
 
         .achievement-emoji {
@@ -1697,7 +1730,7 @@
                 <span id="typed-text"></span><span class="typed-cursor">|</span>
             </div>
             <p class="hero-tagline">
-                Computer Science & AI student passionate about <strong style="color: var(--accent-light);">Machine Learning</strong>, <strong style="color: var(--accent-light);">Deep Learning</strong> & <strong style="color: var(--accent-light);">Data Science</strong>. Competitive programmer and Codeforces Expert with 2500+ problems solved, now channeling algorithmic mastery into building intelligent systems.
+                Computer Science & AI student passionate about <strong style="color: var(--accent-light);">Machine Learning</strong>, <strong style="color: var(--accent-light);">Deep Learning</strong> & <strong style="color: var(--accent-light);">Data Science</strong>. Competitive programmer (Codeforces Expert, 2500+ problems), <strong style="color: var(--accent-light);">RoboCup @Home National Champion 2026</strong>, and AI training contributor specializing in <strong style="color: var(--accent-light);">RLHF</strong> and bilingual prompt engineering.
             </p>
             <div class="hero-actions">
                 <a href="#experience" class="btn btn-primary">
@@ -1732,16 +1765,17 @@
                         I am <strong>Omar Ehab Elgedawy</strong>, a Computer Science student majoring in <strong>Artificial Intelligence</strong> at the Arab Academy for Science, Technology and Maritime Transport (AAST) — Alamein Campus, where I study on a <strong>full scholarship</strong>. With a deep passion for algorithms, data structures, and problem-solving, I have dedicated years to mastering competitive programming and software engineering.
                     </p>
                     <p>
-                        As a <strong>Codeforces Expert</strong> ranked in the <strong>top 5% globally</strong>, I have solved over <strong>2,500 problems</strong> across various online judges. My competitive journey includes qualifying for the <strong>Arab and African Collegiate Programming Contest (ACPC) 5 times</strong>, achieving <strong>6th place</strong> in 2024, earning <strong>2 Bronze Medals at the Egyptian Olympiad in Informatics (EOI)</strong>, and becoming <strong>National Champion of the International Informatics Olympiad in Teams (IIOT) 2022</strong>.
+                        As a <strong>Codeforces Expert</strong> ranked in the <strong>top 5% globally</strong>, I have solved over <strong>2,500 problems</strong> across various online judges. My competitive journey includes qualifying for the <strong>Arab and African Collegiate Programming Contest (ACPC) 5 times</strong>, achieving <strong>6th place</strong> in 2024, earning <strong>2 Bronze Medals at the Egyptian Olympiad in Informatics (EOI)</strong>, and becoming <strong>National Champion of the International Informatics Olympiad in Teams (IIOT) 2022</strong>. Most recently, my team won <strong>1st place in Egypt at RoboCup @Home 2026</strong>, qualifying internationally — where I led the computer vision and tracking system using YOLO and ROS.
                     </p>
                     <p>
                         I’m now channeling my strong algorithmic foundation into <strong>Machine Learning, Deep Learning, and Data Science</strong>. I’m fascinated by how data can reveal hidden patterns and how neural networks can learn to see, understand, and predict. From building <strong>exploratory data analysis pipelines</strong> to studying the math behind <strong>gradient descent and backpropagation</strong>, I’m on a mission to bridge competitive programming thinking with real-world AI applications.
                     </p>
                     <p>
-                        Beyond that, I build production software — from <strong>high-performance C++ computer vision engines</strong> to <strong>full-stack web applications</strong> with Django and PostgreSQL. I'm driven by creating efficient, scalable systems and empowering the next generation of programmers through mentorship and community leadership.
+                        I also contribute directly to <strong>frontier AI development</strong> as an AI Trainer & Data Annotator — performing <strong>RLHF-style preference ranking</strong>, authoring complex bilingual (Arabic/English) prompts, and debugging AI-generated code to fine-tune model behavior. Beyond that, I build production software — from <strong>high-performance C++ computer vision engines</strong> to <strong>full-stack web applications</strong> with Django and PostgreSQL — and empower the next generation of programmers through mentorship and community leadership.
                     </p>
                     <div class="interest-pills">
                         <span class="interest-pill highlight"><i class="fas fa-brain"></i> Machine Learning</span>
+                        <span class="interest-pill highlight"><i class="fas fa-robot"></i> AI Training & RLHF</span>
                         <span class="interest-pill highlight"><i class="fas fa-network-wired"></i> Deep Learning</span>
                         <span class="interest-pill highlight"><i class="fas fa-chart-bar"></i> Data Science</span>
                         <span class="interest-pill"><i class="fas fa-code"></i> Competitive Programming</span>
@@ -1764,8 +1798,8 @@
                         <div class="stat-label">ACPC Qualifier</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">6th</div>
-                        <div class="stat-label">Place — ACPC(teens) 2024</div>
+                        <div class="stat-number">🏆 1st</div>
+                        <div class="stat-label">RoboCup @Home — Egypt 2026</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number">2×</div>
@@ -1776,8 +1810,8 @@
                         <div class="stat-label">IIOT National Champion</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">150+</div>
-                        <div class="stat-label">Students Mentored</div>
+                        <div class="stat-number">420+</div>
+                        <div class="stat-label">Students Taught & Mentored</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number">3.72</div>
@@ -1794,6 +1828,10 @@
                 <div class="learning-ticker">
                     <div class="ticker-track">
                         <span class="ticker-item"><i class="fas fa-brain"></i> Neural Networks & Deep Learning</span>
+                        <span class="ticker-divider">•</span>
+                        <span class="ticker-item"><i class="fas fa-robot"></i> RLHF & Model Alignment</span>
+                        <span class="ticker-divider">•</span>
+                        <span class="ticker-item"><i class="fas fa-comment-dots"></i> Prompt Engineering</span>
                         <span class="ticker-divider">•</span>
                         <span class="ticker-item"><i class="fas fa-chart-line"></i> Regression & Classification</span>
                         <span class="ticker-divider">•</span>
@@ -1815,6 +1853,10 @@
                         <span class="ticker-divider">•</span>
                         <!-- Duplicate for seamless loop -->
                         <span class="ticker-item"><i class="fas fa-brain"></i> Neural Networks & Deep Learning</span>
+                        <span class="ticker-divider">•</span>
+                        <span class="ticker-item"><i class="fas fa-robot"></i> RLHF & Model Alignment</span>
+                        <span class="ticker-divider">•</span>
+                        <span class="ticker-item"><i class="fas fa-comment-dots"></i> Prompt Engineering</span>
                         <span class="ticker-divider">•</span>
                         <span class="ticker-item"><i class="fas fa-chart-line"></i> Regression & Classification</span>
                         <span class="ticker-divider">•</span>
@@ -1946,6 +1988,39 @@
                     </div>
                 </div>
 
+                <!-- DataAnnotation -->
+                <div class="timeline-item reveal">
+                    <div class="exp-card">
+                        <div class="exp-header">
+                            <div>
+                                <div class="exp-title">AI Trainer & Data Annotator</div>
+                                <div class="exp-company">DataAnnotation</div>
+                            </div>
+                            <span class="exp-badge badge-parttime">Part-Time</span>
+                        </div>
+                        <div class="exp-meta">
+                            <span class="exp-date"><i class="fas fa-calendar"></i> Apr 2025 — Mar 2026</span>
+                            <span class="exp-location"><i class="fas fa-map-marker-alt"></i> Remote</span>
+                        </div>
+                        <div class="exp-description">
+                            <ul>
+                                <li>Evaluated and ranked side-by-side responses from multiple frontier <strong>Large Language Models (LLMs)</strong> using <strong>RLHF-style preference judgments</strong>, producing structured signal that directly fine-tuned model behavior on instruction-following, reasoning, and safety dimensions across hundreds of comparison tasks.</li>
+                                <li>Authored and stress-tested <strong>200+ complex prompts in both English and Arabic</strong>, spanning algorithmic reasoning, edge-case coverage, ambiguity handling, and adversarial framing — surfacing failure modes that improved downstream model alignment and robustness.</li>
+                                <li>Debugged, analyzed, and <strong>optimized AI-generated code</strong> across C++, C, and Python, correcting logic errors, complexity issues, and unsafe patterns to raise output quality against rubric-based correctness benchmarks. Acted as a rigorous fixer and optimizer of AI outputs across diverse programming projects.</li>
+                                <li>Delivered comprehensive, criterion-based written feedback (correctness, completeness, style, safety) that served as high-quality ground-truth signal for model fine-tuning pipelines — bridging human judgment and machine learning at scale.</li>
+                            </ul>
+                        </div>
+                        <div class="exp-tags">
+                            <span class="exp-tag">RLHF</span>
+                            <span class="exp-tag">Prompt Engineering</span>
+                            <span class="exp-tag">LLM Evaluation</span>
+                            <span class="exp-tag">Code Annotation</span>
+                            <span class="exp-tag">Multilingual (Ar/En)</span>
+                            <span class="exp-tag">AI Training</span>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Coach Academy -->
                 <div class="timeline-item reveal">
                     <div class="exp-card">
@@ -1962,9 +2037,10 @@
                         </div>
                         <div class="exp-description">
                             <ul>
-                                <li>Delivered comprehensive, hands-on coaching sessions to <strong>40+ aspiring competitive programmers</strong>, covering a structured curriculum that spans core data structures (arrays, trees, graphs, segment trees) through advanced algorithmic paradigms including dynamic programming, greedy algorithms, number theory, and combinatorics.</li>
+                                <li>Delivered comprehensive, hands-on coaching sessions to <strong>40+ aspiring competitive programmers</strong> — most of them complete beginners — covering a structured curriculum that spans core data structures (arrays, trees, graphs, segment trees) through advanced algorithmic paradigms including dynamic programming, greedy algorithms, number theory, and combinatorics.</li>
+                                <li>Qualified <strong>20+ students to the Egyptian Collegiate Programming Contest (ECPC)</strong> — one of the most competitive national-level contests in Egypt — by designing targeted problem sets, mock contests, and post-contest review sessions tailored to convert beginners into contest-ready competitors within a single training cycle.</li>
                                 <li>Designed weekly problem sets and mock contests calibrated to participants' skill levels, progressively increasing difficulty to build confidence and competence. Provided detailed editorial write-ups and one-on-one debugging sessions to reinforce learning and address individual weaknesses.</li>
-                                <li>Mentored students in competitive programming contest strategy — including time management, problem selection heuristics, and stress testing — helping several participants achieve significant rating improvements on Codeforces and successfully compete in national-level programming contests.</li>
+                                <li>Mentored students in competitive programming contest strategy — including time management, problem selection heuristics, and stress testing — helping several participants achieve significant rating improvements on Codeforces.</li>
                             </ul>
                         </div>
                         <div class="exp-tags">
@@ -1977,13 +2053,45 @@
                     </div>
                 </div>
 
+                <!-- ZHub Robotics -->
+                <div class="timeline-item reveal">
+                    <div class="exp-card">
+                        <div class="exp-header">
+                            <div>
+                                <div class="exp-title">Robotics Programming Instructor</div>
+                                <div class="exp-company"><a href="https://www.linkedin.com/company/zhubz/" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px dashed var(--text-muted);">ZHub Robotics Center</a></div>
+                            </div>
+                            <span class="exp-badge badge-contract">Seasonal</span>
+                        </div>
+                        <div class="exp-meta">
+                            <span class="exp-date"><i class="fas fa-calendar"></i> Jun 2025 — Sep 2025</span>
+                            <span class="exp-location"><i class="fas fa-map-marker-alt"></i> Alexandria, Egypt · On-site</span>
+                        </div>
+                        <div class="exp-description">
+                            <ul>
+                                <li>Designed a <strong>2-level programming curriculum from scratch</strong> for <strong>30 students (ages 10–16, split across two groups)</strong>, covering C, C++, and Python fundamentals progressing into algorithms and data structures applied to robotics control logic.</li>
+                                <li>Delivered hands-on sessions translating theoretical programming concepts into working robot behavior, enabling students to independently program and debug their own robotics projects by the end of the program.</li>
+                                <li>Adapted teaching strategies across a wide age range, balancing accessibility for younger students with sufficient depth for older participants — ensuring engagement and meaningful technical growth across both skill tiers.</li>
+                            </ul>
+                        </div>
+                        <div class="exp-tags">
+                            <span class="exp-tag">C++</span>
+                            <span class="exp-tag">C</span>
+                            <span class="exp-tag">Python</span>
+                            <span class="exp-tag">Robotics</span>
+                            <span class="exp-tag">Curriculum Design</span>
+                            <span class="exp-tag">Teaching</span>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- NEAR Protocol -->
                 <div class="timeline-item reveal">
                     <div class="exp-card">
                         <div class="exp-header">
                             <div>
-                                <div class="exp-title">Freelance Competitive Programming Specialist</div>
-                                <div class="exp-company"><a href="https://www.near.org/" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px dashed var(--text-muted);">NEAR Protocol</a></div>
+                                <div class="exp-title">Freelance AI Training Data Specialist</div>
+                                <div class="exp-company"><a href="https://www.near.org/" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px dashed var(--text-muted);">NEAR Protocol</a> · via Nearcrowd</div>
                             </div>
                             <span class="exp-badge badge-freelance">Freelance</span>
                         </div>
@@ -1993,6 +2101,7 @@
                         </div>
                         <div class="exp-description">
                             <ul>
+                                <li>Authored <strong>30+ original logic puzzles</strong> and solved complex algorithmic tasks on <strong>Nearcrowd, an undocumented proprietary platform with a custom DSL</strong> — ramping up entirely through self-directed research of company-provided materials with zero formal onboarding. Demonstrated rapid technical adaptation under ambiguous, real-world constraints.</li>
                                 <li>Solved and meticulously documented <strong>120+ competitive programming problems</strong> in C++ with clean, well-commented code — specifically structured to serve as high-quality training data for AI model development, ensuring consistent formatting, edge-case coverage, and algorithmic diversity across problem categories.</li>
                                 <li>Authored <strong>40+ comprehensive LaTeX tutorials</strong> covering advanced data structures and algorithms topics — including tree algorithms (LCA, HLD, Euler Tour), graph algorithms (network flow, SCC, bridges), dynamic programming (bitmask DP, digit DP, tree DP), and core theoretical computer science concepts — each with formal proofs, complexity analyses, and illustrative examples.</li>
                                 <li>Reviewed and debugged <strong>60+ failed Codeforces solutions</strong> by performing systematic error analysis — identifying issues ranging from off-by-one errors and integer overflow to incorrect algorithmic approaches — and delivering detailed fix reports with corrected solutions and explanations of the root causes.</li>
@@ -2004,7 +2113,7 @@
                             <span class="exp-tag">LaTeX</span>
                             <span class="exp-tag">AI Training Data</span>
                             <span class="exp-tag">Technical Writing</span>
-                            <span class="exp-tag">Problem Solving</span>
+                            <span class="exp-tag">Proprietary DSL</span>
                         </div>
                     </div>
                 </div>
@@ -2048,19 +2157,36 @@
                     </div>
                 </div>
 
-                <!-- Computer Vision -->
+                <!-- AI Training & Annotation -->
+                <div class="skill-category reveal">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon" style="background: rgba(168, 85, 247, 0.15); color: var(--purple);"><i class="fas fa-robot"></i></div>
+                        <h3>AI Training & Annotation</h3>
+                    </div>
+                    <div class="skill-category-body">
+                        <span class="skill-item"><i class="fas fa-balance-scale"></i> RLHF</span>
+                        <span class="skill-item"><i class="fas fa-comment-dots"></i> Prompt Engineering</span>
+                        <span class="skill-item"><i class="fas fa-search"></i> LLM Evaluation</span>
+                        <span class="skill-item"><i class="fas fa-bug"></i> Code Annotation</span>
+                        <span class="skill-item"><i class="fas fa-language"></i> Multilingual (Ar/En)</span>
+                    </div>
+                </div>
+
+                <!-- Computer Vision & Robotics -->
                 <div class="skill-category reveal">
                     <div class="skill-category-header">
                         <div class="skill-category-icon" style="background: rgba(249, 115, 22, 0.15); color: var(--orange);"><i class="fas fa-eye"></i></div>
-                        <h3>Computer Vision</h3>
+                        <h3>Computer Vision & Robotics</h3>
                     </div>
                     <div class="skill-category-body">
                         <span class="skill-item"><i class="fas fa-camera"></i> OpenCV</span>
                         <span class="skill-item"><i class="fas fa-hand-paper"></i> MediaPipe</span>
+                        <span class="skill-item"><i class="fas fa-crosshairs"></i> YOLO</span>
+                        <span class="skill-item"><i class="fas fa-robot"></i> ROS</span>
                     </div>
                 </div>
 
-                <!-- Web Development -->
+                <!-- Web & Data -->
                 <div class="skill-category reveal">
                     <div class="skill-category-header">
                         <div class="skill-category-icon" style="background: rgba(6, 182, 212, 0.15); color: var(--cyan);"><i class="fas fa-globe"></i></div>
@@ -2113,6 +2239,30 @@
             </div>
 
             <div class="projects-grid">
+                <!-- RoboCup @Home (FEATURED) -->
+                <div class="project-card reveal">
+                    <div class="project-color-bar" style="background: linear-gradient(90deg, #f97316, #fb923c, #fbbf24);"></div>
+                    <div class="project-body">
+                        <div class="project-header">
+                            <div class="project-icon" style="background: rgba(249, 115, 22, 0.15); color: var(--orange);"><i class="fas fa-robot"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/Omar123098/RoboCup-home" target="_blank" title="Source Code"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <h3>Autonomous Service Robot — RoboCup @Home</h3>
+                        <span class="project-award">🏆 National Champion (1st in Egypt) · International Qualifier 2026</span>
+                        <span class="project-date">April 2026</span>
+                        <p>Led the development of the computer vision and tracking system for an autonomous service robot competing at <strong>RoboCup @Home</strong> — an international competition for service robots operating in unstructured home environments. Implemented real-time person detection and spatial tracking using <strong>YOLO</strong>, allowing the robot to autonomously locate, identify, and interact with guests in unknown room layouts. Integrated the vision pipeline with the broader <strong>ROS</strong>-based control stack, coordinating perception with navigation and dialogue modules. The team won 1st place nationally in Egypt, qualifying for the international finals.</p>
+                        <div class="project-tech">
+                            <span>YOLO</span>
+                            <span>ROS</span>
+                            <span>Python</span>
+                            <span>Computer Vision</span>
+                            <span>OpenCV</span>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Student Performance Analytics -->
                 <div class="project-card reveal">
                     <div class="project-color-bar" style="background: linear-gradient(90deg, #6366f1, #8b5cf6);"></div>
@@ -2179,6 +2329,29 @@
                     </div>
                 </div>
 
+                <!-- Temperature Prediction -->
+                <div class="project-card reveal">
+                    <div class="project-color-bar" style="background: linear-gradient(90deg, #ec4899, #f472b6);"></div>
+                    <div class="project-body">
+                        <div class="project-header">
+                            <div class="project-icon" style="background: rgba(236, 72, 153, 0.15); color: var(--pink);"><i class="fas fa-temperature-high"></i></div>
+                            <div class="project-links">
+                                <a href="https://www.kaggle.com/code/elgedawy/temperature-prediction" target="_blank" title="View on Kaggle"><i class="fab fa-kaggle"></i></a>
+                            </div>
+                        </div>
+                        <h3>Delhi Temperature Prediction</h3>
+                        <span class="project-date">April 2026</span>
+                        <p>A time-series forecasting project that predicts daily temperatures in Delhi using a Random Forest Regressor trained on historical weather data. Built a complete machine learning pipeline including time-series feature engineering (lag features, rolling statistics, seasonal decomposition), cross-validation with temporal splits, and model evaluation against baseline methods. The project demonstrates practical application of supervised regression techniques to real-world meteorological data.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Pandas</span>
+                            <span>Scikit-Learn</span>
+                            <span>Random Forest</span>
+                            <span>Time-Series</span>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Digital Clock -->
                 <div class="project-card reveal">
                     <div class="project-color-bar" style="background: linear-gradient(90deg, #eab308, #facc15);"></div>
@@ -2214,6 +2387,16 @@
             </div>
 
             <div class="achievements-grid">
+                <!-- RoboCup @Home FEATURED -->
+                <div class="achievement-card featured reveal">
+                    <div class="achievement-emoji">🤖</div>
+                    <h3>RoboCup @Home (2026)</h3>
+                    <ul>
+                        <li><strong>National Champion — 1st Place in Egypt</strong>, leading the computer vision and tracking system for an autonomous service robot operating in unknown room environments</li>
+                        <li><strong>International Qualifier</strong> — advanced to the global stage of RoboCup @Home, one of the world's most prestigious service-robotics competitions, against teams from leading robotics labs worldwide</li>
+                    </ul>
+                </div>
+
                 <!-- ACPC -->
                 <div class="achievement-card reveal">
                     <div class="achievement-emoji">🏆</div>
@@ -2289,7 +2472,7 @@
                     <ul>
                         <li>Designed a comprehensive <strong>3-level training curriculum</strong> starting from C++ fundamentals and basic problem-solving, progressing through intermediate data structures and algorithms, and culminating in advanced topics like segment trees, centroid decomposition, and network flow</li>
                         <li>Led <strong>weekly intensive training camps</strong> with curated problem sets, editorial discussions, and live problem-solving sessions that fostered a collaborative and competitive learning environment</li>
-                        <li>Mentored <strong>150+ students</strong> across all skill levels, providing personalized guidance and contest preparation that resulted in qualifying <strong>4 teams to ECPC</strong> and <strong>1 team to ACPC</strong> — a remarkable achievement for a newly established club</li>
+                        <li>Mentored <strong>300+ students</strong> across all skill levels, providing personalized guidance and contest preparation that resulted in qualifying <strong>4 teams to ECPC</strong> and <strong>1 team to ACPC</strong> — a remarkable achievement for a newly established club</li>
                         <li>Established partnerships with other university CP communities and organized inter-university practice contests to expose students to diverse problem-solving styles and competition formats</li>
                     </ul>
                 </div>
@@ -2299,31 +2482,31 @@
                     <div class="volunteer-top">
                         <div>
                             <h3><a href="https://www.facebook.com/FCDSICPC/" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px dashed var(--text-muted);">FCDS ICPC Community — Alexandria University</a></h3>
-                            <span class="volunteer-role">Instructor</span>
+                            <span class="volunteer-role">Member & Instructor</span>
                         </div>
                         <span class="edu-date"><i class="fas fa-calendar-alt"></i> Oct 2024 — May 2025</span>
                     </div>
-                    <p>Served as an instructor at the Faculty of Computers and Data Science (FCDS) at Alexandria University, one of Egypt's leading computer science departments. Delivered structured competitive programming sessions to a diverse group of students at various skill levels.</p>
+                    <p>Served as a member and instructor at the Faculty of Computers and Data Science (FCDS) at Alexandria University, one of Egypt's leading computer science departments. Designed and delivered advanced technical sessions for the university's competitive programming community.</p>
                     <ul>
-                        <li>Taught foundational and intermediate competitive programming topics, covering key areas such as <strong>sorting algorithms, binary search, graph traversal (BFS/DFS), dynamic programming fundamentals, and greedy algorithms</strong></li>
-                        <li>Prepared custom problem sets for each training session, carefully curated from Codeforces and other online judges to match the session's learning objectives and progressively challenge participants</li>
+                        <li>Designed and delivered advanced sessions on <strong>Dynamic Programming</strong> (including bitmask DP, tree DP, and digit DP), <strong>Backtracking</strong>, <strong>Number Theory</strong>, and <strong>Recursion</strong> — taking participants from foundational concepts to contest-grade applications</li>
+                        <li>Authored accompanying editorials and curated problem sets that became reusable training material for subsequent community cohorts, building lasting educational infrastructure beyond a single semester</li>
                         <li>Provided one-on-one mentorship to students preparing for regional and national contests, helping them develop effective contest strategies, debugging techniques, and the confidence needed to perform under pressure</li>
                     </ul>
                 </div>
 
-                <!-- Victory College School -->
+                <!-- Victoria College School -->
                 <div class="volunteer-card reveal">
                     <div class="volunteer-top">
                         <div>
-                            <h3>Victory College School — CP Club</h3>
-                            <span class="volunteer-role">Co-Founder & Instructor</span>
+                            <h3>Victoria College — Competitive Programming Club</h3>
+                            <span class="volunteer-role">Founder & Lead Instructor</span>
                         </div>
-                        <span class="edu-date"><i class="fas fa-calendar-alt"></i> Summer 2022 — Summer 2023</span>
+                        <span class="edu-date"><i class="fas fa-calendar-alt"></i> May 2023 — Oct 2023</span>
                     </div>
-                    <p>Co-founded a competitive programming club at Victory College School, introducing high school students to the world of algorithmic problem-solving and programming contests during summer sessions.</p>
+                    <p>Founded the first Competitive Programming Club at Victoria College — my school in Alexandria, Egypt — introducing students to the world of algorithmic problem-solving and programming contests through a fully on-site, hands-on program.</p>
                     <ul>
-                        <li>Designed and delivered an <strong>introductory problem-solving curriculum</strong> covering fundamental topics such as arrays, loops, conditional logic, basic sorting, and simple greedy strategies — tailored for students with little to no prior programming experience</li>
-                        <li>Mentored high school students through hands-on coding sessions, guiding them from writing their first programs to independently solving problems on online judges</li>
+                        <li>Designed a <strong>2-level curriculum from scratch</strong> for <strong>50 students (ages 10–16)</strong>, spanning language basics in <strong>C, C++, and Python</strong> through to the principles of algorithms and data structures</li>
+                        <li>Prepared and trained students for the <strong>Egyptian Olympiad in Informatics (EOI)</strong>, producing the school's first cohort of olympiad-eligible competitors through weekly training sessions and contest simulations</li>
                         <li>Fostered a supportive learning environment that sparked interest in computer science and competitive programming among younger students, encouraging several to pursue CS-related studies</li>
                     </ul>
                 </div>
@@ -2422,11 +2605,14 @@
         // ===== Typing Animation =====
         const roles = [
             "C++ Software Engineer @ Auvnet",
+            "AI Trainer & Data Annotator @ DataAnnotation",
             "BSc Artificial Intelligence @ AAST",
+            "RoboCup @Home — National Champion 2026",
             "Machine Learning & Data Science Enthusiast",
             "Codeforces Expert — Top 5% Globally",
             "5× ACPC Qualifier · 6th Place 2024",
             "Founder & President @ AAST ICPC Club",
+            "RLHF & Prompt Engineering Specialist",
             "Exploring Deep Learning & Neural Networks",
             "2500+ Problems Solved"
         ];
