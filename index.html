@@ -1,2802 +1,567 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omar Elgedawy | Software Engineer & Competitive Programmer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        /* ===== CSS VARIABLES ===== */
-        :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #12121a;
-            --bg-card: #16161f;
-            --bg-card-hover: #1a1a25;
-            --text-primary: #e4e4e7;
-            --text-secondary: #a1a1aa;
-            --text-muted: #71717a;
-            --accent: #6366f1;
-            --accent-light: #818cf8;
-            --accent-glow: rgba(99, 102, 241, 0.15);
-            --accent-glow-strong: rgba(99, 102, 241, 0.3);
-            --green: #22c55e;
-            --green-glow: rgba(34, 197, 94, 0.15);
-            --orange: #f97316;
-            --red: #ef4444;
-            --yellow: #eab308;
-            --cyan: #06b6d4;
-            --purple: #a855f7;
-            --pink: #ec4899;
-            --border: #27272a;
-            --border-light: #3f3f46;
-            --gradient-1: linear-gradient(135deg, #6366f1, #8b5cf6, #a78bfa);
-            --gradient-2: linear-gradient(135deg, #06b6d4, #6366f1);
-            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
-            --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.1);
-            --radius: 12px;
-            --radius-lg: 16px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --font-mono: 'JetBrains Mono', monospace;
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-
-        /* ===== RESET & BASE ===== */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px;
-        }
-
-        body {
-            font-family: var(--font-sans);
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        ::selection {
-            background: var(--accent);
-            color: white;
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-primary);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--border-light);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent);
-        }
-
-        /* ===== CURSOR GLOW EFFECT ===== */
-        .cursor-glow {
-            position: fixed;
-            width: 400px;
-            height: 400px;
-            border-radius: 50%;
-            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-            transform: translate(-50%, -50%);
-            transition: opacity 0.3s;
-            opacity: 0;
-        }
-
-        /* ===== NAVIGATION ===== */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            background: rgba(10, 10, 15, 0.8);
-            border-bottom: 1px solid var(--border);
-            transition: var(--transition);
-        }
-
-        nav.scrolled {
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-
-        .nav-logo {
-            font-family: var(--font-mono);
-            font-size: 1.3rem;
-            font-weight: 700;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 0.5rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--accent-light);
-            background: var(--accent-glow);
-        }
-
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .nav-resume-btn {
-            padding: 0.5rem 1.2rem !important;
-            background: var(--accent) !important;
-            color: white !important;
-            border-radius: 8px !important;
-            font-weight: 600 !important;
-            font-size: 0.85rem !important;
-            transition: var(--transition);
-            text-decoration: none;
-        }
-
-        .nav-resume-btn:hover {
-            background: var(--accent-light) !important;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 15px var(--accent-glow-strong);
-        }
-
-        /* ===== HERO SECTION ===== */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            padding: 0 2rem;
-        }
-
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            overflow: hidden;
-        }
-
-        .hero-bg .grid-pattern {
-            position: absolute;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
-            background-size: 60px 60px;
-        }
-
-        .hero-bg .gradient-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.4;
-            animation: float 8s ease-in-out infinite;
-        }
-
-        .hero-bg .orb-1 {
-            width: 500px;
-            height: 500px;
-            background: var(--accent);
-            top: -15%;
-            right: -10%;
-            opacity: 0.15;
-        }
-
-        .hero-bg .orb-2 {
-            width: 400px;
-            height: 400px;
-            background: #8b5cf6;
-            bottom: -10%;
-            left: -5%;
-            opacity: 0.1;
-            animation-delay: -4s;
-        }
-
-        .hero-content {
-            text-align: center;
-            z-index: 1;
-            max-width: 900px;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1.2rem;
-            background: var(--accent-glow);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            border-radius: 50px;
-            font-size: 0.85rem;
-            color: var(--accent-light);
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 0.8s ease forwards;
-            opacity: 0;
-        }
-
-        .hero-badge .pulse {
-            width: 8px;
-            height: 8px;
-            background: var(--green);
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 900;
-            line-height: 1.1;
-            letter-spacing: -2px;
-            margin-bottom: 1rem;
-            animation: fadeInUp 0.8s ease 0.1s forwards;
-            opacity: 0;
-        }
-
-        .hero h1 .gradient-text {
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-roles {
-            font-family: var(--font-mono);
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            min-height: 1.7em;
-            animation: fadeInUp 0.8s ease 0.2s forwards;
-            opacity: 0;
-        }
-
-        .hero-roles .typed-cursor {
-            color: var(--accent);
-            animation: blink 1s step-end infinite;
-        }
-
-        .hero-tagline {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            max-width: 640px;
-            margin: 0 auto 2.5rem;
-            line-height: 1.8;
-            animation: fadeInUp 0.8s ease 0.3s forwards;
-            opacity: 0;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease 0.4s forwards;
-            opacity: 0;
-        }
-
-        .hero-social {
-            display: flex;
-            gap: 0.75rem;
-            justify-content: center;
-            margin-top: 2.5rem;
-            animation: fadeInUp 0.8s ease 0.5s forwards;
-            opacity: 0;
-        }
-
-        .hero-social a {
-            width: 44px;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            transition: var(--transition);
-            background: var(--bg-secondary);
-            text-decoration: none;
-        }
-
-        .hero-social a:hover {
-            color: var(--accent-light);
-            border-color: var(--accent);
-            background: var(--accent-glow);
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px var(--accent-glow-strong);
-        }
-
-        /* ===== BUTTONS ===== */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.85rem 2rem;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-decoration: none;
-            transition: var(--transition);
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-            box-shadow: 0 4px 15px var(--accent-glow-strong);
-        }
-
-        .btn-primary:hover {
-            background: var(--accent-light);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px var(--accent-glow-strong);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-primary);
-            border: 1px solid var(--border-light);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--accent);
-            color: var(--accent-light);
-            background: var(--accent-glow);
-            transform: translateY(-2px);
-        }
-
-        /* ===== SECTIONS ===== */
-        section {
-            padding: 6rem 2rem;
-            position: relative;
-        }
-
-        .section-container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-icon {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 14px;
-            background: var(--accent-glow);
-            color: var(--accent-light);
-            font-size: 1.3rem;
-            margin: 0 auto 1rem;
-            border: 1px solid rgba(99, 102, 241, 0.2);
-        }
-
-        .section-header h2 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 0.75rem;
-            color: white;
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        /* ===== TERMINAL HEADER (decorative) ===== */
-        .terminal-header {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1rem;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: var(--radius) var(--radius) 0 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .terminal-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        .terminal-dot.red { background: var(--red); }
-        .terminal-dot.yellow { background: var(--yellow); }
-        .terminal-dot.green { background: var(--green); }
-
-        .terminal-title {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-left: 0.5rem;
-        }
-
-        /* ===== ABOUT SECTION ===== */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .about-text {
-            font-size: 1.05rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text strong {
-            color: var(--accent-light);
-            font-weight: 600;
-        }
-
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
-
-        .stat-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            text-align: center;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 2px;
-            background: var(--gradient-1);
-            transition: left 0.5s ease;
-        }
-
-        .stat-card:hover::before {
-            left: 100%;
-        }
-
-        .stat-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-glow);
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.2;
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-top: 0.25rem;
-        }
-
-        /* ===== LEARNING TICKER ===== */
-        .learning-section {
-            margin-top: 2.5rem;
-            padding: 1.5rem 0;
-        }
-
-        .learning-label {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--accent-light);
-            font-weight: 600;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .learning-label i {
-            animation: pulse-icon 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse-icon {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.15); }
-        }
-
-        .learning-ticker {
-            overflow: hidden;
-            position: relative;
-            border-radius: var(--radius);
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 0;
-        }
-
-        .learning-ticker::before,
-        .learning-ticker::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            width: 60px;
-            height: 100%;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .learning-ticker::before {
-            left: 0;
-            background: linear-gradient(to right, var(--bg-card), transparent);
-        }
-
-        .learning-ticker::after {
-            right: 0;
-            background: linear-gradient(to left, var(--bg-card), transparent);
-        }
-
-        .ticker-track {
-            display: flex;
-            animation: scroll-ticker 25s linear infinite;
-            width: max-content;
-        }
-
-        .ticker-track:hover {
-            animation-play-state: paused;
-        }
-
-        @keyframes scroll-ticker {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        .ticker-item {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.85rem 1.5rem;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            font-weight: 500;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-
-        .ticker-item i {
-            color: var(--accent-light);
-            font-size: 0.85rem;
-        }
-
-        .ticker-divider {
-            color: var(--border-light);
-            padding: 0.85rem 0;
-            user-select: none;
-        }
-
-        /* ===== FLOATING PARTICLES ===== */
-        .particles-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--accent);
-            border-radius: 50%;
-            opacity: 0;
-            animation: float-particle linear infinite;
-        }
-
-        @keyframes float-particle {
-            0% {
-                opacity: 0;
-                transform: translateY(100%) scale(0);
-            }
-            10% {
-                opacity: 0.6;
-            }
-            90% {
-                opacity: 0.2;
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(-100vh) scale(1);
-            }
-        }
-
-        /* ===== ABOUT INTEREST PILLS ===== */
-        .interest-pills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            margin-top: 1.25rem;
-        }
-
-        .interest-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding: 0.45rem 1rem;
-            border-radius: 50px;
-            font-size: 0.82rem;
-            font-weight: 500;
-            border: 1px solid var(--border);
-            background: var(--bg-card);
-            color: var(--text-secondary);
-            transition: var(--transition);
-        }
-
-        .interest-pill:hover {
-            border-color: var(--accent);
-            color: var(--accent-light);
-            background: var(--accent-glow);
-            transform: translateY(-2px);
-        }
-
-        .interest-pill i {
-            font-size: 0.75rem;
-            color: var(--accent-light);
-        }
-
-        .interest-pill.highlight {
-            border-color: var(--accent);
-            background: var(--accent-glow);
-            color: var(--accent-light);
-            animation: pill-glow 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes pill-glow {
-            0% { box-shadow: 0 0 5px rgba(99, 102, 241, 0.1); }
-            100% { box-shadow: 0 0 15px rgba(99, 102, 241, 0.25); }
-        }
-
-        /* ===== CODE BLOCK STYLE ===== */
-        .code-block {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            overflow: hidden;
-        }
-
-        .code-content {
-            padding: 1.5rem;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-        }
-
-        .code-content .keyword { color: #c084fc; }
-        .code-content .string { color: #86efac; }
-        .code-content .comment { color: var(--text-muted); font-style: italic; }
-        .code-content .type { color: #67e8f9; }
-        .code-content .property { color: #93c5fd; }
-        .code-content .number { color: #fbbf24; }
-
-        /* ===== EDUCATION SECTION ===== */
-        .education-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 2.5rem;
-            position: relative;
-            overflow: hidden;
-            transition: var(--transition);
-        }
-
-        .education-card:hover {
-            border-color: var(--accent);
-            box-shadow: var(--shadow-glow);
-        }
-
-        .education-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient-1);
-        }
-
-        .edu-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .edu-degree {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: white;
-        }
-
-        .edu-school {
-            font-size: 1.05rem;
-            color: var(--accent-light);
-            margin-top: 0.25rem;
-        }
-
-        .edu-date {
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            background: var(--bg-secondary);
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            border: 1px solid var(--border);
-            white-space: nowrap;
-        }
-
-        .edu-gpa {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 0.75rem;
-            padding: 0.4rem 1rem;
-            background: var(--green-glow);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            border-radius: 50px;
-            color: var(--green);
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .edu-coursework {
-            margin-top: 1.5rem;
-        }
-
-        .edu-coursework h4 {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.75rem;
-        }
-
-        .coursework-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .course-tag {
-            padding: 0.35rem 0.85rem;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 50px;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            transition: var(--transition);
-        }
-
-        .course-tag:hover {
-            border-color: var(--accent);
-            color: var(--accent-light);
-        }
-
-        /* ===== EXPERIENCE SECTION ===== */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--accent), var(--border), transparent);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2.5rem;
-            padding-left: 2rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2.35rem;
-            top: 0.5rem;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--accent);
-            border: 3px solid var(--bg-primary);
-            box-shadow: 0 0 0 3px var(--accent-glow-strong);
-        }
-
-        .timeline-item:first-child::before {
-            background: var(--green);
-            box-shadow: 0 0 0 3px var(--green-glow), 0 0 15px var(--green-glow);
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        .exp-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 2rem;
-            transition: var(--transition);
-        }
-
-        .exp-card:hover {
-            border-color: var(--accent);
-            box-shadow: var(--shadow-glow);
-            transform: translateX(5px);
-        }
-
-        .exp-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
-
-        .exp-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: white;
-        }
-
-        .exp-company {
-            font-size: 1rem;
-            color: var(--accent-light);
-            font-weight: 500;
-        }
-
-        .exp-meta {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .exp-date,
-        .exp-location {
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .exp-badge {
-            padding: 0.25rem 0.75rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .badge-current {
-            background: var(--green-glow);
-            color: var(--green);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-        }
-
-        .badge-contract {
-            background: rgba(249, 115, 22, 0.15);
-            color: var(--orange);
-            border: 1px solid rgba(249, 115, 22, 0.3);
-        }
-
-        .badge-freelance {
-            background: rgba(6, 182, 212, 0.15);
-            color: var(--cyan);
-            border: 1px solid rgba(6, 182, 212, 0.3);
-        }
-
-        .badge-parttime {
-            background: rgba(168, 85, 247, 0.15);
-            color: var(--purple);
-            border: 1px solid rgba(168, 85, 247, 0.3);
-        }
-
-        .exp-description {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.8;
-        }
-
-        .exp-description ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .exp-description li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.6rem;
-        }
-
-        .exp-description li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        .exp-description li strong {
-            color: var(--accent-light);
-        }
-
-        .exp-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-top: 1rem;
-        }
-
-        .exp-tag {
-            padding: 0.25rem 0.7rem;
-            background: var(--accent-glow);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            border-radius: 50px;
-            font-size: 0.75rem;
-            color: var(--accent-light);
-            font-weight: 500;
-        }
-
-        /* ===== SKILLS SECTION ===== */
-        .skills-categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-category {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            transition: var(--transition);
-        }
-
-        .skill-category:hover {
-            border-color: var(--accent);
-            box-shadow: var(--shadow-glow);
-            transform: translateY(-3px);
-        }
-
-        .skill-category-header {
-            padding: 1.25rem 1.5rem;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .skill-category-icon {
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            font-size: 1rem;
-        }
-
-        .skill-category-header h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: white;
-        }
-
-        .skill-category-body {
-            padding: 1.25rem 1.5rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .skill-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.4rem 0.9rem;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            transition: var(--transition);
-        }
-
-        .skill-item:hover {
-            border-color: var(--accent);
-            color: var(--accent-light);
-            background: var(--accent-glow);
-        }
-
-        .skill-item i {
-            font-size: 1rem;
-        }
-
-        /* ===== PROJECTS SECTION ===== */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .project-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover {
-            border-color: var(--accent);
-            box-shadow: var(--shadow-glow);
-            transform: translateY(-5px);
-        }
-
-        .project-color-bar {
-            height: 4px;
-            width: 100%;
-        }
-
-        .project-body {
-            padding: 1.75rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-        }
-
-        .project-icon {
-            width: 44px;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            font-size: 1.2rem;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .project-links a {
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            transition: var(--transition);
-            text-decoration: none;
-        }
-
-        .project-links a:hover {
-            color: var(--accent-light);
-            border-color: var(--accent);
-            background: var(--accent-glow);
-        }
-
-        .project-body h3 {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 0.75rem;
-        }
-
-        .project-body p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.7;
-            flex: 1;
-        }
-
-        .project-date {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-bottom: 0.75rem;
-            display: block;
-        }
-
-        .project-award {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-family: var(--font-mono);
-            font-size: 0.7rem;
-            color: var(--orange);
-            background: rgba(249, 115, 22, 0.12);
-            border: 1px solid rgba(249, 115, 22, 0.3);
-            padding: 0.2rem 0.6rem;
-            border-radius: 50px;
-            margin-bottom: 0.75rem;
-            font-weight: 600;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-top: 1.25rem;
-        }
-
-        .project-tech span {
-            padding: 0.25rem 0.7rem;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 50px;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            font-family: var(--font-mono);
-        }
-
-        /* ===== ACHIEVEMENTS SECTION ===== */
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .achievement-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 2rem;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .achievement-card:hover {
-            border-color: var(--accent);
-            box-shadow: var(--shadow-glow);
-            transform: translateY(-3px);
-        }
-
-        .achievement-card.featured {
-            border-color: rgba(249, 115, 22, 0.4);
-            background: linear-gradient(135deg, var(--bg-card), rgba(249, 115, 22, 0.04));
-        }
-
-        .achievement-card.featured:hover {
-            border-color: var(--orange);
-            box-shadow: 0 0 30px rgba(249, 115, 22, 0.15);
-        }
-
-        .achievement-emoji {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .achievement-card h3 {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 0.75rem;
-        }
-
-        .achievement-card p,
-        .achievement-card li {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.7;
-        }
-
-        .achievement-card ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .achievement-card li {
-            padding-left: 1.5rem;
-            position: relative;
-            margin-bottom: 0.4rem;
-        }
-
-        .achievement-card li::before {
-            content: '✦';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
-
-        .achievement-card li strong {
-            color: var(--accent-light);
-        }
-
-        /* ===== VOLUNTEER SECTION ===== */
-        .volunteer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .volunteer-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 2rem;
-            transition: var(--transition);
-        }
-
-        .volunteer-card:hover {
-            border-color: var(--accent);
-            box-shadow: var(--shadow-glow);
-            transform: translateY(-3px);
-        }
-
-        .volunteer-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .volunteer-card h3 {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: white;
-        }
-
-        .volunteer-role {
-            color: var(--accent-light);
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-
-        .volunteer-card > p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.8;
-            margin-bottom: 0.5rem;
-        }
-
-        .volunteer-card ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 0.75rem;
-        }
-
-        .volunteer-card li {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.8;
-            padding-left: 1.5rem;
-            position: relative;
-            margin-bottom: 0.4rem;
-        }
-
-        .volunteer-card li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        .volunteer-card li strong {
-            color: var(--accent-light);
-        }
-
-        /* ===== LANGUAGES SECTION ===== */
-        .languages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .lang-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 2rem;
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .lang-card:hover {
-            border-color: var(--accent);
-            box-shadow: var(--shadow-glow);
-            transform: translateY(-3px);
-        }
-
-        .lang-abbr {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            font-weight: 800;
-            font-family: var(--font-mono);
-        }
-
-        .lang-card h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 0.25rem;
-        }
-
-        .lang-level {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .lang-bar {
-            width: 100%;
-            height: 4px;
-            background: var(--border);
-            border-radius: 2px;
-            margin-top: 1rem;
-            overflow: hidden;
-        }
-
-        .lang-bar-fill {
-            height: 100%;
-            border-radius: 2px;
-            background: var(--gradient-1);
-            transition: width 1.5s ease;
-        }
-
-        /* ===== CONTACT SECTION ===== */
-        .contact-section {
-            background: var(--bg-secondary);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        @media (max-width: 900px) {
-            .contact-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 500px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .contact-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 2rem 1.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: 1rem;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .contact-card:hover {
-            border-color: var(--accent);
-            box-shadow: var(--shadow-glow);
-            transform: translateY(-5px);
-        }
-
-        .contact-card-icon {
-            width: 56px;
-            height: 56px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 14px;
-            background: var(--accent-glow);
-            color: var(--accent-light);
-            font-size: 1.4rem;
-            flex-shrink: 0;
-        }
-
-        .contact-card-info {
-            min-width: 0;
-            width: 100%;
-        }
-
-        .contact-card-info h4 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 0.35rem;
-        }
-
-        .contact-card-info p {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            word-break: break-all;
-            line-height: 1.4;
-        }
-
-        .contact-cta {
-            text-align: center;
-            padding: 3rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-        }
-
-        .contact-cta h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 0.75rem;
-        }
-
-        .contact-cta p {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        footer a {
-            color: var(--accent-light);
-            text-decoration: none;
-        }
-
-        .footer-quote {
-            font-style: italic;
-            color: var(--text-muted);
-            margin-bottom: 0.75rem;
-            font-size: 0.9rem;
-        }
-
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(3deg); }
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: rgba(10, 10, 15, 0.98);
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                padding: 1rem;
-                border-bottom: 1px solid var(--border);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-toggle {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-                letter-spacing: -1px;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .volunteer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .achievements-grid {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 4rem 1.25rem;
-            }
-
-            .timeline {
-                padding-left: 1.5rem;
-            }
-
-            .timeline-item {
-                padding-left: 1.5rem;
-            }
-
-            .timeline-item::before {
-                left: -1.85rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero-roles {
-                font-size: 0.9rem;
-            }
-
-            .about-stats {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .stat-number {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omar Elgedawy — Software Engineer & Competitive Programmer</title>
+<meta name="description" content="Omar Elgedawy: C++ software engineer, AI trainer, Codeforces Expert (top 5% globally), RoboCup @Home national champion, and founder of the AAST ICPC Club.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --paper:#FBFAF6;
+  --paper-2:#F4F2EB;
+  --card:#FFFFFF;
+  --ink:#15181E;
+  --ink-soft:#4A5160;
+  --ink-mute:#8A8F9C;
+  --line:#E4E1D7;
+  --line-strong:#C9C5B8;
+  --blue:#1556C7;        /* Codeforces Expert blue — primary accent */
+  --blue-deep:#0E3E93;
+  --blue-soft:#EAF0FB;
+  --green:#0E8A3E;       /* Accepted verdict */
+  --green-soft:#E8F5EC;
+  --orange:#C76A00;      /* Master orange — highlights */
+  --orange-soft:#FBF0E0;
+  --red:#C0331C;         /* Champion red */
+  --red-soft:#FBEAE6;
+  --purple:#7A3FA8;
+  --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:'IBM Plex Sans',-apple-system,Segoe UI,sans-serif;
+  --maxw:1060px;
+  --r:6px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
+}
+body{
+  font-family:var(--sans);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.65;
+  font-size:16.5px;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--blue);color:#fff}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:2.5px solid var(--blue);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 1.4rem}
+.mono{font-family:var(--mono)}
+
+/* ============ NAV ============ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(251,250,246,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-in{max-width:var(--maxw);margin:0 auto;padding:0 1.4rem;height:62px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo{font-family:var(--mono);font-weight:600;font-size:.95rem;color:var(--ink);white-space:nowrap}
+.logo .p{color:var(--blue)}
+.logo .c{color:var(--green);animation:blink 1.2s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.nav-links{display:flex;list-style:none;gap:.2rem;align-items:center}
+.nav-links a{
+  font-family:var(--mono);font-size:.82rem;color:var(--ink-soft);
+  padding:.4rem .55rem;border-radius:var(--r);
+}
+.nav-links a:hover{color:var(--blue);background:var(--blue-soft);text-decoration:none}
+.nav-cta{
+  font-family:var(--mono);font-size:.82rem;font-weight:600;
+  border:1.5px solid var(--ink);color:var(--ink)!important;background:transparent;
+  padding:.42rem .8rem!important;border-radius:var(--r);
+}
+.nav-cta:hover{background:var(--ink);color:var(--paper)!important;text-decoration:none}
+.nav-toggle{display:none;background:none;border:1.5px solid var(--line-strong);border-radius:var(--r);font-family:var(--mono);font-size:.85rem;padding:.35rem .6rem;cursor:pointer;color:var(--ink)}
+@media(max-width:880px){
+  .nav-links{
+    display:none;position:absolute;top:62px;left:0;right:0;
+    background:var(--paper);border-bottom:1px solid var(--line);
+    flex-direction:column;align-items:stretch;padding:.6rem 1rem 1rem;
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{padding:.6rem .55rem}
+  .nav-toggle{display:block}
+}
+
+/* ============ SECTION SCAFFOLD ============ */
+section{padding:4.6rem 0}
+.sec-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:.5rem;flex-wrap:wrap}
+.sec-letter{
+  font-family:var(--mono);font-weight:700;font-size:1rem;
+  color:var(--paper);background:var(--ink);
+  width:2rem;height:2rem;display:inline-flex;align-items:center;justify-content:center;
+  border-radius:var(--r);flex:none;transform:translateY(.3rem);
+}
+h2{font-family:var(--mono);font-size:clamp(1.5rem,3.4vw,1.95rem);font-weight:700;letter-spacing:-.02em}
+.sec-sub{font-family:var(--mono);font-size:.82rem;color:var(--ink-mute);margin:0 0 2.4rem calc(2rem + 1rem)}
+.alt{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+
+/* ============ HERO (Problem A) ============ */
+.hero{padding:7.2rem 0 4.6rem}
+.statement{
+  background:var(--card);border:1px solid var(--line-strong);border-radius:10px;
+  box-shadow:0 1px 0 var(--line), 0 14px 34px -22px rgba(21,24,30,.25);
+  padding:2.6rem 2.8rem 2.4rem;position:relative;overflow:hidden;
+}
+.prob-eyebrow{font-family:var(--mono);font-size:.85rem;font-weight:600;color:var(--blue);letter-spacing:.06em;margin-bottom:.5rem}
+h1{font-family:var(--mono);font-weight:700;font-size:clamp(2.2rem,6vw,3.4rem);letter-spacing:-.035em;line-height:1.08}
+h1 .accent{color:var(--blue)}
+.limits{
+  font-family:var(--mono);font-size:.8rem;color:var(--ink-mute);
+  margin:.9rem 0 1.5rem;display:flex;flex-wrap:wrap;gap:.35rem 1.4rem;
+}
+.limits b{color:var(--ink-soft);font-weight:600}
+.hero-text{max-width:46rem;color:var(--ink-soft)}
+.hero-text strong{color:var(--ink)}
+.verdict{
+  position:absolute;top:2rem;right:2.2rem;transform:rotate(7deg);
+  font-family:var(--mono);font-weight:700;font-size:1rem;letter-spacing:.12em;
+  color:var(--green);border:2.5px solid var(--green);border-radius:var(--r);
+  padding:.35rem .9rem;background:var(--green-soft);
+  box-shadow:0 2px 0 rgba(14,138,62,.18);user-select:none;
+}
+@media(max-width:720px){.verdict{position:static;display:inline-block;margin-bottom:1rem;transform:rotate(-2deg)}.statement{padding:1.8rem 1.4rem}}
+.io-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden;margin-top:1.9rem;
+}
+.io-cell{background:var(--card);padding:.9rem 1.1rem}
+.io-k{font-family:var(--mono);font-size:.72rem;color:var(--ink-mute);text-transform:lowercase}
+.io-v{font-family:var(--mono);font-size:1.25rem;font-weight:700;color:var(--ink)}
+.io-v .u{font-size:.78rem;font-weight:500;color:var(--ink-mute)}
+@media(max-width:720px){.io-grid{grid-template-columns:1fr 1fr}}
+.hero-actions{display:flex;gap:.8rem;margin-top:1.9rem;flex-wrap:wrap}
+.btn{
+  font-family:var(--mono);font-size:.88rem;font-weight:600;border-radius:var(--r);
+  padding:.65rem 1.15rem;display:inline-flex;align-items:center;gap:.5rem;border:1.5px solid transparent;
+}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:var(--blue-deep);text-decoration:none}
+.btn-ghost{border-color:var(--line-strong);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink);text-decoration:none}
+
+/* ============ EXPERIENCE (submissions) ============ */
+.sub-list{display:flex;flex-direction:column;gap:1.1rem}
+.sub{
+  background:var(--card);border:1px solid var(--line);border-left:4px solid var(--blue);
+  border-radius:var(--r);padding:1.5rem 1.7rem;transition:box-shadow .25s,transform .25s;
+}
+.sub:hover{box-shadow:0 10px 26px -18px rgba(21,24,30,.35);transform:translateY(-2px)}
+.sub-top{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;flex-wrap:wrap}
+.sub h3{font-size:1.08rem;font-weight:700}
+.sub .org{font-family:var(--mono);font-size:.85rem;color:var(--blue);font-weight:600}
+.badge{
+  font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.07em;
+  padding:.22rem .6rem;border-radius:999px;white-space:nowrap;
+}
+.b-green{background:var(--green-soft);color:var(--green);border:1px solid currentColor}
+.b-blue{background:var(--blue-soft);color:var(--blue);border:1px solid currentColor}
+.b-orange{background:var(--orange-soft);color:var(--orange);border:1px solid currentColor}
+.sub-meta{font-family:var(--mono);font-size:.78rem;color:var(--ink-mute);margin:.35rem 0 .9rem;display:flex;gap:1.2rem;flex-wrap:wrap}
+.sub ul{padding-left:1.15rem;color:var(--ink-soft);display:flex;flex-direction:column;gap:.45rem;font-size:.95rem}
+.sub li::marker{color:var(--blue)}
+.tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1rem}
+.tag{
+  font-family:var(--mono);font-size:.72rem;color:var(--ink-soft);
+  background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:.18rem .6rem;
+}
+.edu-note{
+  margin-top:2rem;border:1px dashed var(--line-strong);border-radius:var(--r);
+  padding:1.1rem 1.4rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  background:var(--card);
+}
+.edu-note .deg{font-weight:600}
+.edu-note .meta{font-family:var(--mono);font-size:.8rem;color:var(--ink-mute)}
+
+/* ============ PROJECTS ============ */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.2rem}
+.proj{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:1.5rem 1.6rem;display:flex;flex-direction:column;gap:.7rem;
+  transition:box-shadow .25s,transform .25s,border-color .25s;
+}
+.proj:hover{box-shadow:0 12px 28px -18px rgba(21,24,30,.35);transform:translateY(-3px);border-color:var(--line-strong)}
+.proj-top{display:flex;justify-content:space-between;align-items:flex-start;gap:.8rem}
+.proj h3{font-size:1.02rem;font-weight:700;line-height:1.35}
+.proj h3 a{color:inherit}
+.proj h3 a:hover{color:var(--blue);text-decoration:none}
+.proj .yr{font-family:var(--mono);font-size:.72rem;color:var(--ink-mute);white-space:nowrap;padding-top:.2rem}
+.proj p{font-size:.92rem;color:var(--ink-soft);flex:1}
+.win{font-family:var(--mono);font-size:.72rem;font-weight:700;color:var(--red);background:var(--red-soft);border:1px solid currentColor;border-radius:999px;padding:.18rem .6rem;align-self:flex-start}
+
+/* ============ TEACHING ============ */
+.teach-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.2rem}
+.teach{
+  background:var(--card);border:1px solid var(--line);border-top:4px solid var(--green);
+  border-radius:var(--r);padding:1.5rem 1.6rem;
+}
+.teach h3{font-size:1rem;font-weight:700}
+.teach .role{font-family:var(--mono);font-size:.78rem;color:var(--green);font-weight:600}
+.teach .when{font-family:var(--mono);font-size:.74rem;color:var(--ink-mute);margin:.2rem 0 .7rem}
+.teach p{font-size:.9rem;color:var(--ink-soft)}
+.teach .num{font-family:var(--mono);font-weight:700;color:var(--ink)}
+
+/* ============ STANDINGS ============ */
+.standings{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.standings th{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-mute);text-align:left;padding:.8rem 1.1rem;border-bottom:1.5px solid var(--line-strong);
+  background:var(--paper-2);font-weight:600;
+}
+.standings td{padding:.85rem 1.1rem;border-bottom:1px solid var(--line);font-size:.93rem;vertical-align:top}
+.standings tr:last-child td{border-bottom:none}
+.standings tr:hover td{background:var(--blue-soft)}
+.rk{font-family:var(--mono);font-weight:700;color:var(--ink-mute);width:3rem}
+.res{font-family:var(--mono);font-weight:700;white-space:nowrap}
+.res.gold{color:var(--red)}
+.res.silver{color:var(--orange)}
+.res.bronze{color:var(--purple)}
+.res.blue{color:var(--blue)}
+.yr-td{font-family:var(--mono);color:var(--ink-mute);white-space:nowrap}
+.tbl-scroll{overflow-x:auto;border-radius:var(--r)}
+
+/* ============ SKILLS ============ */
+.skill-rows{display:flex;flex-direction:column;gap:1.1rem}
+.skill-row{display:grid;grid-template-columns:220px 1fr;gap:1.2rem;align-items:baseline;padding-bottom:1.1rem;border-bottom:1px solid var(--line)}
+.skill-row:last-child{border-bottom:none}
+.skill-k{font-family:var(--mono);font-size:.8rem;font-weight:600;color:var(--ink)}
+.skill-v{display:flex;flex-wrap:wrap;gap:.45rem}
+@media(max-width:720px){.skill-row{grid-template-columns:1fr;gap:.5rem}}
+
+/* ============ CONTACT ============ */
+.term{
+  background:var(--ink);color:#D7DBE2;border-radius:10px;
+  font-family:var(--mono);font-size:.92rem;
+  box-shadow:0 18px 44px -24px rgba(21,24,30,.6);overflow:hidden;
+}
+.term-bar{display:flex;gap:.45rem;padding:.8rem 1.1rem;border-bottom:1px solid #2A2F3A;align-items:center}
+.dot{width:.7rem;height:.7rem;border-radius:50%}
+.dot:nth-child(1){background:#E0584B}.dot:nth-child(2){background:#E0A33E}.dot:nth-child(3){background:#57B062}
+.term-title{margin-left:auto;font-size:.72rem;color:#6B7280}
+.term-body{padding:1.4rem 1.5rem 1.7rem;display:flex;flex-direction:column;gap:.55rem}
+.term-body .ps{color:#57B062}
+.term-body .cmd{color:#fff}
+.term-body a{color:#7FB1FF}
+.term-body a:hover{color:#fff}
+.out{color:#9AA1AD;padding-left:1.2rem}
+
+footer{padding:2.4rem 0 3rem;text-align:center}
+footer p{font-family:var(--mono);font-size:.78rem;color:var(--ink-mute)}
+</style>
 </head>
-
 <body>
 
-    <!-- Cursor Glow -->
-    <div class="cursor-glow" id="cursorGlow"></div>
+<!-- ============ NAV ============ -->
+<nav>
+  <div class="nav-in">
+    <a class="logo" href="#home">gedawy@alexandria:~<span class="p">$</span><span class="c">_</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">menu</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#experience">./experience</a></li>
+      <li><a href="#projects">./projects</a></li>
+      <li><a href="#teaching">./teaching</a></li>
+      <li><a href="#standings">./standings</a></li>
+      <li><a href="#skills">./skills</a></li>
+      <li><a href="#contact">./contact</a></li>
+      <li><a class="nav-cta" href="resume/Omar_Elgedawy_SWE_DS.pdf" target="_blank" rel="noopener">resume.pdf</a></li>
+    </ul>
+  </div>
+</nav>
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="#" class="nav-logo">&lt; OE /&gt;</a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#volunteering">Volunteering</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="c:\Users\DELL\Downloads\Omar_Elgedawy_DS.pdf" target="_blank" class="nav-resume-btn"><i class="fas fa-file-alt"></i> Resume</a></li>
-            </ul>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
+<!-- ============ HERO — PROBLEM A ============ -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <div class="statement rv">
+      <span class="verdict">ACCEPTED ✓</span>
+      <p class="prob-eyebrow">PROBLEM A.</p>
+      <h1>Omar <span class="accent">Elgedawy</span></h1>
+      <p class="limits">
+        <span><b>time limit:</b> 30 seconds per recruiter</span>
+        <span><b>memory limit:</b> 1 page</span>
+        <span><b>input:</b> hard problems</span>
+        <span><b>output:</b> shipped solutions</span>
+      </p>
+      <p class="hero-text">
+        AI student at AAST (full scholarship) and <strong>Codeforces Expert — top 5% globally</strong>.
+        I build real-time C++ computer-vision systems, train and evaluate LLMs in Arabic and English,
+        and turn complete beginners into contest-ready programmers. <strong>RoboCup @Home national champion</strong> (1st in Egypt, 2026)
+        and founder of the AAST ICPC Club. Currently aiming at SWE &amp; data-science internships.
+      </p>
+      <div class="io-grid">
+        <div class="io-cell"><div class="io-k">problems_solved</div><div class="io-v">2500<span class="u">+</span></div></div>
+        <div class="io-cell"><div class="io-k">codeforces_rank</div><div class="io-v">Expert <span class="u">top 5%</span></div></div>
+        <div class="io-cell"><div class="io-k">students_trained</div><div class="io-v">420<span class="u">+</span></div></div>
+        <div class="io-cell"><div class="io-k">robocup_egypt</div><div class="io-v">1st <span class="u">2026</span></div></div>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#experience">view submissions →</a>
+        <a class="btn btn-ghost" href="https://github.com/Omar123098" target="_blank" rel="noopener">github</a>
+        <a class="btn btn-ghost" href="https://codeforces.com/profile/Gedawy" target="_blank" rel="noopener">codeforces</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/omarelgedawy/" target="_blank" rel="noopener">linkedin</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ B. EXPERIENCE ============ -->
+<section id="experience" class="alt">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="sec-letter">B</span><h2>Experience</h2></div>
+    <p class="sec-sub rv">// my submissions to the real world — all verdicts green</p>
+
+    <div class="sub-list">
+      <article class="sub rv">
+        <div class="sub-top">
+          <div><h3>C++ Software Engineer — Computer Vision</h3><span class="org">Auvnet · Dubai, UAE · Remote (Contract)</span></div>
+          <span class="badge b-green">DELIVERED</span>
         </div>
-    </nav>
+        <p class="sub-meta"><span>Dec 2025 — Apr 2026</span></p>
+        <ul>
+          <li>Delivered a production real-time facial-effects engine sustaining <strong>40+ FPS across 6+ concurrent rendering layers</strong>, by architecting a modular C++ pipeline (OpenCV, MediaPipe) behind a plug-and-play SOLID/OOP layer architecture.</li>
+          <li>Shipped <strong>14 visual filters</strong> by mapping <strong>468 facial landmarks</strong> to custom HSV/RGB transforms and texture-warping algorithms, each independently configurable via JSON parameter files.</li>
+          <li>Met the real-time frame budget by eliminating redundant per-frame heap allocations through custom memory management and buffer reuse.</li>
+        </ul>
+        <div class="tags"><span class="tag">C++</span><span class="tag">OpenCV</span><span class="tag">MediaPipe</span><span class="tag">SOLID</span><span class="tag">Real-time</span></div>
+      </article>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-bg">
-            <div class="grid-pattern"></div>
-            <div class="gradient-orb orb-1"></div>
-            <div class="gradient-orb orb-2"></div>
+      <article class="sub rv">
+        <div class="sub-top">
+          <div><h3>AI Trainer &amp; Data Annotator</h3><span class="org">DataAnnotation · Remote (Part-time)</span></div>
+          <span class="badge b-green">DELIVERED</span>
         </div>
-        <div class="hero-content">
-            <div class="hero-badge">
-                <span class="pulse"></span>
-                Open to Opportunities
-            </div>
-            <h1>
-                Hi, I'm <span class="gradient-text">Omar Elgedawy</span>
-            </h1>
-            <div class="hero-roles">
-                <span id="typed-text"></span><span class="typed-cursor">|</span>
-            </div>
-            <p class="hero-tagline">
-                Computer Science & AI student passionate about <strong style="color: var(--accent-light);">Machine Learning</strong>, <strong style="color: var(--accent-light);">Deep Learning</strong> & <strong style="color: var(--accent-light);">Data Science</strong>. Competitive programmer (Codeforces Expert, 2500+ problems), <strong style="color: var(--accent-light);">RoboCup @Home National Champion 2026</strong>, and AI training contributor specializing in <strong style="color: var(--accent-light);">RLHF</strong> and bilingual prompt engineering.
-            </p>
-            <div class="hero-actions">
-                <a href="#experience" class="btn btn-primary">
-                    <i class="fas fa-briefcase"></i> Explore My Work
-                </a>
-                <a href="#contact" class="btn btn-secondary">
-                    <i class="fas fa-paper-plane"></i> Get in Touch
-                </a>
-            </div>
-            <div class="hero-social">
-                <a href="mailto:omarelgedawy123098@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-                <a href="https://github.com/Omar123098" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/omarelgedawy/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://codeforces.com/profile/Gedawy" target="_blank" title="Codeforces"><i class="fas fa-code"></i></a>
-                <a href="tel:+201226167393" title="Phone"><i class="fas fa-phone"></i></a>
-            </div>
+        <p class="sub-meta"><span>Apr 2025 — Mar 2026</span></p>
+        <ul>
+          <li>Improved frontier-LLM instruction-following, reasoning, and safety by evaluating and ranking side-by-side model responses with RLHF-style preference judgments.</li>
+          <li>Authored and stress-tested <strong>200+ complex prompts in English and Arabic</strong> — algorithmic reasoning, edge cases, adversarial framing — surfacing failure modes adopted into alignment pipelines.</li>
+          <li>Debugged and optimized AI-generated C++, C, and Python against rubric-based correctness benchmarks.</li>
+        </ul>
+        <div class="tags"><span class="tag">RLHF</span><span class="tag">Prompt Engineering</span><span class="tag">LLM Evaluation</span><span class="tag">Arabic/English</span></div>
+      </article>
+
+      <article class="sub rv">
+        <div class="sub-top">
+          <div><h3>Competitive Programming Instructor &amp; Coach</h3><span class="org">Coach Academy · Cairo, Egypt · Remote</span></div>
+          <span class="badge b-blue">ONGOING</span>
         </div>
-    </section>
+        <p class="sub-meta"><span>Jan 2025 — Present</span></p>
+        <ul>
+          <li>Took <strong>40+ students from zero background to contest-ready</strong>; qualified <strong>20+ to the ECPC</strong> through targeted problem sets, mock contests, and editorial sessions.</li>
+          <li>Raised average student Codeforces ratings by <strong>400+ points</strong> per cycle while reviewing 50+ C++ submissions weekly.</li>
+        </ul>
+        <div class="tags"><span class="tag">C++</span><span class="tag">DSA</span><span class="tag">Curriculum Design</span><span class="tag">Mentorship</span></div>
+      </article>
 
-    <!-- About Section -->
-    <section id="about" style="position: relative;">
-        <div class="particles-container" id="aboutParticles"></div>
-        <div class="section-container">
-            <div class="section-header reveal">
-                <div class="section-icon"><i class="fas fa-user"></i></div>
-                <h2>About Me</h2>
-                <p>Competitive programmer turning into a Machine Learning engineer</p>
-            </div>
-            <div class="about-grid">
-                <div class="about-text reveal">
-                    <p>
-                        I am <strong>Omar Ehab Elgedawy</strong>, a Computer Science student majoring in <strong>Artificial Intelligence</strong> at the Arab Academy for Science, Technology and Maritime Transport (AAST) — Alamein Campus, where I study on a <strong>full scholarship</strong>. With a deep passion for algorithms, data structures, and problem-solving, I have dedicated years to mastering competitive programming and software engineering.
-                    </p>
-                    <p>
-                        As a <strong>Codeforces Expert</strong> ranked in the <strong>top 5% globally</strong>, I have solved over <strong>2,500 problems</strong> across various online judges. My competitive journey includes qualifying for the <strong>Arab and African Collegiate Programming Contest (ACPC) 5 times</strong>, achieving <strong>6th place</strong> in 2024, earning <strong>2 Bronze Medals at the Egyptian Olympiad in Informatics (EOI)</strong>, and becoming <strong>National Champion of the International Informatics Olympiad in Teams (IIOT) 2022</strong>. Most recently, my team won <strong>1st place in Egypt at RoboCup @Home 2026</strong>, qualifying internationally — where I led the computer vision and tracking system using YOLO and ROS.
-                    </p>
-                    <p>
-                        I’m now channeling my strong algorithmic foundation into <strong>Machine Learning, Deep Learning, and Data Science</strong>. I’m fascinated by how data can reveal hidden patterns and how neural networks can learn to see, understand, and predict. From building <strong>exploratory data analysis pipelines</strong> to studying the math behind <strong>gradient descent and backpropagation</strong>, I’m on a mission to bridge competitive programming thinking with real-world AI applications.
-                    </p>
-                    <p>
-                        I also contribute directly to <strong>frontier AI development</strong> as an AI Trainer & Data Annotator — performing <strong>RLHF-style preference ranking</strong>, authoring complex bilingual (Arabic/English) prompts, and debugging AI-generated code to fine-tune model behavior. Beyond that, I build production software — from <strong>high-performance C++ computer vision engines</strong> to <strong>full-stack web applications</strong> with Django and PostgreSQL — and empower the next generation of programmers through mentorship and community leadership.
-                    </p>
-                    <div class="interest-pills">
-                        <span class="interest-pill highlight"><i class="fas fa-brain"></i> Machine Learning</span>
-                        <span class="interest-pill highlight"><i class="fas fa-robot"></i> AI Training & RLHF</span>
-                        <span class="interest-pill highlight"><i class="fas fa-network-wired"></i> Deep Learning</span>
-                        <span class="interest-pill highlight"><i class="fas fa-chart-bar"></i> Data Science</span>
-                        <span class="interest-pill"><i class="fas fa-code"></i> Competitive Programming</span>
-                        <span class="interest-pill"><i class="fas fa-eye"></i> Computer Vision</span>
-                        <span class="interest-pill"><i class="fas fa-server"></i> Full-Stack Development</span>
-                        <span class="interest-pill"><i class="fas fa-people-group"></i> Mentorship</span>
-                    </div>
-                </div>
-                <div class="about-stats reveal">
-                    <div class="stat-card">
-                        <div class="stat-number">2500+</div>
-                        <div class="stat-label">Problems Solved</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">Expert</div>
-                        <div class="stat-label">Codeforces Rating</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">5×</div>
-                        <div class="stat-label">ACPC Qualifier</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">🏆 1st</div>
-                        <div class="stat-label">RoboCup @Home — Egypt 2026</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">2×</div>
-                        <div class="stat-label">EOI Bronze Medalist</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">#1</div>
-                        <div class="stat-label">IIOT National Champion</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">420+</div>
-                        <div class="stat-label">Students Taught & Mentored</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">3.72</div>
-                        <div class="stat-label">GPA</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Learning Ticker -->
-            <div class="learning-section reveal">
-                <div class="learning-label">
-                    <i class="fas fa-rocket"></i> Currently Learning & Exploring
-                </div>
-                <div class="learning-ticker">
-                    <div class="ticker-track">
-                        <span class="ticker-item"><i class="fas fa-brain"></i> Neural Networks & Deep Learning</span>
-                        <span class="ticker-divider">•</span>
-                        <span class="ticker-item"><i class="fas fa-robot"></i> RLHF & Model Alignment</span>
-                        <span class="ticker-divider">•</span>
-                        <span class="ticker-item"><i class="fas fa-comment-dots"></i> Prompt Engineering</span>
-                        <span class="ticker-divider">•</span>
-                        <span class="ticker-item"><i class="fas fa-chart-line"></i> Regression & Classification</span>
-                        <span class="ticker-divider">•</span>
-                        <span class="ticker-item"><i class="fas fa-database"></i> Data Wrangling with Pandas</span>
-                        <span class="ticker-divider">•</span>
-                        <span class="ticker-item"><i class="fas fa-eye"></i> Computer Vision with OpenCV</span>
-                        <span class="ticker-divider">•</span>
-                        <span class="ticker-item"><i class="fas fa-project-diagram"></i> Scikit-Learn Pipelines</span>
-                        <span class="ticker-divider">•</span>
-                        <span class="ticker-item"><i class="fas fa-fire"></i> PyTorch & TensorFlow</span>
-                        <span class="ticker-divider">•</span>
-                        <span class="ticker-item"><i class="fas fa-chart-bar"></i> Exploratory Data Analysis</span>
-                        <span class="ticker-divider">•</span>
-                        <span class="ticker-item"><i class="fas fa-square-root-variable"></i> Math of Backpropagation</span>
-                        <span class="ticker-divider">•</span>
-                        <span class="ticker-item"><i class="fas fa-table"></i> Feature Engineering</span>
-                        <span class="ticker-divider">•</span>
-                        <span class="ticker-item"><i class="fas fa-magnifying-glass-chart"></i> Statistical Analysis</span>
-                        <span class="ticker-divider">•</span>
-                        <!-- Duplicate for seamless loop -->
-                        <span class="ticker-item"><i class="fas fa-brain"></i> Neural Networks & Deep Learning</span>
-                        <span class="ticker-divider">•</span>
-                        <span class="ticker-item"><i class="fas fa-robot"></i> RLHF & Model Alignment</span>
-                        <span class="ticker-divider">•</span>
-                        <span class="ticker-item"><i class="fas fa-comment-dots"></i> Prompt Engineering</span>
-                        <span class="ticker-divider">•</span>
-                        <span class="ticker-item"><i class="fas fa-chart-line"></i> Regression & Classification</span>
-                        <span class="ticker-divider">•</span>
-                        <span class="ticker-item"><i class="fas fa-database"></i> Data Wrangling with Pandas</span>
-                        <span class="ticker-divider">•</span>
-                        <span class="ticker-item"><i class="fas fa-eye"></i> Computer Vision with OpenCV</span>
-                        <span class="ticker-divider">•</span>
-                        <span class="ticker-item"><i class="fas fa-project-diagram"></i> Scikit-Learn Pipelines</span>
-                        <span class="ticker-divider">•</span>
-                        <span class="ticker-item"><i class="fas fa-fire"></i> PyTorch & TensorFlow</span>
-                        <span class="ticker-divider">•</span>
-                        <span class="ticker-item"><i class="fas fa-chart-bar"></i> Exploratory Data Analysis</span>
-                        <span class="ticker-divider">•</span>
-                        <span class="ticker-item"><i class="fas fa-square-root-variable"></i> Math of Backpropagation</span>
-                        <span class="ticker-divider">•</span>
-                        <span class="ticker-item"><i class="fas fa-table"></i> Feature Engineering</span>
-                        <span class="ticker-divider">•</span>
-                        <span class="ticker-item"><i class="fas fa-magnifying-glass-chart"></i> Statistical Analysis</span>
-                        <span class="ticker-divider">•</span>
-                    </div>
-                </div>
-            </div>
+      <article class="sub rv">
+        <div class="sub-top">
+          <div><h3>Robotics Programming Instructor</h3><span class="org">ZHub Robotics Center · Alexandria, Egypt · On-site</span></div>
+          <span class="badge b-green">DELIVERED</span>
         </div>
-    </section>
+        <p class="sub-meta"><span>Jun 2025 — Sep 2025</span></p>
+        <ul>
+          <li>Designed a 2-level C/C++/Python curriculum from scratch for <strong>30 students (ages 10–16)</strong>, enabling them to independently program and debug their own robotics projects.</li>
+        </ul>
+        <div class="tags"><span class="tag">C/C++</span><span class="tag">Python</span><span class="tag">Robotics</span><span class="tag">Curriculum Design</span></div>
+      </article>
 
-    <!-- Education Section -->
-    <section id="education" style="background: var(--bg-secondary);">
-        <div class="section-container">
-            <div class="section-header reveal">
-                <div class="section-icon"><i class="fas fa-graduation-cap"></i></div>
-                <h2>Education</h2>
-                <p>Knowledge foundation and academic achievements</p>
-            </div>
-
-            <div class="code-block reveal">
-                <div class="terminal-header">
-                    <span class="terminal-dot red"></span>
-                    <span class="terminal-dot yellow"></span>
-                    <span class="terminal-dot green"></span>
-                    <span class="terminal-title">~/education/degree.info</span>
-                </div>
-                <div class="code-content">
-                    <span class="comment">// Academic Background</span><br>
-                    <span class="keyword">const</span> <span class="property">education</span> = {<br>
-                    &nbsp;&nbsp;<span class="property">university</span>: <span class="string">"Arab Academy for Science, Technology &amp; Maritime Transport"</span>,<br>
-                    &nbsp;&nbsp;<span class="property">campus</span>: <span class="string">"Alamein, Egypt"</span>,<br>
-                    &nbsp;&nbsp;<span class="property">degree</span>: <span class="string">"BSc in Artificial Intelligence"</span>,<br>
-                    &nbsp;&nbsp;<span class="property">scholarship</span>: <span class="string">"Full Scholarship"</span>,<br>
-                    &nbsp;&nbsp;<span class="property">gpa</span>: <span class="number">3.72</span>,<br>
-                    &nbsp;&nbsp;<span class="property">duration</span>: <span class="string">"2024 — 2028"</span>,<br>
-                    &nbsp;&nbsp;<span class="property">status</span>: <span class="string">"In Progress"</span><br>
-                    };
-                </div>
-            </div>
-
-            <div class="education-card reveal" style="margin-top: 2rem;">
-                <div class="edu-top">
-                    <div>
-                        <div class="edu-degree">Bachelor of Science in Artificial Intelligence</div>
-                        <div class="edu-school">Arab Academy for Science, Technology & Maritime Transport — Alamein Campus</div>
-                        <div class="edu-gpa"><i class="fas fa-award"></i> Full Scholarship · GPA: 3.72</div>
-                    </div>
-                    <span class="edu-date"><i class="fas fa-calendar-alt"></i> Sep 2024 — Jul 2028</span>
-                </div>
-                <div class="edu-coursework">
-                    <h4>Relevant Coursework</h4>
-                    <div class="coursework-tags">
-                        <span class="course-tag">Calculus I/II</span>
-                        <span class="course-tag">Linear Algebra</span>
-                        <span class="course-tag">Probability & Statistics</span>
-                        <span class="course-tag">Discrete Mathematics</span>
-                        <span class="course-tag">Digital Logic</span>
-                        <span class="course-tag">Computer Organization & Architecture</span>
-                        <span class="course-tag">Data Structures & Algorithms</span>
-                        <span class="course-tag">Database Systems</span>
-                        <span class="course-tag">Networking</span>
-                        <span class="course-tag">Operating Systems</span>
-                        <span class="course-tag">Machine Learning</span>
-                        <span class="course-tag">Intro to AI</span>
-                        <span class="course-tag">IoT</span>
-                    </div>
-                </div>
-            </div>
+      <article class="sub rv">
+        <div class="sub-top">
+          <div><h3>Freelance AI Training Data Specialist</h3><span class="org">NEAR Protocol (via Nearcrowd) · Remote</span></div>
+          <span class="badge b-green">DELIVERED</span>
         </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience">
-        <div class="section-container">
-            <div class="section-header reveal">
-                <div class="section-icon"><i class="fas fa-briefcase"></i></div>
-                <h2>Experience</h2>
-                <p>Professional roles and industry contributions</p>
-            </div>
-
-            <div class="timeline">
-                <!-- Auvnet -->
-                <div class="timeline-item reveal">
-                    <div class="exp-card">
-                        <div class="exp-header">
-                            <div>
-                                <div class="exp-title">C++ Software Engineer — Computer Vision</div>
-                                <div class="exp-company">Auvnet</div>
-                            </div>
-                            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                                <span class="exp-badge badge-current">Current</span>
-                                <span class="exp-badge badge-contract">Contract</span>
-                            </div>
-                        </div>
-                        <div class="exp-meta">
-                            <span class="exp-date"><i class="fas fa-calendar"></i> Dec 2025 — Present</span>
-                            <span class="exp-location"><i class="fas fa-map-marker-alt"></i> Dubai, UAE · Remote</span>
-                        </div>
-                        <div class="exp-description">
-                            <ul>
-                                <li>Architected a modular, high-performance C++ computer vision engine leveraging <strong>OpenCV</strong> and <strong>MediaPipe</strong> through a clean plug-and-play object-oriented architecture, enabling rapid integration of new filter modules without disrupting existing functionality. The engine was designed following SOLID principles with well-defined interfaces for each processing layer.</li>
-                                <li>Optimized real-time video processing performance to achieve <strong>24+ FPS</strong> across <strong>6+ concurrent rendering layers</strong> through aggressive memory management techniques — including custom allocators, buffer pooling, and zero-copy pipelines — combined with algorithmic tuning to minimize per-frame overhead and latency.</li>
-                                <li>Engineered <strong>14 distinct visual filters</strong> by mapping <strong>468 facial landmarks</strong> to custom <strong>HSV/RGB color space transformations</strong> and texture-warping algorithms, covering effects such as skin smoothing, face reshaping, virtual makeup, and real-time color grading. Each filter was independently testable and configurable via JSON-based parameter files.</li>
-                            </ul>
-                        </div>
-                        <div class="exp-tags">
-                            <span class="exp-tag">C++</span>
-                            <span class="exp-tag">OpenCV</span>
-                            <span class="exp-tag">MediaPipe</span>
-                            <span class="exp-tag">Computer Vision</span>
-                            <span class="exp-tag">OOP</span>
-                            <span class="exp-tag">Real-time Processing</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- DataAnnotation -->
-                <div class="timeline-item reveal">
-                    <div class="exp-card">
-                        <div class="exp-header">
-                            <div>
-                                <div class="exp-title">AI Trainer & Data Annotator</div>
-                                <div class="exp-company">DataAnnotation</div>
-                            </div>
-                            <span class="exp-badge badge-parttime">Part-Time</span>
-                        </div>
-                        <div class="exp-meta">
-                            <span class="exp-date"><i class="fas fa-calendar"></i> Apr 2025 — Mar 2026</span>
-                            <span class="exp-location"><i class="fas fa-map-marker-alt"></i> Remote</span>
-                        </div>
-                        <div class="exp-description">
-                            <ul>
-                                <li>Evaluated and ranked side-by-side responses from multiple frontier <strong>Large Language Models (LLMs)</strong> using <strong>RLHF-style preference judgments</strong>, producing structured signal that directly fine-tuned model behavior on instruction-following, reasoning, and safety dimensions across hundreds of comparison tasks.</li>
-                                <li>Authored and stress-tested <strong>200+ complex prompts in both English and Arabic</strong>, spanning algorithmic reasoning, edge-case coverage, ambiguity handling, and adversarial framing — surfacing failure modes that improved downstream model alignment and robustness.</li>
-                                <li>Debugged, analyzed, and <strong>optimized AI-generated code</strong> across C++, C, and Python, correcting logic errors, complexity issues, and unsafe patterns to raise output quality against rubric-based correctness benchmarks. Acted as a rigorous fixer and optimizer of AI outputs across diverse programming projects.</li>
-                                <li>Delivered comprehensive, criterion-based written feedback (correctness, completeness, style, safety) that served as high-quality ground-truth signal for model fine-tuning pipelines — bridging human judgment and machine learning at scale.</li>
-                            </ul>
-                        </div>
-                        <div class="exp-tags">
-                            <span class="exp-tag">RLHF</span>
-                            <span class="exp-tag">Prompt Engineering</span>
-                            <span class="exp-tag">LLM Evaluation</span>
-                            <span class="exp-tag">Code Annotation</span>
-                            <span class="exp-tag">Multilingual (Ar/En)</span>
-                            <span class="exp-tag">AI Training</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Coach Academy -->
-                <div class="timeline-item reveal">
-                    <div class="exp-card">
-                        <div class="exp-header">
-                            <div>
-                                <div class="exp-title">Instructor & Coach</div>
-                                <div class="exp-company"><a href="https://coach-academy.net/" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px dashed var(--text-muted);">Coach Academy</a></div>
-                            </div>
-                            <span class="exp-badge badge-current">Current</span>
-                        </div>
-                        <div class="exp-meta">
-                            <span class="exp-date"><i class="fas fa-calendar"></i> Jan 2025 — Present</span>
-                            <span class="exp-location"><i class="fas fa-map-marker-alt"></i> Cairo, Egypt · Remote</span>
-                        </div>
-                        <div class="exp-description">
-                            <ul>
-                                <li>Delivered comprehensive, hands-on coaching sessions to <strong>40+ aspiring competitive programmers</strong> — most of them complete beginners — covering a structured curriculum that spans core data structures (arrays, trees, graphs, segment trees) through advanced algorithmic paradigms including dynamic programming, greedy algorithms, number theory, and combinatorics.</li>
-                                <li>Qualified <strong>20+ students to the Egyptian Collegiate Programming Contest (ECPC)</strong> — one of the most competitive national-level contests in Egypt — by designing targeted problem sets, mock contests, and post-contest review sessions tailored to convert beginners into contest-ready competitors within a single training cycle.</li>
-                                <li>Designed weekly problem sets and mock contests calibrated to participants' skill levels, progressively increasing difficulty to build confidence and competence. Provided detailed editorial write-ups and one-on-one debugging sessions to reinforce learning and address individual weaknesses.</li>
-                                <li>Mentored students in competitive programming contest strategy — including time management, problem selection heuristics, and stress testing — helping several participants achieve significant rating improvements on Codeforces.</li>
-                            </ul>
-                        </div>
-                        <div class="exp-tags">
-                            <span class="exp-tag">Competitive Programming</span>
-                            <span class="exp-tag">Algorithms</span>
-                            <span class="exp-tag">Data Structures</span>
-                            <span class="exp-tag">Mentorship</span>
-                            <span class="exp-tag">Teaching</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ZHub Robotics -->
-                <div class="timeline-item reveal">
-                    <div class="exp-card">
-                        <div class="exp-header">
-                            <div>
-                                <div class="exp-title">Robotics Programming Instructor</div>
-                                <div class="exp-company"><a href="https://www.linkedin.com/company/zhubz/" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px dashed var(--text-muted);">ZHub Robotics Center</a></div>
-                            </div>
-                            <span class="exp-badge badge-contract">Seasonal</span>
-                        </div>
-                        <div class="exp-meta">
-                            <span class="exp-date"><i class="fas fa-calendar"></i> Jun 2025 — Sep 2025</span>
-                            <span class="exp-location"><i class="fas fa-map-marker-alt"></i> Alexandria, Egypt · On-site</span>
-                        </div>
-                        <div class="exp-description">
-                            <ul>
-                                <li>Designed a <strong>2-level programming curriculum from scratch</strong> for <strong>30 students (ages 10–16, split across two groups)</strong>, covering C, C++, and Python fundamentals progressing into algorithms and data structures applied to robotics control logic.</li>
-                                <li>Delivered hands-on sessions translating theoretical programming concepts into working robot behavior, enabling students to independently program and debug their own robotics projects by the end of the program.</li>
-                                <li>Adapted teaching strategies across a wide age range, balancing accessibility for younger students with sufficient depth for older participants — ensuring engagement and meaningful technical growth across both skill tiers.</li>
-                            </ul>
-                        </div>
-                        <div class="exp-tags">
-                            <span class="exp-tag">C++</span>
-                            <span class="exp-tag">C</span>
-                            <span class="exp-tag">Python</span>
-                            <span class="exp-tag">Robotics</span>
-                            <span class="exp-tag">Curriculum Design</span>
-                            <span class="exp-tag">Teaching</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- NEAR Protocol -->
-                <div class="timeline-item reveal">
-                    <div class="exp-card">
-                        <div class="exp-header">
-                            <div>
-                                <div class="exp-title">Freelance AI Training Data Specialist</div>
-                                <div class="exp-company"><a href="https://www.near.org/" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px dashed var(--text-muted);">NEAR Protocol</a> · via Nearcrowd</div>
-                            </div>
-                            <span class="exp-badge badge-freelance">Freelance</span>
-                        </div>
-                        <div class="exp-meta">
-                            <span class="exp-date"><i class="fas fa-calendar"></i> Sep 2022 — Oct 2024</span>
-                            <span class="exp-location"><i class="fas fa-map-marker-alt"></i> San Francisco, CA · Remote</span>
-                        </div>
-                        <div class="exp-description">
-                            <ul>
-                                <li>Authored <strong>30+ original logic puzzles</strong> and solved complex algorithmic tasks on <strong>Nearcrowd, an undocumented proprietary platform with a custom DSL</strong> — ramping up entirely through self-directed research of company-provided materials with zero formal onboarding. Demonstrated rapid technical adaptation under ambiguous, real-world constraints.</li>
-                                <li>Solved and meticulously documented <strong>120+ competitive programming problems</strong> in C++ with clean, well-commented code — specifically structured to serve as high-quality training data for AI model development, ensuring consistent formatting, edge-case coverage, and algorithmic diversity across problem categories.</li>
-                                <li>Authored <strong>40+ comprehensive LaTeX tutorials</strong> covering advanced data structures and algorithms topics — including tree algorithms (LCA, HLD, Euler Tour), graph algorithms (network flow, SCC, bridges), dynamic programming (bitmask DP, digit DP, tree DP), and core theoretical computer science concepts — each with formal proofs, complexity analyses, and illustrative examples.</li>
-                                <li>Reviewed and debugged <strong>60+ failed Codeforces solutions</strong> by performing systematic error analysis — identifying issues ranging from off-by-one errors and integer overflow to incorrect algorithmic approaches — and delivering detailed fix reports with corrected solutions and explanations of the root causes.</li>
-                            </ul>
-                        </div>
-                        <div class="exp-tags">
-                            <span class="exp-tag">C++</span>
-                            <span class="exp-tag">Algorithms</span>
-                            <span class="exp-tag">LaTeX</span>
-                            <span class="exp-tag">AI Training Data</span>
-                            <span class="exp-tag">Technical Writing</span>
-                            <span class="exp-tag">Proprietary DSL</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" style="background: var(--bg-secondary);">
-        <div class="section-container">
-            <div class="section-header reveal">
-                <div class="section-icon"><i class="fas fa-cogs"></i></div>
-                <h2>Technical Skills</h2>
-                <p>Technologies and tools I work with</p>
-            </div>
-
-            <div class="skills-categories">
-                <!-- Languages -->
-                <div class="skill-category reveal">
-                    <div class="skill-category-header">
-                        <div class="skill-category-icon" style="background: rgba(99, 102, 241, 0.15); color: var(--accent-light);"><i class="fas fa-code"></i></div>
-                        <h3>Languages</h3>
-                    </div>
-                    <div class="skill-category-body">
-                        <span class="skill-item"><i class="fas fa-copyright"></i> C/C++</span>
-                        <span class="skill-item"><i class="fab fa-python"></i> Python</span>
-                    </div>
-                </div>
-
-                <!-- Algorithms & CS -->
-                <div class="skill-category reveal">
-                    <div class="skill-category-header">
-                        <div class="skill-category-icon" style="background: rgba(34, 197, 94, 0.15); color: var(--green);"><i class="fas fa-brain"></i></div>
-                        <h3>Algorithms & CS</h3>
-                    </div>
-                    <div class="skill-category-body">
-                        <span class="skill-item"><i class="fas fa-project-diagram"></i> Data Structures</span>
-                        <span class="skill-item"><i class="fas fa-sort-amount-up"></i> Algorithms</span>
-                        <span class="skill-item"><i class="fas fa-puzzle-piece"></i> Problem Solving</span>
-                        <span class="skill-item"><i class="fas fa-cubes"></i> OOP</span>
-                    </div>
-                </div>
-
-                <!-- AI Training & Annotation -->
-                <div class="skill-category reveal">
-                    <div class="skill-category-header">
-                        <div class="skill-category-icon" style="background: rgba(168, 85, 247, 0.15); color: var(--purple);"><i class="fas fa-robot"></i></div>
-                        <h3>AI Training & Annotation</h3>
-                    </div>
-                    <div class="skill-category-body">
-                        <span class="skill-item"><i class="fas fa-balance-scale"></i> RLHF</span>
-                        <span class="skill-item"><i class="fas fa-comment-dots"></i> Prompt Engineering</span>
-                        <span class="skill-item"><i class="fas fa-search"></i> LLM Evaluation</span>
-                        <span class="skill-item"><i class="fas fa-bug"></i> Code Annotation</span>
-                        <span class="skill-item"><i class="fas fa-language"></i> Multilingual (Ar/En)</span>
-                    </div>
-                </div>
-
-                <!-- Computer Vision & Robotics -->
-                <div class="skill-category reveal">
-                    <div class="skill-category-header">
-                        <div class="skill-category-icon" style="background: rgba(249, 115, 22, 0.15); color: var(--orange);"><i class="fas fa-eye"></i></div>
-                        <h3>Computer Vision & Robotics</h3>
-                    </div>
-                    <div class="skill-category-body">
-                        <span class="skill-item"><i class="fas fa-camera"></i> OpenCV</span>
-                        <span class="skill-item"><i class="fas fa-hand-paper"></i> MediaPipe</span>
-                        <span class="skill-item"><i class="fas fa-crosshairs"></i> YOLO</span>
-                        <span class="skill-item"><i class="fas fa-robot"></i> ROS</span>
-                    </div>
-                </div>
-
-                <!-- Web & Data -->
-                <div class="skill-category reveal">
-                    <div class="skill-category-header">
-                        <div class="skill-category-icon" style="background: rgba(6, 182, 212, 0.15); color: var(--cyan);"><i class="fas fa-globe"></i></div>
-                        <h3>Web & Data</h3>
-                    </div>
-                    <div class="skill-category-body">
-                        <span class="skill-item"><i class="fab fa-python"></i> Django</span>
-                        <span class="skill-item"><i class="fas fa-database"></i> PostgreSQL</span>
-                        <span class="skill-item"><i class="fas fa-chart-bar"></i> Pandas</span>
-                        <span class="skill-item"><i class="fas fa-chart-line"></i> Matplotlib</span>
-                        <span class="skill-item"><i class="fas fa-chart-area"></i> Seaborn</span>
-                    </div>
-                </div>
-
-                <!-- Hardware & Circuits -->
-                <div class="skill-category reveal">
-                    <div class="skill-category-header">
-                        <div class="skill-category-icon" style="background: rgba(234, 179, 8, 0.15); color: var(--yellow);"><i class="fas fa-microchip"></i></div>
-                        <h3>Hardware & Logic</h3>
-                    </div>
-                    <div class="skill-category-body">
-                        <span class="skill-item"><i class="fas fa-microchip"></i> Digital Circuits</span>
-                        <span class="skill-item"><i class="fas fa-cog"></i> Logic Design</span>
-                    </div>
-                </div>
-
-                <!-- Soft Skills -->
-                <div class="skill-category reveal">
-                    <div class="skill-category-header">
-                        <div class="skill-category-icon" style="background: rgba(239, 68, 68, 0.15); color: var(--red);"><i class="fas fa-users"></i></div>
-                        <h3>Leadership</h3>
-                    </div>
-                    <div class="skill-category-body">
-                        <span class="skill-item"><i class="fas fa-chalkboard-teacher"></i> Mentorship</span>
-                        <span class="skill-item"><i class="fas fa-users-cog"></i> Team Management</span>
-                        <span class="skill-item"><i class="fas fa-flag"></i> Leadership</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="section-container">
-            <div class="section-header reveal">
-                <div class="section-icon"><i class="fas fa-rocket"></i></div>
-                <h2>Featured Projects</h2>
-                <p>Showcasing what I've built and explored</p>
-            </div>
-
-            <div class="projects-grid">
-                <!-- RoboCup @Home (FEATURED) -->
-                <div class="project-card reveal">
-                    <div class="project-color-bar" style="background: linear-gradient(90deg, #f97316, #fb923c, #fbbf24);"></div>
-                    <div class="project-body">
-                        <div class="project-header">
-                            <div class="project-icon" style="background: rgba(249, 115, 22, 0.15); color: var(--orange);"><i class="fas fa-robot"></i></div>
-                            <div class="project-links">
-                                <a href="https://github.com/Omar123098/RoboCup-home" target="_blank" title="Source Code"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                        <h3>Autonomous Service Robot — RoboCup @Home</h3>
-                        <span class="project-award">🏆 National Champion (1st in Egypt) · International Qualifier 2026</span>
-                        <span class="project-date">April 2026</span>
-                        <p>Led the development of the computer vision and tracking system for an autonomous service robot competing at <strong>RoboCup @Home</strong> — an international competition for service robots operating in unstructured home environments. Implemented real-time person detection and spatial tracking using <strong>YOLO</strong>, allowing the robot to autonomously locate, identify, and interact with guests in unknown room layouts. Integrated the vision pipeline with the broader <strong>ROS</strong>-based control stack, coordinating perception with navigation and dialogue modules. The team won 1st place nationally in Egypt, qualifying for the international finals.</p>
-                        <div class="project-tech">
-                            <span>YOLO</span>
-                            <span>ROS</span>
-                            <span>Python</span>
-                            <span>Computer Vision</span>
-                            <span>OpenCV</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Student Performance Analytics -->
-                <div class="project-card reveal">
-                    <div class="project-color-bar" style="background: linear-gradient(90deg, #6366f1, #8b5cf6);"></div>
-                    <div class="project-body">
-                        <div class="project-header">
-                            <div class="project-icon" style="background: rgba(99, 102, 241, 0.15); color: var(--accent-light);"><i class="fas fa-chart-pie"></i></div>
-                            <div class="project-links">
-                                <a href="https://www.kaggle.com/code/elgedawy/notebook7fa279bb2f" target="_blank" title="View on Kaggle"><i class="fab fa-kaggle"></i></a>
-                            </div>
-                        </div>
-                        <h3>Student Performance Analytics</h3>
-                        <span class="project-date">February 2026</span>
-                        <p>A comprehensive exploratory data analysis project that examines student academic performance data using Python and Pandas. The analysis investigates key predictors and correlations — such as study habits, parental education level, and socioeconomic factors — that influence student outcomes. Includes detailed visualizations with Matplotlib and Seaborn to communicate findings clearly, along with statistical summaries that uncover actionable insights for educators and policymakers.</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>Pandas</span>
-                            <span>Matplotlib</span>
-                            <span>Seaborn</span>
-                            <span>EDA</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Windows Shell -->
-                <div class="project-card reveal">
-                    <div class="project-color-bar" style="background: linear-gradient(90deg, #06b6d4, #22d3ee);"></div>
-                    <div class="project-body">
-                        <div class="project-header">
-                            <div class="project-icon" style="background: rgba(6, 182, 212, 0.15); color: var(--cyan);"><i class="fas fa-terminal"></i></div>
-                            <div class="project-links">
-                                <a href="https://github.com/Omar123098/Shell" target="_blank" title="Source Code"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                        <h3>Windows Shell</h3>
-                        <span class="project-date">August 2025</span>
-                        <p>A fully functional Windows-compatible shell implementation built from scratch in C++. Features include a custom readline library with advanced line editing capabilities, persistent command history stored across sessions, intelligent tab completion for file paths and commands, and robust I/O redirection supporting pipes and file redirects. The shell leverages native Windows APIs for seamless integration with the operating system, and includes arrow key navigation, history search, and Windows-specific path handling for a polished user experience.</p>
-                        <div class="project-tech">
-                            <span>C++</span>
-                            <span>Windows API</span>
-                            <span>Systems Programming</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- E-commerce Platform -->
-                <div class="project-card reveal">
-                    <div class="project-color-bar" style="background: linear-gradient(90deg, #22c55e, #4ade80);"></div>
-                    <div class="project-body">
-                        <div class="project-header">
-                            <div class="project-icon" style="background: rgba(34, 197, 94, 0.15); color: var(--green);"><i class="fas fa-shopping-cart"></i></div>
-                            <div class="project-links">
-                                <a href="https://github.com/Omar123098/Ecommerce" target="_blank" title="Source Code"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                        <h3>E-commerce Marketplace Platform</h3>
-                        <span class="project-date">July 2025</span>
-                        <p>A feature-rich full-stack e-commerce marketplace built with Django and PostgreSQL. The platform supports complete user authentication flows, product listing creation with image uploads, a secure checkout system, and comprehensive database integration using Django ORM. Includes database-backed inventory tracking with real-time stock management, detailed purchase history for buyers, a watchlist system for monitoring favorite items, and personalized profile dashboards for both buyers and sellers. The schema design follows normalized relational patterns for optimal query performance.</p>
-                        <div class="project-tech">
-                            <span>Django</span>
-                            <span>PostgreSQL</span>
-                            <span>Python</span>
-                            <span>Full-Stack</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Temperature Prediction -->
-                <div class="project-card reveal">
-                    <div class="project-color-bar" style="background: linear-gradient(90deg, #ec4899, #f472b6);"></div>
-                    <div class="project-body">
-                        <div class="project-header">
-                            <div class="project-icon" style="background: rgba(236, 72, 153, 0.15); color: var(--pink);"><i class="fas fa-temperature-high"></i></div>
-                            <div class="project-links">
-                                <a href="https://www.kaggle.com/code/elgedawy/temperature-prediction" target="_blank" title="View on Kaggle"><i class="fab fa-kaggle"></i></a>
-                            </div>
-                        </div>
-                        <h3>Delhi Temperature Prediction</h3>
-                        <span class="project-date">April 2026</span>
-                        <p>A time-series forecasting project that predicts daily temperatures in Delhi using a Random Forest Regressor trained on historical weather data. Built a complete machine learning pipeline including time-series feature engineering (lag features, rolling statistics, seasonal decomposition), cross-validation with temporal splits, and model evaluation against baseline methods. The project demonstrates practical application of supervised regression techniques to real-world meteorological data.</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>Pandas</span>
-                            <span>Scikit-Learn</span>
-                            <span>Random Forest</span>
-                            <span>Time-Series</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Digital Clock -->
-                <div class="project-card reveal">
-                    <div class="project-color-bar" style="background: linear-gradient(90deg, #eab308, #facc15);"></div>
-                    <div class="project-body">
-                        <div class="project-header">
-                            <div class="project-icon" style="background: rgba(234, 179, 8, 0.15); color: var(--yellow);"><i class="fas fa-clock"></i></div>
-                            <div class="project-links">
-                                <a href="https://github.com/Omar123098/Digital-Clock" target="_blank" title="Source Code"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                        <h3>Digital Clock with AM/PM Indicator</h3>
-                        <span class="project-date">May 2025</span>
-                        <p>A hardware-level digital clock project combining simulation and physical prototyping. The design implements a 12-hour clock with AM/PM indicator using D flip-flops and a 555 timer, first simulated in Proteus for verification and then prototyped on a physical breadboard. The hardware implementation uses 7490 decade counters for time division, 7447 BCD-to-seven-segment decoders for display output, and custom reset detection logic at the 12-hour boundary with AM/PM toggling for full 24-hour cycle completion. This project bridges digital logic theory with hands-on hardware engineering.</p>
-                        <div class="project-tech">
-                            <span>Digital Logic</span>
-                            <span>Proteus</span>
-                            <span>Hardware Design</span>
-                            <span>555 Timer</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Achievements Section -->
-    <section id="achievements" style="background: var(--bg-secondary);">
-        <div class="section-container">
-            <div class="section-header reveal">
-                <div class="section-icon"><i class="fas fa-trophy"></i></div>
-                <h2>Competitions & Achievements</h2>
-                <p>Showcasing my competitive programming journey and honors</p>
-            </div>
-
-            <div class="achievements-grid">
-                <!-- RoboCup @Home FEATURED -->
-                <div class="achievement-card featured reveal">
-                    <div class="achievement-emoji">🤖</div>
-                    <h3>RoboCup @Home (2026)</h3>
-                    <ul>
-                        <li><strong>National Champion — 1st Place in Egypt</strong>, leading the computer vision and tracking system for an autonomous service robot operating in unknown room environments</li>
-                        <li><strong>International Qualifier</strong> — advanced to the global stage of RoboCup @Home, one of the world's most prestigious service-robotics competitions, against teams from leading robotics labs worldwide</li>
-                    </ul>
-                </div>
-
-                <!-- ACPC -->
-                <div class="achievement-card reveal">
-                    <div class="achievement-emoji">🏆</div>
-                    <h3>Arab & African Collegiate Programming Contest (ACPC)</h3>
-                    <ul>
-                        <li><strong>5× Qualifier</strong> — Consistently advancing to one of the most prestigious collegiate programming contests in the Arab and African region, competing against top university teams from dozens of countries</li>
-                        <li><strong>6th Place (2024)</strong> — Achieved an outstanding 6th place finish, placing among the elite teams from hundreds of participating universities across the continent</li>
-                    </ul>
-                </div>
-
-                <!-- EOI -->
-                <div class="achievement-card reveal">
-                    <div class="achievement-emoji">🥉</div>
-                    <h3>Egyptian Olympiad in Informatics (EOI)</h3>
-                    <ul>
-                        <li><strong>2× Bronze Medalist (2020, 2023)</strong> — Earned bronze medals in Egypt's premier informatics olympiad, demonstrating strong algorithmic skills against the nation's top young programmers in rigorous multi-round competitions</li>
-                        <li>Competed in challenging rounds covering advanced algorithms, data structures, and mathematical problem-solving under strict time constraints</li>
-                    </ul>
-                </div>
-
-                <!-- IIOT -->
-                <div class="achievement-card reveal">
-                    <div class="achievement-emoji">🌍</div>
-                    <h3>International Informatics Olympiad Teams (IIOT)</h3>
-                    <ul>
-                        <li><strong>National Champion (2022)</strong> — Won first place nationally, representing Egypt on the international stage in team-based algorithmic competitions</li>
-                        <li><strong>Finalist</strong> — Advanced to the finals against teams from around the world, solving problems that demand creativity, deep algorithmic knowledge, and seamless team coordination under pressure</li>
-                    </ul>
-                </div>
-
-                <!-- ECPC Teens -->
-                <div class="achievement-card reveal">
-                    <div class="achievement-emoji">🥈</div>
-                    <h3>Egyptian Collegiate Programming Contest (ECPC) — Teens</h3>
-                    <ul>
-                        <li><strong>Silver Medal (2021)</strong> — Earned a silver medal in the teen division of the Egyptian Collegiate Programming Contest (ECPC), showcasing early mastery of competitive programming fundamentals and a strong foundation that would fuel years of future competitive success and achievement</li>
-                    </ul>
-                </div>
-
-                <!-- Online Platforms -->
-                <div class="achievement-card reveal">
-                    <div class="achievement-emoji">💻</div>
-                    <h3>Online Competitive Platforms</h3>
-                    <ul>
-                        <li><a href="https://codeforces.com/profile/Gedawy" target="_blank" style="color: inherit;"><strong>Codeforces Expert</strong></a> — Achieved Expert rating, placing in the <strong>top 5% globally</strong> among hundreds of thousands of competitive programmers worldwide</li>
-                        <li><strong>2,500+ Problems Solved</strong> — Across Codeforces, LeetCode, and other online judges, building deep expertise in a wide spectrum of algorithmic topics from basic searching and sorting to advanced graph theory, number theory, and combinatorial optimization</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Volunteering Section -->
-    <section id="volunteering">
-        <div class="section-container">
-            <div class="section-header reveal">
-                <div class="section-icon"><i class="fas fa-hands-helping"></i></div>
-                <h2>Volunteering & Community</h2>
-                <p>Building communities and empowering the next generation</p>
-            </div>
-
-            <div class="volunteer-grid">
-                <!-- AAST ICPC Club -->
-                <div class="volunteer-card reveal">
-                    <div class="volunteer-top">
-                        <div>
-                            <h3><a href="https://www.facebook.com/AASTcpc" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px dashed var(--text-muted);">AAST ICPC Club</a></h3>
-                            <span class="volunteer-role">Founder, President & Training Head</span>
-                        </div>
-                        <span class="edu-date"><i class="fas fa-calendar-alt"></i> Sep 2024 — Present</span>
-                    </div>
-                    <p>Founded the ICPC competitive programming club at AAST from the ground up, building it into a thriving community of aspiring competitive programmers. Took full ownership of the organizational infrastructure — assembling and managing dedicated teams for Public Relations, Media, Human Resources, and Training operations.</p>
-                    <ul>
-                        <li>Designed a comprehensive <strong>3-level training curriculum</strong> starting from C++ fundamentals and basic problem-solving, progressing through intermediate data structures and algorithms, and culminating in advanced topics like segment trees, centroid decomposition, and network flow</li>
-                        <li>Led <strong>weekly intensive training camps</strong> with curated problem sets, editorial discussions, and live problem-solving sessions that fostered a collaborative and competitive learning environment</li>
-                        <li>Mentored <strong>300+ students</strong> across all skill levels, providing personalized guidance and contest preparation that resulted in qualifying <strong>4 teams to ECPC</strong> and <strong>1 team to ACPC</strong> — a remarkable achievement for a newly established club</li>
-                        <li>Established partnerships with other university CP communities and organized inter-university practice contests to expose students to diverse problem-solving styles and competition formats</li>
-                    </ul>
-                </div>
-
-                <!-- FCDS ICPC Community -->
-                <div class="volunteer-card reveal">
-                    <div class="volunteer-top">
-                        <div>
-                            <h3><a href="https://www.facebook.com/FCDSICPC/" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px dashed var(--text-muted);">FCDS ICPC Community — Alexandria University</a></h3>
-                            <span class="volunteer-role">Member & Instructor</span>
-                        </div>
-                        <span class="edu-date"><i class="fas fa-calendar-alt"></i> Oct 2024 — May 2025</span>
-                    </div>
-                    <p>Served as a member and instructor at the Faculty of Computers and Data Science (FCDS) at Alexandria University, one of Egypt's leading computer science departments. Designed and delivered advanced technical sessions for the university's competitive programming community.</p>
-                    <ul>
-                        <li>Designed and delivered advanced sessions on <strong>Dynamic Programming</strong> (including bitmask DP, tree DP, and digit DP), <strong>Backtracking</strong>, <strong>Number Theory</strong>, and <strong>Recursion</strong> — taking participants from foundational concepts to contest-grade applications</li>
-                        <li>Authored accompanying editorials and curated problem sets that became reusable training material for subsequent community cohorts, building lasting educational infrastructure beyond a single semester</li>
-                        <li>Provided one-on-one mentorship to students preparing for regional and national contests, helping them develop effective contest strategies, debugging techniques, and the confidence needed to perform under pressure</li>
-                    </ul>
-                </div>
-
-                <!-- Victoria College School -->
-                <div class="volunteer-card reveal">
-                    <div class="volunteer-top">
-                        <div>
-                            <h3>Victoria College — Competitive Programming Club</h3>
-                            <span class="volunteer-role">Founder & Lead Instructor</span>
-                        </div>
-                        <span class="edu-date"><i class="fas fa-calendar-alt"></i> May 2023 — Oct 2023</span>
-                    </div>
-                    <p>Founded the first Competitive Programming Club at Victoria College — my school in Alexandria, Egypt — introducing students to the world of algorithmic problem-solving and programming contests through a fully on-site, hands-on program.</p>
-                    <ul>
-                        <li>Designed a <strong>2-level curriculum from scratch</strong> for <strong>50 students (ages 10–16)</strong>, spanning language basics in <strong>C, C++, and Python</strong> through to the principles of algorithms and data structures</li>
-                        <li>Prepared and trained students for the <strong>Egyptian Olympiad in Informatics (EOI)</strong>, producing the school's first cohort of olympiad-eligible competitors through weekly training sessions and contest simulations</li>
-                        <li>Fostered a supportive learning environment that sparked interest in computer science and competitive programming among younger students, encouraging several to pursue CS-related studies</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Languages Section -->
-    <section id="languages">
-        <div class="section-container">
-            <div class="section-header reveal">
-                <div class="section-icon"><i class="fas fa-language"></i></div>
-                <h2>Languages</h2>
-                <p>Communication across cultures</p>
-            </div>
-
-            <div class="languages-grid reveal">
-                <div class="lang-card">
-                    <div class="lang-abbr" style="background: rgba(99, 102, 241, 0.15); color: var(--accent-light);">Ar</div>
-                    <h3>Arabic</h3>
-                    <span class="lang-level">Mother Tongue</span>
-                    <div class="lang-bar">
-                        <div class="lang-bar-fill" style="width: 100%;"></div>
-                    </div>
-                </div>
-                <div class="lang-card">
-                    <div class="lang-abbr" style="background: rgba(34, 197, 94, 0.15); color: var(--green);">En</div>
-                    <h3>English</h3>
-                    <span class="lang-level">Professional Proficiency</span>
-                    <div class="lang-bar">
-                        <div class="lang-bar-fill" style="width: 75%;"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="section-container">
-            <div class="section-header reveal">
-                <div class="section-icon"><i class="fas fa-envelope"></i></div>
-                <h2>Let's Connect</h2>
-                <p>Have a project in mind or want to discuss potential collaborations?</p>
-            </div>
-
-            <div class="contact-grid reveal">
-                <a href="mailto:omarelgedawy123098@gmail.com" class="contact-card">
-                    <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
-                    <div class="contact-card-info">
-                        <h4>Email</h4>
-                        <p>omarelgedawy123098<wbr>@gmail.com</p>
-                    </div>
-                </a>
-                <a href="https://www.linkedin.com/in/omarelgedawy/" target="_blank" class="contact-card">
-                    <div class="contact-card-icon"><i class="fab fa-linkedin-in"></i></div>
-                    <div class="contact-card-info">
-                        <h4>LinkedIn</h4>
-                        <p>in/omarelgedawy</p>
-                    </div>
-                </a>
-                <a href="https://github.com/Omar123098" target="_blank" class="contact-card">
-                    <div class="contact-card-icon"><i class="fab fa-github"></i></div>
-                    <div class="contact-card-info">
-                        <h4>GitHub</h4>
-                        <p>Omar123098</p>
-                    </div>
-                </a>
-                <a href="tel:+201226167393" class="contact-card">
-                    <div class="contact-card-icon"><i class="fas fa-phone"></i></div>
-                    <div class="contact-card-info">
-                        <h4>Phone</h4>
-                        <p>+20 122 616 7393</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="contact-cta reveal">
-                <h3>Ready to Start a Conversation?</h3>
-                <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
-                <a href="mailto:omarelgedawy123098@gmail.com" class="btn btn-primary">
-                    <i class="fas fa-paper-plane"></i> Send Me a Message
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p class="footer-quote">"Programming isn't about what you know; it's about what you can figure out."</p>
-        <p>Design by Omar Elgedawy, Implemented by Copilot &copy; 2026 Omar Elgedawy. All rights reserved.</p>
-    </footer>
-
-    <!-- JavaScript -->
-    <script>
-        // ===== Typing Animation =====
-        const roles = [
-            "C++ Software Engineer @ Auvnet",
-            "AI Trainer & Data Annotator @ DataAnnotation",
-            "BSc Artificial Intelligence @ AAST",
-            "RoboCup @Home — National Champion 2026",
-            "Machine Learning & Data Science Enthusiast",
-            "Codeforces Expert — Top 5% Globally",
-            "5× ACPC Qualifier · 6th Place 2024",
-            "Founder & President @ AAST ICPC Club",
-            "RLHF & Prompt Engineering Specialist",
-            "Exploring Deep Learning & Neural Networks",
-            "2500+ Problems Solved"
-        ];
-
-        let roleIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typedText = document.getElementById('typed-text');
-
-        function typeRole() {
-            const currentRole = roles[roleIndex];
-
-            if (isDeleting) {
-                typedText.textContent = currentRole.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typedText.textContent = currentRole.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            let typeSpeed = isDeleting ? 30 : 60;
-
-            if (!isDeleting && charIndex === currentRole.length) {
-                typeSpeed = 2000;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                roleIndex = (roleIndex + 1) % roles.length;
-                typeSpeed = 500;
-            }
-
-            setTimeout(typeRole, typeSpeed);
-        }
-
-        typeRole();
-
-        // ===== Scroll Reveal =====
-        const revealElements = document.querySelectorAll('.reveal');
-
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        revealElements.forEach(el => revealObserver.observe(el));
-
-        // ===== Navbar Scroll Effect =====
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // ===== Active Nav Link =====
-        const sections = document.querySelectorAll('section[id]');
-        const navLinksAll = document.querySelectorAll('.nav-links a:not(.nav-resume-btn)');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                if (scrollY >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinksAll.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // ===== Mobile Nav Toggle =====
-        const navToggle = document.getElementById('navToggle');
-        const navLinksEl = document.getElementById('navLinks');
-
-        navToggle.addEventListener('click', () => {
-            navLinksEl.classList.toggle('active');
-            const icon = navToggle.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
-
-        // Close mobile nav on link click
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinksEl.classList.remove('active');
-                const icon = navToggle.querySelector('i');
-                icon.classList.add('fa-bars');
-                icon.classList.remove('fa-times');
-            });
-        });
-
-        // ===== Cursor Glow =====
-        const cursorGlow = document.getElementById('cursorGlow');
-
-        document.addEventListener('mousemove', (e) => {
-            cursorGlow.style.left = e.clientX + 'px';
-            cursorGlow.style.top = e.clientY + 'px';
-            cursorGlow.style.opacity = '1';
-        });
-
-        document.addEventListener('mouseleave', () => {
-            cursorGlow.style.opacity = '0';
-        });
-
-        // ===== Smooth Scroll =====
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // ===== Floating Particles =====
-        function createParticles() {
-            const container = document.getElementById('aboutParticles');
-            if (!container) return;
-            for (let i = 0; i < 20; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDuration = (Math.random() * 8 + 6) + 's';
-                particle.style.animationDelay = (Math.random() * 10) + 's';
-                particle.style.width = particle.style.height = (Math.random() * 4 + 2) + 'px';
-                container.appendChild(particle);
-            }
-        }
-        createParticles();
-
-        // ===== Animated Stat Counters =====
-        function animateCounters() {
-            const statNumbers = document.querySelectorAll('.stat-number');
-            statNumbers.forEach(stat => {
-                const text = stat.textContent.trim();
-                const match = text.match(/^([\d]+)(\+?)$/);
-                if (match) {
-                    const target = parseInt(match[1]);
-                    const suffix = match[2];
-                    let current = 0;
-                    const increment = Math.max(1, Math.floor(target / 60));
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= target) {
-                            current = target;
-                            clearInterval(timer);
-                        }
-                        stat.textContent = current + suffix;
-                    }, 20);
-                }
-            });
-        }
-
-        // Trigger counters when about section is visible
-        const aboutSection = document.getElementById('about');
-        let countersAnimated = false;
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !countersAnimated) {
-                    countersAnimated = true;
-                    animateCounters();
-                }
-            });
-        }, { threshold: 0.2 });
-        if (aboutSection) counterObserver.observe(aboutSection);
-    </script>
-
+        <p class="sub-meta"><span>Sep 2022 — Oct 2024</span></p>
+        <ul>
+          <li>Ramped up on an undocumented proprietary platform with a custom DSL and <strong>zero formal onboarding</strong>; authored 30+ original logic puzzles.</li>
+          <li>Solved and documented <strong>120+ C++ contest problems</strong> and wrote <strong>40+ LaTeX tutorials</strong> on advanced DSA, powering downstream AI training datasets.</li>
+          <li>Recovered <strong>60+ failed Codeforces solutions</strong> into verified ground truth via root-cause analysis and annotated fixes.</li>
+        </ul>
+        <div class="tags"><span class="tag">C++</span><span class="tag">LaTeX</span><span class="tag">AI Training Data</span><span class="tag">Self-directed</span></div>
+      </article>
+    </div>
+
+    <div class="edu-note rv">
+      <div>
+        <div class="deg">BSc in Artificial Intelligence — Arab Academy for Science, Technology &amp; Maritime Transport (AAST)</div>
+        <div class="meta">Full scholarship · GPA 3.72 · Alamein, Egypt</div>
+      </div>
+      <div class="meta">Sep 2024 — Jul 2028</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ C. PROJECTS ============ -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="sec-letter">C</span><h2>Projects</h2></div>
+    <p class="sec-sub rv">// constructive solutions — full sources on GitHub</p>
+
+    <div class="proj-grid">
+      <article class="proj rv">
+        <span class="win">★ 1st IN EGYPT — INTL. QUALIFIER</span>
+        <div class="proj-top"><h3><a href="https://github.com/Omar123098/RoboCup-home" target="_blank" rel="noopener">Autonomous Service Robot — RoboCup @Home</a></h3><span class="yr">2026</span></div>
+        <p>Real-time person-detection and spatial-tracking module integrating YOLO with a ROS navigation stack, letting the robot autonomously find and interact with guests in unknown rooms.</p>
+        <div class="tags"><span class="tag">YOLO</span><span class="tag">ROS</span><span class="tag">Python</span><span class="tag">OpenCV</span></div>
+      </article>
+
+      <article class="proj rv">
+        <div class="proj-top"><h3><a href="https://www.kaggle.com/code/elgedawy/temperature-prediction" target="_blank" rel="noopener">Delhi Temperature Forecasting</a></h3><span class="yr">2026</span></div>
+        <p>End-to-end time-series pipeline — lag features, rolling statistics, seasonal decomposition — with a temporally cross-validated Random Forest cutting RMSE 28% below a linear baseline.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Scikit-learn</span><span class="tag">Time Series</span></div>
+      </article>
+
+      <article class="proj rv">
+        <div class="proj-top"><h3><a href="https://github.com/Omar123098/Shell" target="_blank" rel="noopener">Windows Shell in C++</a></h3><span class="yr">2025</span></div>
+        <p>A shell built from scratch on native Windows APIs: readline-style editing, persistent cross-session history, tab completion, and robust I/O redirection with pipes and file redirects.</p>
+        <div class="tags"><span class="tag">C++</span><span class="tag">Windows API</span><span class="tag">Systems</span></div>
+      </article>
+
+      <article class="proj rv">
+        <div class="proj-top"><h3><a href="https://github.com/Omar123098/Ecommerce" target="_blank" rel="noopener">E-Commerce Marketplace</a></h3><span class="yr">2025</span></div>
+        <p>Full-stack Django marketplace with auth, listings with image uploads, checkout, live inventory tracking, watchlists, and dashboards on a normalized PostgreSQL schema.</p>
+        <div class="tags"><span class="tag">Django</span><span class="tag">PostgreSQL</span><span class="tag">Full-stack</span></div>
+      </article>
+
+      <article class="proj rv">
+        <div class="proj-top"><h3><a href="https://www.kaggle.com/code/elgedawy/notebook7fa279bb2f" target="_blank" rel="noopener">Student Performance Analytics</a></h3><span class="yr">2026</span></div>
+        <p>Full exploratory analysis of student academic data — correlation analysis and multivariate visualizations surfacing the strongest performance predictors.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Seaborn</span><span class="tag">EDA</span></div>
+      </article>
+
+      <article class="proj rv">
+        <div class="proj-top"><h3><a href="https://github.com/Omar123098/Digital-Clock" target="_blank" rel="noopener">Digital Clock with AM/PM</a></h3><span class="yr">2025</span></div>
+        <p>12-hour clock with AM/PM toggling designed with D flip-flops and a 555 timer in Proteus, then prototyped on breadboard with 7490 counters and 7-segment displays.</p>
+        <div class="tags"><span class="tag">Digital Logic</span><span class="tag">Proteus</span><span class="tag">Hardware</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ D. TEACHING & COMMUNITY ============ -->
+<section id="teaching" class="alt">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="sec-letter">D</span><h2>Teaching &amp; Community</h2></div>
+    <p class="sec-sub rv">// 420+ students trained across schools, universities, and academies</p>
+
+    <div class="teach-grid">
+      <article class="teach rv">
+        <h3><a href="https://www.facebook.com/AASTcpc" target="_blank" rel="noopener">AAST ICPC Club</a></h3>
+        <div class="role">Founder · President · Training Head</div>
+        <div class="when">Sep 2024 — Present · Alamein</div>
+        <p>Founded AAST's first ICPC club and built a 3-level curriculum from C++ basics to advanced algorithms. Mentored <span class="num">300+ students</span>; qualified <span class="num">4 teams to ECPC</span> and <span class="num">1 to ACPC</span> in the first cycle.</p>
+      </article>
+
+      <article class="teach rv">
+        <h3><a href="https://www.facebook.com/FCDSICPC/" target="_blank" rel="noopener">FCDS ICPC Community — Alexandria University</a></h3>
+        <div class="role">Member · Instructor</div>
+        <div class="when">Oct 2024 — May 2025 · Alexandria</div>
+        <p>Delivered advanced sessions on <span class="num">DP, backtracking, number theory, and recursion</span> to 35+ undergraduates; authored editorials that became reusable training material for later cohorts.</p>
+      </article>
+
+      <article class="teach rv">
+        <h3>Victoria College CP Club</h3>
+        <div class="role">Founder · Lead Instructor</div>
+        <div class="when">May 2023 — Oct 2023 · Alexandria</div>
+        <p>Founded the school's first CP club with a 2-level curriculum for <span class="num">50 students (ages 10–16)</span>, producing its first cohort of EOI-eligible olympiad competitors.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ E. STANDINGS ============ -->
+<section id="standings">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="sec-letter">E</span><h2>Standings</h2></div>
+    <p class="sec-sub rv">// final results table — sorted by bragging rights</p>
+
+    <div class="tbl-scroll rv">
+      <table class="standings">
+        <thead><tr><th>#</th><th>Contest</th><th>Result</th><th>Year</th></tr></thead>
+        <tbody>
+          <tr><td class="rk">1</td><td>RoboCup @Home — Egypt</td><td class="res gold">National Champion · Intl. Qualifier</td><td class="yr-td">2026</td></tr>
+          <tr><td class="rk">2</td><td><a href="https://codeforces.com/profile/Gedawy" target="_blank" rel="noopener">Codeforces</a></td><td class="res blue">Expert — top 5% globally · 2500+ solved</td><td class="yr-td">—</td></tr>
+          <tr><td class="rk">3</td><td>African &amp; Arab Collegiate Programming Contest (ACPC)</td><td class="res silver">6th Place · 5× Qualifier</td><td class="yr-td">2024</td></tr>
+          <tr><td class="rk">4</td><td>Egyptian Olympiad in Informatics (EOI)</td><td class="res bronze">2× Bronze Medalist</td><td class="yr-td">2020, 2023</td></tr>
+          <tr><td class="rk">5</td><td>International Informatics Olympiad in Teams (IIOT)</td><td class="res gold">National Champion · Finalist</td><td class="yr-td">2022</td></tr>
+          <tr><td class="rk">6</td><td>ECPC Teens</td><td class="res silver">Silver Medal · 4th Place</td><td class="yr-td">2021</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ F. SKILLS ============ -->
+<section id="skills" class="alt">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="sec-letter">F</span><h2>Skills</h2></div>
+    <p class="sec-sub rv">// constraints I work comfortably within</p>
+
+    <div class="skill-rows rv">
+      <div class="skill-row"><div class="skill-k">languages</div><div class="skill-v"><span class="tag">C++</span><span class="tag">C</span><span class="tag">Python</span><span class="tag">SQL</span></div></div>
+      <div class="skill-row"><div class="skill-k">systems &amp; backend</div><div class="skill-v"><span class="tag">OOP &amp; SOLID</span><span class="tag">Systems Programming</span><span class="tag">Windows API</span><span class="tag">Django</span><span class="tag">PostgreSQL</span><span class="tag">Git/GitHub</span><span class="tag">Linux</span></div></div>
+      <div class="skill-row"><div class="skill-k">cv &amp; robotics</div><div class="skill-v"><span class="tag">OpenCV</span><span class="tag">MediaPipe</span><span class="tag">YOLO</span><span class="tag">ROS</span><span class="tag">Autonomous Navigation</span><span class="tag">Digital Logic</span></div></div>
+      <div class="skill-row"><div class="skill-k">data science &amp; ml</div><div class="skill-v"><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Scikit-learn</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span><span class="tag">EDA</span><span class="tag">Feature Engineering</span><span class="tag">Time-Series Forecasting</span></div></div>
+      <div class="skill-row"><div class="skill-k">ai training</div><div class="skill-v"><span class="tag">RLHF</span><span class="tag">Prompt Engineering</span><span class="tag">LLM Evaluation</span><span class="tag">Code Annotation</span><span class="tag">Red-Teaming</span><span class="tag">Arabic/English Annotation</span></div></div>
+      <div class="skill-row"><div class="skill-k">cs fundamentals</div><div class="skill-v"><span class="tag">Data Structures &amp; Algorithms</span><span class="tag">Dynamic Programming</span><span class="tag">Graph Theory</span><span class="tag">Number Theory</span><span class="tag">LaTeX</span></div></div>
+      <div class="skill-row"><div class="skill-k">spoken</div><div class="skill-v"><span class="tag">Arabic — native</span><span class="tag">English — fluent</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ G. CONTACT ============ -->
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="sec-letter">G</span><h2>Contact</h2></div>
+    <p class="sec-sub rv">// the only problem here is unsolved until you say hi</p>
+
+    <div class="term rv">
+      <div class="term-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="term-title">gedawy@alexandria: ~/contact</span></div>
+      <div class="term-body">
+        <div><span class="ps">$</span> <span class="cmd">cat contact.txt</span></div>
+        <div class="out">email&nbsp;&nbsp;&nbsp;&nbsp;→ <a href="mailto:omarelgedawy123098@gmail.com">omarelgedawy123098@gmail.com</a></div>
+        <div class="out">phone&nbsp;&nbsp;&nbsp;&nbsp;→ <a href="tel:+201226167393">+20 122 616 7393</a></div>
+        <div class="out">github&nbsp;&nbsp;&nbsp;→ <a href="https://github.com/Omar123098" target="_blank" rel="noopener">github.com/Omar123098</a></div>
+        <div class="out">linkedin&nbsp;→ <a href="https://www.linkedin.com/in/omarelgedawy/" target="_blank" rel="noopener">linkedin.com/in/omarelgedawy</a></div>
+        <div class="out">codeforces → <a href="https://codeforces.com/profile/Gedawy" target="_blank" rel="noopener">codeforces.com/profile/Gedawy</a></div>
+        <div><span class="ps">$</span> <span class="cmd">./status</span></div>
+        <div class="out">open to SWE &amp; data-science internships/Junior — remote or MENA/EMEA</div>
+        <div><span class="ps">$</span> <span class="c cmd">_</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© <span id="yr"></span> Omar Elgedawy · built by hand, judged by you · verdict: <span style="color:var(--green);font-weight:700">accepted</span></p>
+</footer>
+
+<script>
+// mobile nav
+const t=document.getElementById('navToggle'),l=document.getElementById('navLinks');
+t.addEventListener('click',()=>{const o=l.classList.toggle('open');t.setAttribute('aria-expanded',o)});
+l.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{l.classList.remove('open');t.setAttribute('aria-expanded','false')}));
+// reveal on scroll
+const rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const els=document.querySelectorAll('.rv');
+if(rm||!('IntersectionObserver'in window)){els.forEach(e=>e.classList.add('in'));}
+else{
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+  els.forEach(e=>io.observe(e));
+}
+// year
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
 </body>
-
 </html>
