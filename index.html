@@ -180,21 +180,6 @@ h1{font-family:var(--mono);font-weight:700;font-size:clamp(2.1rem,5.4vw,3.2rem);
 .course.run::before{content:"● "}
 .course.lock{color:var(--ink-mute);background:transparent;border-color:var(--line-strong);border-style:dashed}
 
-/* ============ UPSOLVING ============ */
-.stage{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-bottom:1rem}
-.stage-h{display:flex;justify-content:space-between;align-items:center;gap:.6rem;flex-wrap:wrap;padding:.65rem 1rem;background:var(--paper-2);border-bottom:1px solid var(--line)}
-.stage-h h3{font-family:var(--mono);font-size:.92rem;font-weight:700}
-.stage-h span.when{font-family:var(--mono);font-size:.76rem;color:var(--ink-mute)}
-.stage.now{border-color:#EDCB9A}
-.stage.now .stage-h{background:var(--orange-soft)}
-.stage ul{list-style:none}
-.stage li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.3rem 1rem;align-items:baseline;padding:.6rem 1rem;border-bottom:1px solid var(--line)}
-.stage li:last-child{border-bottom:none}
-.stage li b{font-weight:600}
-.stage li small{display:block;color:var(--ink-mute);font-size:.84rem;line-height:1.4}
-.stage li .src{font-family:var(--mono);font-size:.74rem;color:var(--ink-mute);text-align:right;white-space:nowrap}
-@media(max-width:640px){.stage li{grid-template-columns:1fr}.stage li .src{text-align:left}}
-
 /* ============ EXPERIENCE ============ */
 .sub-list{display:flex;flex-direction:column;gap:1rem}
 .sub{border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:var(--r);padding:1.3rem 1.5rem;background:var(--card)}
@@ -335,9 +320,9 @@ footer .acc{color:var(--green);font-weight:700}
       <li><a href="#B" data-nav="B">./education</a></li>
       <li><a href="#C" data-nav="C">./experience</a></li>
       <li><a href="#D" data-nav="D">./projects</a></li>
-      <li><a href="#G" data-nav="G">./videos</a></li>
-      <li><a href="#H" data-nav="H">./standings</a></li>
-      <li><a href="#J" data-nav="J">./contact</a></li>
+      <li><a href="#F" data-nav="F">./videos</a></li>
+      <li><a href="#G" data-nav="G">./standings</a></li>
+      <li><a href="#I" data-nav="I">./contact</a></li>
       <li><a class="nav-cta" href="resume/Omar%20Elgedawy.pdf" target="_blank" rel="noopener">resume.pdf</a></li>
     </ul>
   </div>
@@ -351,7 +336,7 @@ footer .acc{color:var(--green);font-weight:700}
   <div class="round">
     <p class="round-meta"><span class="live">Running</span><span>Personal Round #1 (Div. 1)</span><span>Alexandria, Egypt</span></p>
     <h1 id="round-title">Omar Elgedawy</h1>
-    <p class="round-sub">AI and data science student heading for AI &amp; ML engineering. I build real-time C++ computer vision, train competitive programmers, and explain the math behind AI in Arabic on YouTube. Open a problem below to see the work.</p>
+    <p class="round-sub">AI and data science student building toward AI &amp; ML engineering, data science, and software engineering. I build real-time C++ computer vision, train competitive programmers, and explain the math behind AI in Arabic on YouTube. Open a problem below to see the work.</p>
     <div class="io-grid">
       <div class="io-cell"><div class="io-k">problems_solved</div><div class="io-v">3000<span class="u">+ all judges</span></div></div>
       <div class="io-cell"><div class="io-k">codeforces</div><div class="io-v">Expert <span class="u">top 5%</span></div></div>
@@ -369,19 +354,18 @@ footer .acc{color:var(--green);font-weight:700}
   </div>
 
   <div class="ptable-wrap">
-    <div class="ptable-head"><h2>Problems</h2><span id="solvedLabel">10 problems</span></div>
+    <div class="ptable-head"><h2>Problems</h2><span id="solvedLabel">9 problems</span></div>
     <table class="ptable">
       <tbody>
         <tr data-p="A"><td class="p-id"><a href="#A">A</a></td><td class="p-name"><a href="#A">About</a><small>Who I am and what I'm looking for</small></td><td class="p-tags">intro, constructive</td><td class="p-diff d-gray">1000</td><td class="p-ok" aria-hidden="true"></td></tr>
         <tr data-p="B"><td class="p-id"><a href="#B">B</a></td><td class="p-name"><a href="#B">Education</a><small>Data Science track, Excellent GPA, top 5 in my department</small></td><td class="p-tags">math, dp over terms</td><td class="p-diff d-cyan">1400</td><td class="p-ok" aria-hidden="true"></td></tr>
         <tr data-p="C"><td class="p-id"><a href="#C">C</a></td><td class="p-name"><a href="#C">Experience</a><small>Real-time C++ CV, quantum finance research, teaching</small></td><td class="p-tags">c++, research, cv</td><td class="p-diff d-orange">2100</td><td class="p-ok" aria-hidden="true"></td></tr>
         <tr data-p="D"><td class="p-id"><a href="#D">D</a></td><td class="p-name"><a href="#D">Projects</a><small>RoboCup @Home robot, a C++ shell, forecasting, full-stack</small></td><td class="p-tags">robotics, ml, systems</td><td class="p-diff d-violet">1900</td><td class="p-ok" aria-hidden="true"></td></tr>
-        <tr data-p="E"><td class="p-id"><a href="#E">E</a></td><td class="p-name"><a href="#E">Upsolving</a><small>What I'm learning now and next, beyond college</small></td><td class="p-tags">self-study, ml, systems</td><td class="p-diff d-violet">2000</td><td class="p-ok" aria-hidden="true"></td></tr>
-        <tr data-p="F"><td class="p-id"><a href="#F">F</a></td><td class="p-name"><a href="#F">Teaching &amp; Community</a><small>450+ students, from first line of C++ to ECPC</small></td><td class="p-tags">greedy, mentorship</td><td class="p-diff d-blue">1600</td><td class="p-ok" aria-hidden="true"></td></tr>
-        <tr data-p="G"><td class="p-id"><a href="#G">G</a></td><td class="p-name"><a href="#G">Videos</a><small>"But what is dy/dx", the math behind AI in Arabic</small></td><td class="p-tags">calculus, interactive</td><td class="p-diff d-green">1200</td><td class="p-ok" aria-hidden="true"></td></tr>
-        <tr data-p="H"><td class="p-id"><a href="#H">H</a></td><td class="p-name"><a href="#H">Standings</a><small>RoboCup, ACPC, EOI, IIOT results</small></td><td class="p-tags">implementation, medals</td><td class="p-diff d-red">2400</td><td class="p-ok" aria-hidden="true"></td></tr>
-        <tr data-p="I"><td class="p-id"><a href="#I">I</a></td><td class="p-name"><a href="#I">Skills</a><small>Languages, CV, ML, data, systems</small></td><td class="p-tags">data structures</td><td class="p-diff d-cyan">1500</td><td class="p-ok" aria-hidden="true"></td></tr>
-        <tr data-p="J"><td class="p-id"><a href="#J">J</a></td><td class="p-name"><a href="#J">Contact</a><small>Send a submission, get a reply</small></td><td class="p-tags">interactive</td><td class="p-diff d-gray">800</td><td class="p-ok" aria-hidden="true"></td></tr>
+        <tr data-p="E"><td class="p-id"><a href="#E">E</a></td><td class="p-name"><a href="#E">Teaching &amp; Community</a><small>450+ students, from first line of C++ to ECPC</small></td><td class="p-tags">greedy, mentorship</td><td class="p-diff d-blue">1600</td><td class="p-ok" aria-hidden="true"></td></tr>
+        <tr data-p="F"><td class="p-id"><a href="#F">F</a></td><td class="p-name"><a href="#F">Videos</a><small>"But what is dy/dx", the math behind AI in Arabic</small></td><td class="p-tags">calculus, interactive</td><td class="p-diff d-green">1200</td><td class="p-ok" aria-hidden="true"></td></tr>
+        <tr data-p="G"><td class="p-id"><a href="#G">G</a></td><td class="p-name"><a href="#G">Standings</a><small>RoboCup, ACPC, EOI, IIOT results</small></td><td class="p-tags">implementation, medals</td><td class="p-diff d-red">2400</td><td class="p-ok" aria-hidden="true"></td></tr>
+        <tr data-p="H"><td class="p-id"><a href="#H">H</a></td><td class="p-name"><a href="#H">Skills</a><small>Languages, CV, ML, data, systems</small></td><td class="p-tags">data structures</td><td class="p-diff d-cyan">1500</td><td class="p-ok" aria-hidden="true"></td></tr>
+        <tr data-p="I"><td class="p-id"><a href="#I">I</a></td><td class="p-name"><a href="#I">Contact</a><small>Send a submission, get a reply</small></td><td class="p-tags">interactive</td><td class="p-diff d-gray">800</td><td class="p-ok" aria-hidden="true"></td></tr>
       </tbody>
     </table>
   </div>
@@ -390,7 +374,7 @@ footer .acc{color:var(--green);font-weight:700}
 <!-- ============ A. ABOUT ============ -->
 <section id="A" class="view" aria-labelledby="A-title">
   <article class="ps">
-    <div class="ps-crumb"><a href="#problems">Problems</a><span>A / 10</span></div>
+    <div class="ps-crumb"><a href="#problems">Problems</a><span>A / 9</span></div>
     <div class="ps-header">
       <h2 class="ps-title" id="A-title" tabindex="-1">A. About</h2>
       <div class="ps-limits">
@@ -406,19 +390,13 @@ footer .acc{color:var(--green);font-weight:700}
       <p>I'm Omar Elgedawy, <strong>Gedawy</strong> on Codeforces. I study artificial intelligence at AAST in Alamein on a full scholarship, specializing in <strong>data science</strong>, with an Excellent GPA and a top-5 rank in my department. I build real-time C++ computer vision and recently finished a research internship in quantum finance at Nile University.</p>
       <p>I'm a <strong>Codeforces Expert (top 5% globally)</strong> with 3000+ problems solved across judges, a <strong>RoboCup @Home national champion</strong> (1st in Egypt, 2026), and the founder of the AAST ICPC Club. I like explaining things, so I also make Arabic videos on the math behind AI.</p>
       <h3 class="ps-sec">Input</h3>
-      <p>An internship for <strong>summer 2027</strong>, in this order of fit:</p>
-      <ol class="chapters" style="margin-top:.6rem">
-        <li>AI &amp; automation engineering: LLM apps, agents, putting models to work</li>
-        <li>Machine learning engineering: training, evaluating, and shipping models</li>
-        <li>Data science: statistics, modeling, and turning data into decisions</li>
-        <li>Software engineering, especially C++ and performance-sensitive work</li>
-        <li>Computer vision, then backend</li>
-      </ol>
-      <p style="margin-top:.8rem">Remote, or on-site in MENA/EMEA. After graduating in 2028 I'm aiming for a <strong>fully funded research master's or PhD in AI/ML</strong>, so research collaborations are welcome too.</p>
+      <p>A role in one of the directions I'm building toward:</p>
+      <div class="tags" style="margin-top:.6rem"><span class="tag">AI &amp; ML engineering</span><span class="tag">Data science</span><span class="tag">Software engineering</span><span class="tag">Backend</span></div>
+      <p style="margin-top:.8rem">Internships, remote or on-site in MENA/EMEA.</p>
       <h3 class="ps-sec">Output</h3>
       <p>An engineer who reads the constraints first, then ships something that passes every test.</p>
       <h3 class="ps-sec">Interests</h3>
-      <p>Problem solving and low-level work in equal measure: how models learn, how the hardware underneath runs them, and how to make both fast. Right now that means deep learning and AI engineering, probability and linear algebra done properly, computer architecture, and teaching math so it actually makes sense. Quantitative finance is a long-term side interest. The full learning plan is in <a href="#E">problem E</a>.</p>
+      <p>Problem solving and low-level work in equal measure: how models learn, how the hardware underneath runs them, and how to make both fast. Right now that means deep learning and AI engineering, probability and linear algebra done properly, computer architecture, and teaching math so it actually makes sense. Quantitative finance is a side interest.</p>
       <h3 class="ps-sec">Examples</h3>
       <div class="samples">
         <div class="sample"><div><div class="lbl">input</div><pre>build a face-effects engine
@@ -434,7 +412,7 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
 + an interactive notebook</pre></div></div>
       </div>
       <h3 class="ps-sec">Note</h3>
-      <p>Right now I'm in term 5 of the Data Science track, working through a self-study plan on top of college, and growing an Arabic YouTube series. The full resume is one click away in the top bar.</p>
+      <p>Right now I'm in term 5 of the Data Science track and growing an Arabic YouTube series. The full resume is one click away in the top bar.</p>
     </div>
     <nav class="ps-nav" aria-label="Problem navigation"><a href="#problems" class="muted">Problems</a><a href="#B">B. Education</a></nav>
   </article>
@@ -443,7 +421,7 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
 <!-- ============ B. EDUCATION ============ -->
 <section id="B" class="view" aria-labelledby="B-title">
   <article class="ps">
-    <div class="ps-crumb"><a href="#problems">Problems</a><span>B / 10</span></div>
+    <div class="ps-crumb"><a href="#problems">Problems</a><span>B / 9</span></div>
     <div class="ps-header">
       <h2 class="ps-title" id="B-title" tabindex="-1">B. Education</h2>
       <div class="ps-limits">
@@ -480,7 +458,7 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
 <!-- ============ C. EXPERIENCE ============ -->
 <section id="C" class="view" aria-labelledby="C-title">
   <article class="ps">
-    <div class="ps-crumb"><a href="#problems">Problems</a><span>C / 10</span></div>
+    <div class="ps-crumb"><a href="#problems">Problems</a><span>C / 9</span></div>
     <div class="ps-header">
       <h2 class="ps-title" id="C-title" tabindex="-1">C. Experience</h2>
       <div class="ps-limits">
@@ -567,7 +545,7 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
 <!-- ============ D. PROJECTS ============ -->
 <section id="D" class="view" aria-labelledby="D-title">
   <article class="ps">
-    <div class="ps-crumb"><a href="#problems">Problems</a><span>D / 10</span></div>
+    <div class="ps-crumb"><a href="#problems">Problems</a><span>D / 9</span></div>
     <div class="ps-header">
       <h2 class="ps-title" id="D-title" tabindex="-1">D. Projects</h2>
       <div class="ps-limits">
@@ -626,97 +604,16 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
         </div>
       </div>
     </div>
-    <nav class="ps-nav" aria-label="Problem navigation"><a href="#C">C. Experience</a><a href="#E">E. Upsolving</a></nav>
+    <nav class="ps-nav" aria-label="Problem navigation"><a href="#C">C. Experience</a><a href="#E">E. Teaching &amp; Community</a></nav>
   </article>
 </section>
 
-<!-- ============ E. UPSOLVING ============ -->
+<!-- ============ E. TEACHING ============ -->
 <section id="E" class="view" aria-labelledby="E-title">
   <article class="ps">
-    <div class="ps-crumb"><a href="#problems">Problems</a><span>E / 10</span></div>
+    <div class="ps-crumb"><a href="#problems">Problems</a><span>E / 9</span></div>
     <div class="ps-header">
-      <h2 class="ps-title" id="E-title" tabindex="-1">E. Upsolving</h2>
-      <div class="ps-limits">
-        <div class="ps-limit"><b>time limit per test:</b> five learning cycles, 2026 to 2028</div>
-        <div class="ps-limit"><b>memory limit per test:</b> 4 to 6 hours a day</div>
-        <div class="ps-limit"><b>input:</b> the gaps a degree leaves</div>
-        <div class="ps-limit"><b>output:</b> an AI &amp; ML engineer who knows what's underneath</div>
-      </div>
-      <div class="judge js-only" data-tests="10" aria-live="polite"></div>
-    </div>
-    <div class="ps-body">
-      <h3 class="ps-sec">Statement</h3>
-      <p>In competitive programming, upsolving means going back after the contest to solve what you couldn't. This is my version for engineering: a self-study plan that runs alongside college, built around where I want to work (AI and ML engineering first, then data science and software engineering) and the fundamentals those jobs rest on.</p>
-      <p>Each cycle mixes math, systems, and ML so no area goes cold. Courses are mostly MIT, Berkeley, Stanford, CMU, and Harvard material, plus the books practitioners actually use.</p>
-
-      <div class="stage now" style="margin-top:1.4rem">
-        <div class="stage-h"><h3>Cycle 1 · now</h3><span class="when">Aug 2026 – Feb 2027</span></div>
-        <ul>
-          <li><span><b>Multivariable Calculus</b><small>the calculus behind gradients and optimization</small></span><span class="src">MIT 18.02</span></li>
-          <li><span><b>Linear Algebra</b><small>the language of every model</small></span><span class="src">MIT 18.06</span></li>
-          <li><span><b>Probability</b><small>Blitzstein's Stat 110, lectures and problem sets</small></span><span class="src">Harvard Stat 110</span></li>
-          <li><span><b>Computer Architecture</b><small>C, RISC-V, caches, parallelism</small></span><span class="src">UC Berkeley CS61C</span></li>
-          <li><span><b>Machine Learning</b><small>PyTorch, CNNs, RNNs, and a computer vision paper project</small></span><span class="src">Dr. Mostafa Saad</span></li>
-          <li><span><b>Neural Networks: Zero to Hero</b><small>building language models from scratch</small></span><span class="src">Andrej Karpathy</span></li>
-          <li><span><b>Databases</b><small>SQL and relational design, live course</small></span><span class="src">Dr. Mostafa Saad</span></li>
-        </ul>
-      </div>
-
-      <div class="stage">
-        <div class="stage-h"><h3>Cycle 2 · AI engineering</h3><span class="when">Feb – Jun 2027</span></div>
-        <ul>
-          <li><span><b>AI Engineering</b><small>building applications on foundation models</small></span><span class="src">Chip Huyen</span></li>
-          <li><span><b>Agents Course</b><small>LLM agents, tools, and frameworks</small></span><span class="src">Hugging Face</span></li>
-          <li><span><b>Deep Learning Diploma</b><small>transformers, detection, segmentation, quantization</small></span><span class="src">Dr. Mostafa Saad</span></li>
-          <li><span><b>Matrix Calculus for ML</b></span><span class="src">MIT 18.S096</span></li>
-          <li><span><b>An Introduction to Statistical Learning</b><small>Python edition, plus boosted trees</small></span><span class="src">ISL, XGBoost</span></li>
-        </ul>
-      </div>
-
-      <div class="stage">
-        <div class="stage-h"><h3>Cycle 3 · systems &amp; software</h3><span class="when">Jun – Nov 2027</span></div>
-        <ul>
-          <li><span><b>Software Construction</b></span><span class="src">MIT 6.102</span></li>
-          <li><span><b>Designing Data-Intensive Applications</b></span><span class="src">Kleppmann</span></li>
-          <li><span><b>Database Systems</b></span><span class="src">CMU 15-445</span></li>
-          <li><span><b>Effective Modern C++</b></span><span class="src">Meyers</span></li>
-          <li><span><b>Convex Optimization</b></span><span class="src">Stanford EE364A</span></li>
-          <li><span><b>SQL for Data Analysis</b></span><span class="src">book</span></li>
-        </ul>
-      </div>
-
-      <div class="stage">
-        <div class="stage-h"><h3>Cycle 4 · ship it</h3><span class="when">Dec 2027 – Jun 2028</span></div>
-        <ul>
-          <li><span><b>Graduation project</b><small>an AI and data science system, end to end</small></span><span class="src">AAST</span></li>
-          <li><span><b>Operating System Engineering</b></span><span class="src">MIT 6.1810</span></li>
-          <li><span><b>Programming Massively Parallel Processors</b><small>CUDA and GPU computing</small></span><span class="src">PMPP</span></li>
-          <li><span><b>Designing Machine Learning Systems</b></span><span class="src">Chip Huyen</span></li>
-        </ul>
-      </div>
-
-      <div class="stage">
-        <div class="stage-h"><h3>Cycle 5 · optional depth</h3><span class="when">2028 onward</span></div>
-        <ul>
-          <li><span><b>Quantitative finance</b><small>stochastic calculus, derivatives, market microstructure</small></span><span class="src">Shreve, Hull, Harris</span></li>
-          <li><span><b>Real Analysis and stochastic processes</b></span><span class="src">MIT 18.100A, 6.262</span></li>
-          <li><span><b>C++ Concurrency in Action</b></span><span class="src">Williams</span></li>
-        </ul>
-      </div>
-
-      <h3 class="ps-sec">Alongside</h3>
-      <p>Live Codeforces contests every couple of days with upsolving, and turning what I learn into Arabic videos (<a href="#G">problem G</a>).</p>
-    </div>
-    <nav class="ps-nav" aria-label="Problem navigation"><a href="#D">D. Projects</a><a href="#F">F. Teaching &amp; Community</a></nav>
-  </article>
-</section>
-
-<!-- ============ F. TEACHING ============ -->
-<section id="F" class="view" aria-labelledby="F-title">
-  <article class="ps">
-    <div class="ps-crumb"><a href="#problems">Problems</a><span>F / 10</span></div>
-    <div class="ps-header">
-      <h2 class="ps-title" id="F-title" tabindex="-1">F. Teaching &amp; Community</h2>
+      <h2 class="ps-title" id="E-title" tabindex="-1">E. Teaching &amp; Community</h2>
       <div class="ps-limits">
         <div class="ps-limit"><b>time limit per test:</b> one training season</div>
         <div class="ps-limit"><b>memory limit per test:</b> 450+ students</div>
@@ -748,16 +645,16 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
         </div>
       </div>
     </div>
-    <nav class="ps-nav" aria-label="Problem navigation"><a href="#E">E. Upsolving</a><a href="#G">G. Videos</a></nav>
+    <nav class="ps-nav" aria-label="Problem navigation"><a href="#D">D. Projects</a><a href="#F">F. Videos</a></nav>
   </article>
 </section>
 
-<!-- ============ G. VIDEOS ============ -->
-<section id="G" class="view" aria-labelledby="G-title">
+<!-- ============ F. VIDEOS ============ -->
+<section id="F" class="view" aria-labelledby="F-title">
   <article class="ps">
-    <div class="ps-crumb"><a href="#problems">Problems</a><span>G / 10</span></div>
+    <div class="ps-crumb"><a href="#problems">Problems</a><span>F / 9</span></div>
     <div class="ps-header">
-      <h2 class="ps-title" id="G-title" tabindex="-1">G. Videos</h2>
+      <h2 class="ps-title" id="F-title" tabindex="-1">F. Videos</h2>
       <div class="ps-limits">
         <div class="ps-limit"><b>time limit per test:</b> about 1 hour</div>
         <div class="ps-limit"><b>memory limit per test:</b> one laptop pen</div>
@@ -803,16 +700,16 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
       </div>
       <p style="margin-top:1rem">Before this, I recorded Intro to Computing videos for my classmates at AAST. Feedback and topic ideas are welcome: recording alone in front of a laptop camera is very different from a live room.</p>
     </div>
-    <nav class="ps-nav" aria-label="Problem navigation"><a href="#F">F. Teaching &amp; Community</a><a href="#H">H. Standings</a></nav>
+    <nav class="ps-nav" aria-label="Problem navigation"><a href="#E">E. Teaching &amp; Community</a><a href="#G">G. Standings</a></nav>
   </article>
 </section>
 
-<!-- ============ H. STANDINGS ============ -->
-<section id="H" class="view" aria-labelledby="H-title">
+<!-- ============ G. STANDINGS ============ -->
+<section id="G" class="view" aria-labelledby="G-title">
   <article class="ps">
-    <div class="ps-crumb"><a href="#problems">Problems</a><span>H / 10</span></div>
+    <div class="ps-crumb"><a href="#problems">Problems</a><span>G / 9</span></div>
     <div class="ps-header">
-      <h2 class="ps-title" id="H-title" tabindex="-1">H. Standings</h2>
+      <h2 class="ps-title" id="G-title" tabindex="-1">G. Standings</h2>
       <div class="ps-limits">
         <div class="ps-limit"><b>time limit per test:</b> 5 hours per contest</div>
         <div class="ps-limit"><b>memory limit per test:</b> one keyboard per team</div>
@@ -836,16 +733,16 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
         </table>
       </div>
     </div>
-    <nav class="ps-nav" aria-label="Problem navigation"><a href="#G">G. Videos</a><a href="#I">I. Skills</a></nav>
+    <nav class="ps-nav" aria-label="Problem navigation"><a href="#F">F. Videos</a><a href="#H">H. Skills</a></nav>
   </article>
 </section>
 
-<!-- ============ I. SKILLS ============ -->
-<section id="I" class="view" aria-labelledby="I-title">
+<!-- ============ H. SKILLS ============ -->
+<section id="H" class="view" aria-labelledby="H-title">
   <article class="ps">
-    <div class="ps-crumb"><a href="#problems">Problems</a><span>I / 10</span></div>
+    <div class="ps-crumb"><a href="#problems">Problems</a><span>H / 9</span></div>
     <div class="ps-header">
-      <h2 class="ps-title" id="I-title" tabindex="-1">I. Skills</h2>
+      <h2 class="ps-title" id="H-title" tabindex="-1">H. Skills</h2>
       <div class="ps-limits">
         <div class="ps-limit"><b>time limit per test:</b> as long as it takes to learn</div>
         <div class="ps-limit"><b>memory limit per test:</b> unbounded</div>
@@ -866,16 +763,16 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
         <div class="skill-row"><div class="skill-k">spoken</div><div class="skill-v"><span class="tag">Arabic, native</span><span class="tag">English, fluent</span></div></div>
       </div>
     </div>
-    <nav class="ps-nav" aria-label="Problem navigation"><a href="#H">H. Standings</a><a href="#J">J. Contact</a></nav>
+    <nav class="ps-nav" aria-label="Problem navigation"><a href="#G">G. Standings</a><a href="#I">I. Contact</a></nav>
   </article>
 </section>
 
-<!-- ============ J. CONTACT ============ -->
-<section id="J" class="view" aria-labelledby="J-title">
+<!-- ============ I. CONTACT ============ -->
+<section id="I" class="view" aria-labelledby="I-title">
   <article class="ps">
-    <div class="ps-crumb"><a href="#problems">Problems</a><span>J / 10</span></div>
+    <div class="ps-crumb"><a href="#problems">Problems</a><span>I / 9</span></div>
     <div class="ps-header">
-      <h2 class="ps-title" id="J-title" tabindex="-1">J. Contact</h2>
+      <h2 class="ps-title" id="I-title" tabindex="-1">I. Contact</h2>
       <div class="ps-limits">
         <div class="ps-limit"><b>time limit per test:</b> one message</div>
         <div class="ps-limit"><b>memory limit per test:</b> your inbox</div>
@@ -920,7 +817,7 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
         <p class="form-note">Submitting opens your email app with the message filled in.</p>
       </form>
     </div>
-    <nav class="ps-nav" aria-label="Problem navigation"><a href="#I">I. Skills</a><a href="#problems">Back to problems</a></nav>
+    <nav class="ps-nav" aria-label="Problem navigation"><a href="#H">H. Skills</a><a href="#problems">Back to problems</a></nav>
   </article>
 </section>
 </main>
@@ -931,7 +828,7 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
     <div class="box-h">→ Pay attention</div>
     <div class="box-b">
       <p>Looking for a <strong>summer 2027 internship</strong> in AI/ML engineering, data science, or software engineering.</p>
-      <p>New on YouTube: <a href="#G">But what is dy/dx</a>, the math behind AI, in Arabic.</p>
+      <p>New on YouTube: <a href="#F">But what is dy/dx</a>, the math behind AI, in Arabic.</p>
       <p><a href="resume/Omar%20Elgedawy.pdf" target="_blank" rel="noopener">Download resume</a></p>
     </div>
   </div>
@@ -963,23 +860,22 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
         <li data-p="B"><a href="#B">B. Education</a><span class="okmark">✓</span></li>
         <li data-p="C"><a href="#C">C. Experience</a><span class="okmark">✓</span></li>
         <li data-p="D"><a href="#D">D. Projects</a><span class="okmark">✓</span></li>
-        <li data-p="E"><a href="#E">E. Upsolving</a><span class="okmark">✓</span></li>
-        <li data-p="F"><a href="#F">F. Teaching</a><span class="okmark">✓</span></li>
-        <li data-p="G"><a href="#G">G. Videos</a><span class="okmark">✓</span></li>
-        <li data-p="H"><a href="#H">H. Standings</a><span class="okmark">✓</span></li>
-        <li data-p="I"><a href="#I">I. Skills</a><span class="okmark">✓</span></li>
-        <li data-p="J"><a href="#J">J. Contact</a><span class="okmark">✓</span></li>
+        <li data-p="E"><a href="#E">E. Teaching</a><span class="okmark">✓</span></li>
+        <li data-p="F"><a href="#F">F. Videos</a><span class="okmark">✓</span></li>
+        <li data-p="G"><a href="#G">G. Standings</a><span class="okmark">✓</span></li>
+        <li data-p="H"><a href="#H">H. Skills</a><span class="okmark">✓</span></li>
+        <li data-p="I"><a href="#I">I. Contact</a><span class="okmark">✓</span></li>
       </ul>
       <div class="js-only">
         <div class="progress" aria-hidden="true"><i id="progBar"></i></div>
-        <div class="kv" id="progText" style="margin-top:0">solved 0 / 10</div>
+        <div class="kv" id="progText" style="margin-top:0">solved 0 / 9</div>
       </div>
     </div>
   </div>
   <div class="box shortcuts js-only">
     <div class="box-h">→ Shortcuts</div>
     <div class="box-b keys">
-      <span class="kbd">A</span><span>to <span class="kbd">J</span> open a problem</span>
+      <span class="kbd">A</span><span>to <span class="kbd">I</span> open a problem</span>
       <span class="kbd">←</span><span>previous problem</span>
       <span class="kbd">→</span><span>next problem</span>
       <span class="kbd">Esc</span><span>back to the list</span>
@@ -994,9 +890,9 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
 
 <script>
 (function(){
-  var order=['A','B','C','D','E','F','G','H','I','J'];
+  var order=['A','B','C','D','E','F','G','H','I'];
   var total=order.length;
-  var legacy={home:'problems',about:'A',education:'B',experience:'C',projects:'D',upsolving:'E',learning:'E',teaching:'F',videos:'G',youtube:'G',standings:'H',skills:'I',contact:'J'};
+  var legacy={home:'problems',about:'A',education:'B',experience:'C',projects:'D',teaching:'E',videos:'F',youtube:'F',standings:'G',skills:'H',contact:'I'};
   var views=[].slice.call(document.querySelectorAll('.view'));
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var titles={problems:'Omar Elgedawy · Software Engineer & Data Scientist'};
@@ -1012,9 +908,8 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
     return 'problems';
   }
 
-  // solved state, per visitor and tab; storage can be unavailable (private mode, sandboxed previews)
-  var solved={};
-  try{(JSON.parse(sessionStorage.getItem('solved')||'[]')||[]).forEach(function(p){if(order.indexOf(p)>=0)solved[p]=1})}catch(e){}
+  // solved state for this page view only
+  var solved={}; // starts empty on every page load
   function count(){return Object.keys(solved).length}
   function paintSolved(){
     [].forEach.call(document.querySelectorAll('[data-p]'),function(el){
@@ -1027,7 +922,7 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
     document.getElementById('progText').textContent=n===total?'solved '+total+' / '+total+' · full score':'solved '+n+' / '+total;
     document.getElementById('solvedLabel').textContent=n?n+' / '+total+' solved':total+' problems';
   }
-  function markSolved(p){solved[p]=1;try{sessionStorage.setItem('solved',JSON.stringify(Object.keys(solved)))}catch(e){}paintSolved()}
+  function markSolved(p){solved[p]=1;paintSolved()}
 
   // short judge run when a problem opens
   function judge(p){
@@ -1083,7 +978,7 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
     if(e.ctrlKey||e.metaKey||e.altKey) return;
     if(e.target.closest&&e.target.closest('input,textarea,select,button,[contenteditable]')) return;
     var k=e.key;
-    if(/^[a-j]$/i.test(k)){go(k.toUpperCase());return}
+    if(/^[a-i]$/i.test(k)){go(k.toUpperCase());return}
     if(k==='Escape'){go('problems');return}
     var i=order.indexOf(cur); if(i<0) return;
     if(k==='ArrowRight'&&i<total-1) go(order[i+1]);
