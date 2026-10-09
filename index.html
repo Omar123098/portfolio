@@ -3,565 +3,855 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Omar Elgedawy — Software Engineer & Competitive Programmer</title>
-<meta name="description" content="Omar Elgedawy: C++ software engineer, AI trainer, Codeforces Expert (top 5% globally), RoboCup @Home national champion, and founder of the AAST ICPC Club.">
+<title>Omar Elgedawy · Software Engineer &amp; Data Scientist</title>
+<meta name="description" content="Omar Elgedawy (Gedawy): C++ software engineer and data scientist, quantum finance research intern at Nile University, Codeforces Expert (top 5%), RoboCup @Home national champion, and founder of the AAST ICPC Club.">
+<meta name="theme-color" content="#FBFAF6">
+<link rel="canonical" href="https://omar123098.github.io/portfolio/">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://omar123098.github.io/portfolio/">
+<meta property="og:title" content="Omar Elgedawy · Software Engineer &amp; Data Scientist">
+<meta property="og:description" content="Codeforces Expert, RoboCup @Home national champion, quantum finance research intern. Open the problems to see the work.">
+<meta property="og:image" content="https://omar123098.github.io/portfolio/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
 <style>
-/* ============ TOKENS ============ */
 :root{
   --paper:#FBFAF6;
   --paper-2:#F4F2EB;
   --card:#FFFFFF;
   --ink:#15181E;
-  --ink-soft:#4A5160;
-  --ink-mute:#8A8F9C;
+  --ink-soft:#454C5A;
+  --ink-mute:#656B78;
   --line:#E4E1D7;
   --line-strong:#C9C5B8;
-  --blue:#1556C7;        /* Codeforces Expert blue — primary accent */
+  --blue:#1556C7;
   --blue-deep:#0E3E93;
   --blue-soft:#EAF0FB;
-  --green:#0E8A3E;       /* Accepted verdict */
+  --green:#0E8A3E;
   --green-soft:#E8F5EC;
-  --orange:#C76A00;      /* Master orange — highlights */
+  --orange:#B86200;
   --orange-soft:#FBF0E0;
-  --red:#C0331C;         /* Champion red */
+  --red:#C0331C;
   --red-soft:#FBEAE6;
-  --purple:#7A3FA8;
+  --violet:#9A1FA3;
+  --cyan:#03847C;
+  --gray:#6E6E6E;
   --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
   --sans:'IBM Plex Sans',-apple-system,Segoe UI,sans-serif;
-  --maxw:1060px;
+  --maxw:1180px;
   --r:6px;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
-}
-body{
-  font-family:var(--sans);
-  background:var(--paper);
-  color:var(--ink);
-  line-height:1.65;
-  font-size:16.5px;
-  -webkit-font-smoothing:antialiased;
-}
+html{scroll-padding-top:80px}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;font-size:16.5px;-webkit-font-smoothing:antialiased}
 ::selection{background:var(--blue);color:#fff}
 a{color:var(--blue);text-decoration:none}
 a:hover{text-decoration:underline}
 :focus-visible{outline:2.5px solid var(--blue);outline-offset:3px;border-radius:2px}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 1.4rem}
-.mono{font-family:var(--mono)}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;padding:.5rem .9rem;z-index:200;font-family:var(--mono);font-size:.85rem}
+.skip:focus{left:.5rem;top:.5rem}
+.c{animation:blink 1.2s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.c{animation:none}}
 
 /* ============ NAV ============ */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  background:rgba(251,250,246,.92);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--line);
-}
-.nav-in{max-width:var(--maxw);margin:0 auto;padding:0 1.4rem;height:62px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.topbar{position:sticky;top:0;z-index:100;background:rgba(251,250,246,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:var(--maxw);margin:0 auto;padding:0 1.4rem;height:60px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
 .logo{font-family:var(--mono);font-weight:600;font-size:.95rem;color:var(--ink);white-space:nowrap}
+.logo:hover{text-decoration:none}
 .logo .p{color:var(--blue)}
-.logo .c{color:var(--green);animation:blink 1.2s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-.nav-links{display:flex;list-style:none;gap:.2rem;align-items:center}
-.nav-links a{
-  font-family:var(--mono);font-size:.82rem;color:var(--ink-soft);
-  padding:.4rem .55rem;border-radius:var(--r);
-}
+.logo .c{color:var(--green)}
+.nav-links{display:flex;list-style:none;gap:.15rem;align-items:center}
+.nav-links a{font-family:var(--mono);font-size:.82rem;color:var(--ink-soft);padding:.4rem .55rem;border-radius:var(--r);display:block}
 .nav-links a:hover{color:var(--blue);background:var(--blue-soft);text-decoration:none}
-.nav-cta{
-  font-family:var(--mono);font-size:.82rem;font-weight:600;
-  border:1.5px solid var(--ink);color:var(--ink)!important;background:transparent;
-  padding:.42rem .8rem!important;border-radius:var(--r);
-}
-.nav-cta:hover{background:var(--ink);color:var(--paper)!important;text-decoration:none}
+.nav-links a[aria-current="page"]{color:var(--ink);background:var(--paper-2);font-weight:600}
+.nav-cta{font-weight:600;border:1.5px solid var(--ink);color:var(--ink)!important;padding:.38rem .8rem!important}
+.nav-cta:hover{background:var(--ink)!important;color:var(--paper)!important}
 .nav-toggle{display:none;background:none;border:1.5px solid var(--line-strong);border-radius:var(--r);font-family:var(--mono);font-size:.85rem;padding:.35rem .6rem;cursor:pointer;color:var(--ink)}
-@media(max-width:880px){
-  .nav-links{
-    display:none;position:absolute;top:62px;left:0;right:0;
-    background:var(--paper);border-bottom:1px solid var(--line);
-    flex-direction:column;align-items:stretch;padding:.6rem 1rem 1rem;
-  }
+@media(max-width:940px){
+  .nav-links{display:none;position:absolute;top:60px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;padding:.6rem 1rem 1rem}
   .nav-links.open{display:flex}
   .nav-links a{padding:.6rem .55rem}
   .nav-toggle{display:block}
 }
 
-/* ============ SECTION SCAFFOLD ============ */
-section{padding:4.6rem 0}
-.sec-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:.5rem;flex-wrap:wrap}
-.sec-letter{
-  font-family:var(--mono);font-weight:700;font-size:1rem;
-  color:var(--paper);background:var(--ink);
-  width:2rem;height:2rem;display:inline-flex;align-items:center;justify-content:center;
-  border-radius:var(--r);flex:none;transform:translateY(.3rem);
-}
-h2{font-family:var(--mono);font-size:clamp(1.5rem,3.4vw,1.95rem);font-weight:700;letter-spacing:-.02em}
-.sec-sub{font-family:var(--mono);font-size:.82rem;color:var(--ink-mute);margin:0 0 2.4rem calc(2rem + 1rem)}
-.alt{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+/* ============ LAYOUT ============ */
+.layout{max-width:var(--maxw);margin:0 auto;padding:2rem 1.4rem 3rem;display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:1.8rem;align-items:start}
+@media(max-width:940px){.layout{grid-template-columns:1fr;padding-top:1.4rem}}
+.view{margin-bottom:2rem}
+.js .view{display:none}
+.js .view.active{display:block}
 
-/* reveal */
-.rv{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
-.rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
-
-/* ============ HERO (Problem A) ============ */
-.hero{padding:7.2rem 0 4.6rem}
-.statement{
-  background:var(--card);border:1px solid var(--line-strong);border-radius:10px;
-  box-shadow:0 1px 0 var(--line), 0 14px 34px -22px rgba(21,24,30,.25);
-  padding:2.6rem 2.8rem 2.4rem;position:relative;overflow:hidden;
-}
-.prob-eyebrow{font-family:var(--mono);font-size:.85rem;font-weight:600;color:var(--blue);letter-spacing:.06em;margin-bottom:.5rem}
-h1{font-family:var(--mono);font-weight:700;font-size:clamp(2.2rem,6vw,3.4rem);letter-spacing:-.035em;line-height:1.08}
-h1 .accent{color:var(--blue)}
-.limits{
-  font-family:var(--mono);font-size:.8rem;color:var(--ink-mute);
-  margin:.9rem 0 1.5rem;display:flex;flex-wrap:wrap;gap:.35rem 1.4rem;
-}
-.limits b{color:var(--ink-soft);font-weight:600}
-.hero-text{max-width:46rem;color:var(--ink-soft)}
-.hero-text strong{color:var(--ink)}
-.verdict{
-  position:absolute;top:2rem;right:2.2rem;transform:rotate(7deg);
-  font-family:var(--mono);font-weight:700;font-size:1rem;letter-spacing:.12em;
-  color:var(--green);border:2.5px solid var(--green);border-radius:var(--r);
-  padding:.35rem .9rem;background:var(--green-soft);
-  box-shadow:0 2px 0 rgba(14,138,62,.18);user-select:none;
-}
-@media(max-width:720px){.verdict{position:static;display:inline-block;margin-bottom:1rem;transform:rotate(-2deg)}.statement{padding:1.8rem 1.4rem}}
-.io-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
-  background:var(--line);border:1px solid var(--line);border-radius:var(--r);
-  overflow:hidden;margin-top:1.9rem;
-}
-.io-cell{background:var(--card);padding:.9rem 1.1rem}
-.io-k{font-family:var(--mono);font-size:.72rem;color:var(--ink-mute);text-transform:lowercase}
-.io-v{font-family:var(--mono);font-size:1.25rem;font-weight:700;color:var(--ink)}
-.io-v .u{font-size:.78rem;font-weight:500;color:var(--ink-mute)}
-@media(max-width:720px){.io-grid{grid-template-columns:1fr 1fr}}
-.hero-actions{display:flex;gap:.8rem;margin-top:1.9rem;flex-wrap:wrap}
-.btn{
-  font-family:var(--mono);font-size:.88rem;font-weight:600;border-radius:var(--r);
-  padding:.65rem 1.15rem;display:inline-flex;align-items:center;gap:.5rem;border:1.5px solid transparent;
-}
+/* ============ CONTEST DASHBOARD ============ */
+.round{background:var(--card);border:1px solid var(--line-strong);border-radius:10px;padding:2rem 2.2rem 1.8rem;margin-bottom:1.6rem}
+.round-meta{font-family:var(--mono);font-size:.82rem;color:var(--ink-mute);display:flex;flex-wrap:wrap;gap:.3rem 1rem;align-items:center}
+.live{display:inline-flex;align-items:center;gap:.45rem;color:var(--green);font-weight:600}
+.live::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:var(--green)}
+h1{font-family:var(--mono);font-weight:700;font-size:clamp(2.1rem,5.4vw,3.2rem);letter-spacing:-.035em;line-height:1.08;margin:.7rem 0 .5rem}
+.round-sub{color:var(--ink-soft);max-width:44rem;font-size:1.02rem}
+.io-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:1.5rem}
+.io-cell{background:var(--card);padding:.85rem 1.05rem}
+.io-k{font-family:var(--mono);font-size:.72rem;color:var(--ink-mute)}
+.io-v{font-family:var(--mono);font-size:1.22rem;font-weight:700;color:var(--ink)}
+.io-v .u{font-size:.76rem;font-weight:500;color:var(--ink-mute)}
+@media(max-width:640px){.io-grid{grid-template-columns:1fr 1fr}.round{padding:1.5rem 1.3rem}}
+.actions{display:flex;gap:.7rem;margin-top:1.5rem;flex-wrap:wrap}
+.btn{font-family:var(--mono);font-size:.86rem;font-weight:600;border-radius:var(--r);padding:.6rem 1.05rem;display:inline-flex;align-items:center;gap:.5rem;border:1.5px solid transparent}
 .btn-primary{background:var(--blue);color:#fff}
 .btn-primary:hover{background:var(--blue-deep);text-decoration:none}
 .btn-ghost{border-color:var(--line-strong);color:var(--ink)}
 .btn-ghost:hover{border-color:var(--ink);text-decoration:none}
 
-/* ============ EXPERIENCE (submissions) ============ */
-.sub-list{display:flex;flex-direction:column;gap:1.1rem}
-.sub{
-  background:var(--card);border:1px solid var(--line);border-left:4px solid var(--blue);
-  border-radius:var(--r);padding:1.5rem 1.7rem;transition:box-shadow .25s,transform .25s;
-}
-.sub:hover{box-shadow:0 10px 26px -18px rgba(21,24,30,.35);transform:translateY(-2px)}
+.ptable-wrap{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.ptable-head{display:flex;justify-content:space-between;align-items:baseline;padding:.85rem 1.1rem;border-bottom:1.5px solid var(--line-strong);background:var(--paper-2)}
+.ptable-head h2{font-family:var(--mono);font-size:.95rem;font-weight:700}
+.ptable-head span{font-family:var(--mono);font-size:.78rem;color:var(--ink-mute)}
+.ptable{width:100%;border-collapse:collapse}
+.ptable td{padding:.85rem 1.1rem;border-bottom:1px solid var(--line);vertical-align:middle}
+.ptable tr:last-child td{border-bottom:none}
+.ptable tbody tr{cursor:pointer}
+.ptable tbody tr:hover td{background:var(--blue-soft)}
+.ptable tr.solved td{background:var(--green-soft)}
+.ptable tr.solved:hover td{background:#D9EEDF}
+.p-id{font-family:var(--mono);font-weight:700;font-size:1.05rem;width:3rem}
+.p-id a{color:var(--ink)}
+.p-name a{color:var(--ink);font-weight:600}
+.p-name small{display:block;color:var(--ink-mute);font-size:.85rem;font-weight:400;line-height:1.4;margin-top:.1rem}
+.p-tags{font-family:var(--mono);font-size:.74rem;color:var(--ink-mute);text-align:right;max-width:15rem}
+.p-diff{font-family:var(--mono);font-weight:700;font-size:.82rem;white-space:nowrap;width:4.5rem;text-align:right}
+.p-ok{width:2.2rem;text-align:center;font-family:var(--mono);font-weight:700;color:var(--green)}
+.d-gray{color:var(--gray)}.d-green{color:var(--green)}.d-cyan{color:var(--cyan)}.d-blue{color:var(--blue)}.d-violet{color:var(--violet)}.d-orange{color:var(--orange)}.d-red{color:var(--red)}
+@media(max-width:640px){.p-tags{display:none}.ptable td{padding:.75rem .7rem}}
+
+/* ============ PROBLEM STATEMENT ============ */
+.ps{background:var(--card);border:1px solid var(--line-strong);border-radius:10px;overflow:hidden}
+.ps-crumb{font-family:var(--mono);font-size:.8rem;color:var(--ink-mute);padding:.75rem 1.4rem;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.ps-header{text-align:center;padding:1.9rem 1.4rem 1.4rem;border-bottom:1px solid var(--line)}
+.ps-title{font-family:var(--mono);font-size:clamp(1.45rem,3.4vw,1.9rem);font-weight:700;letter-spacing:-.02em;outline:none}
+.ps-limit{font-family:var(--mono);font-size:.8rem;color:var(--ink-soft);line-height:1.6}
+.ps-limit b{font-weight:600;color:var(--ink)}
+.ps-limits{margin-top:.6rem}
+.judge{display:inline-flex;align-items:center;gap:.5rem;margin-top:1rem;font-family:var(--mono);font-size:.82rem;font-weight:600;padding:.3rem .8rem;border-radius:999px;border:1px solid var(--line-strong);color:var(--ink-mute);min-height:2rem}
+.judge.ok{color:var(--green);border-color:var(--green);background:var(--green-soft)}
+.judge.ok::before{content:"✓"}
+.ps-body{padding:1.8rem 2rem 1.6rem}
+@media(max-width:640px){.ps-body{padding:1.4rem 1.1rem}}
+.ps-sec{font-family:var(--mono);font-size:1rem;font-weight:700;margin:1.6rem 0 .6rem}
+.ps-sec:first-child{margin-top:0}
+.ps-body > p{color:var(--ink-soft);max-width:44rem}
+.ps-body > p + p{margin-top:.8rem}
+.ps-body strong{color:var(--ink)}
+.ps-nav{display:flex;justify-content:space-between;gap:.8rem;flex-wrap:wrap;padding:1rem 1.4rem;border-top:1px solid var(--line);background:var(--paper-2);font-family:var(--mono);font-size:.84rem}
+.ps-nav a{color:var(--ink);font-weight:600}
+.ps-nav .muted{color:var(--ink-mute)}
+
+/* examples (sample tests) */
+.samples{display:grid;gap:1rem}
+.sample{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line-strong);border-radius:var(--r);overflow:hidden}
+.sample > div{min-width:0}
+.sample .lbl{font-family:var(--mono);font-size:.74rem;font-weight:600;color:var(--ink-mute);background:var(--paper-2);padding:.35rem .8rem;border-bottom:1px solid var(--line)}
+.sample pre{font-family:var(--mono);font-size:.84rem;padding:.7rem .8rem;white-space:pre-wrap;word-break:break-word;color:var(--ink)}
+.sample > div + div{border-left:1px solid var(--line-strong)}
+@media(max-width:640px){.sample{grid-template-columns:1fr}.sample > div + div{border-left:none;border-top:1px solid var(--line-strong)}}
+
+/* ============ EXPERIENCE ============ */
+.sub-list{display:flex;flex-direction:column;gap:1rem}
+.sub{border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:var(--r);padding:1.3rem 1.5rem;background:var(--card)}
+.sub.now{border-left-color:var(--orange)}
 .sub-top{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;flex-wrap:wrap}
-.sub h3{font-size:1.08rem;font-weight:700}
-.sub .org{font-family:var(--mono);font-size:.85rem;color:var(--blue);font-weight:600}
-.badge{
-  font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.07em;
-  padding:.22rem .6rem;border-radius:999px;white-space:nowrap;
-}
-.b-green{background:var(--green-soft);color:var(--green);border:1px solid currentColor}
-.b-blue{background:var(--blue-soft);color:var(--blue);border:1px solid currentColor}
-.b-orange{background:var(--orange-soft);color:var(--orange);border:1px solid currentColor}
-.sub-meta{font-family:var(--mono);font-size:.78rem;color:var(--ink-mute);margin:.35rem 0 .9rem;display:flex;gap:1.2rem;flex-wrap:wrap}
-.sub ul{padding-left:1.15rem;color:var(--ink-soft);display:flex;flex-direction:column;gap:.45rem;font-size:.95rem}
+.sub h3{font-size:1.05rem;font-weight:700;line-height:1.35}
+.org{font-family:var(--mono);font-size:.84rem;color:var(--blue);font-weight:600}
+.badge{font-family:var(--mono);font-size:.72rem;font-weight:700;padding:.2rem .6rem;border-radius:999px;white-space:nowrap;border:1px solid currentColor}
+.b-green{background:var(--green-soft);color:var(--green)}
+.b-orange{background:var(--orange-soft);color:var(--orange)}
+.sub-meta{font-family:var(--mono);font-size:.78rem;color:var(--ink-mute);margin:.3rem 0 .8rem}
+.sub ul{padding-left:1.15rem;color:var(--ink-soft);display:flex;flex-direction:column;gap:.4rem;font-size:.95rem}
 .sub li::marker{color:var(--blue)}
-.tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1rem}
-.tag{
-  font-family:var(--mono);font-size:.72rem;color:var(--ink-soft);
-  background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:.18rem .6rem;
-}
-.edu-note{
-  margin-top:2rem;border:1px dashed var(--line-strong);border-radius:var(--r);
-  padding:1.1rem 1.4rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
-  background:var(--card);
-}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.9rem}
+.tag{font-family:var(--mono);font-size:.72rem;color:var(--ink-soft);background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:.16rem .6rem}
+.edu-note{margin-top:1.6rem;border:1px dashed var(--line-strong);border-radius:var(--r);padding:1rem 1.3rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 .edu-note .deg{font-weight:600}
 .edu-note .meta{font-family:var(--mono);font-size:.8rem;color:var(--ink-mute)}
 
-/* ============ PROJECTS ============ */
-.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.2rem}
-.proj{
-  background:var(--card);border:1px solid var(--line);border-radius:var(--r);
-  padding:1.5rem 1.6rem;display:flex;flex-direction:column;gap:.7rem;
-  transition:box-shadow .25s,transform .25s,border-color .25s;
-}
-.proj:hover{box-shadow:0 12px 28px -18px rgba(21,24,30,.35);transform:translateY(-3px);border-color:var(--line-strong)}
+/* ============ PROJECTS / TEACHING ============ */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem}
+.proj{border:1px solid var(--line);border-radius:var(--r);padding:1.3rem 1.4rem;display:flex;flex-direction:column;gap:.6rem;background:var(--card)}
+.proj.feature{grid-column:1/-1;border-color:var(--line-strong)}
 .proj-top{display:flex;justify-content:space-between;align-items:flex-start;gap:.8rem}
 .proj h3{font-size:1.02rem;font-weight:700;line-height:1.35}
 .proj h3 a{color:inherit}
-.proj h3 a:hover{color:var(--blue);text-decoration:none}
-.proj .yr{font-family:var(--mono);font-size:.72rem;color:var(--ink-mute);white-space:nowrap;padding-top:.2rem}
-.proj p{font-size:.92rem;color:var(--ink-soft);flex:1}
-.win{font-family:var(--mono);font-size:.72rem;font-weight:700;color:var(--red);background:var(--red-soft);border:1px solid currentColor;border-radius:999px;padding:.18rem .6rem;align-self:flex-start}
-
-/* ============ TEACHING ============ */
-.teach-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.2rem}
-.teach{
-  background:var(--card);border:1px solid var(--line);border-top:4px solid var(--green);
-  border-radius:var(--r);padding:1.5rem 1.6rem;
-}
+.proj h3 a:hover{color:var(--blue)}
+.yr{font-family:var(--mono);font-size:.74rem;color:var(--ink-mute);white-space:nowrap;padding-top:.15rem}
+.proj p{font-size:.93rem;color:var(--ink-soft)}
+.proj ul{padding-left:1.15rem;color:var(--ink-soft);font-size:.93rem;display:grid;gap:.3rem}
+@media(min-width:700px){.proj.feature ul{grid-template-columns:1fr 1fr;column-gap:2rem}}
+.proj li::marker{color:var(--red)}
+.win{font-family:var(--mono);font-size:.74rem;font-weight:700;color:var(--red);background:var(--red-soft);border:1px solid currentColor;border-radius:999px;padding:.16rem .6rem;align-self:flex-start}
+.teach{border:1px solid var(--line);border-top:4px solid var(--green);border-radius:var(--r);padding:1.3rem 1.4rem;background:var(--card)}
 .teach h3{font-size:1rem;font-weight:700}
 .teach .role{font-family:var(--mono);font-size:.78rem;color:var(--green);font-weight:600}
-.teach .when{font-family:var(--mono);font-size:.74rem;color:var(--ink-mute);margin:.2rem 0 .7rem}
-.teach p{font-size:.9rem;color:var(--ink-soft)}
-.teach .num{font-family:var(--mono);font-weight:700;color:var(--ink)}
+.teach .when{font-family:var(--mono);font-size:.74rem;color:var(--ink-mute);margin:.2rem 0 .6rem}
+.teach p{font-size:.92rem;color:var(--ink-soft)}
+.num{font-family:var(--mono);font-weight:700;color:var(--ink)}
 
 /* ============ STANDINGS ============ */
-.standings{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-.standings th{
-  font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--ink-mute);text-align:left;padding:.8rem 1.1rem;border-bottom:1.5px solid var(--line-strong);
-  background:var(--paper-2);font-weight:600;
-}
-.standings td{padding:.85rem 1.1rem;border-bottom:1px solid var(--line);font-size:.93rem;vertical-align:top}
+.tbl-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r)}
+.standings{width:100%;border-collapse:collapse;min-width:560px}
+.standings th{font-family:var(--mono);font-size:.76rem;color:var(--ink-mute);text-align:left;padding:.7rem 1rem;border-bottom:1.5px solid var(--line-strong);background:var(--paper-2);font-weight:600}
+.standings td{padding:.8rem 1rem;border-bottom:1px solid var(--line);font-size:.93rem;vertical-align:top}
 .standings tr:last-child td{border-bottom:none}
-.standings tr:hover td{background:var(--blue-soft)}
-.rk{font-family:var(--mono);font-weight:700;color:var(--ink-mute);width:3rem}
-.res{font-family:var(--mono);font-weight:700;white-space:nowrap}
-.res.gold{color:var(--red)}
-.res.silver{color:var(--orange)}
-.res.bronze{color:var(--purple)}
-.res.blue{color:var(--blue)}
+.rk{font-family:var(--mono);font-weight:700;color:var(--ink-mute);width:2.5rem}
+.res{font-family:var(--mono);font-weight:700}
 .yr-td{font-family:var(--mono);color:var(--ink-mute);white-space:nowrap}
-.tbl-scroll{overflow-x:auto;border-radius:var(--r)}
 
 /* ============ SKILLS ============ */
-.skill-rows{display:flex;flex-direction:column;gap:1.1rem}
-.skill-row{display:grid;grid-template-columns:220px 1fr;gap:1.2rem;align-items:baseline;padding-bottom:1.1rem;border-bottom:1px solid var(--line)}
+.skill-row{display:grid;grid-template-columns:190px 1fr;gap:1rem;align-items:baseline;padding:.9rem 0;border-bottom:1px solid var(--line)}
+.skill-row:first-child{padding-top:0}
 .skill-row:last-child{border-bottom:none}
-.skill-k{font-family:var(--mono);font-size:.8rem;font-weight:600;color:var(--ink)}
-.skill-v{display:flex;flex-wrap:wrap;gap:.45rem}
-@media(max-width:720px){.skill-row{grid-template-columns:1fr;gap:.5rem}}
+.skill-k{font-family:var(--mono);font-size:.82rem;font-weight:600}
+.skill-v{display:flex;flex-wrap:wrap;gap:.4rem}
+@media(max-width:640px){.skill-row{grid-template-columns:1fr;gap:.45rem}}
 
 /* ============ CONTACT ============ */
-.term{
-  background:var(--ink);color:#D7DBE2;border-radius:10px;
-  font-family:var(--mono);font-size:.92rem;
-  box-shadow:0 18px 44px -24px rgba(21,24,30,.6);overflow:hidden;
-}
-.term-bar{display:flex;gap:.45rem;padding:.8rem 1.1rem;border-bottom:1px solid #2A2F3A;align-items:center}
+.term{background:var(--ink);color:#D7DBE2;border-radius:10px;font-family:var(--mono);font-size:.9rem;overflow:hidden}
+.term-bar{display:flex;gap:.45rem;padding:.75rem 1.1rem;border-bottom:1px solid #2A2F3A;align-items:center}
 .dot{width:.7rem;height:.7rem;border-radius:50%}
 .dot:nth-child(1){background:#E0584B}.dot:nth-child(2){background:#E0A33E}.dot:nth-child(3){background:#57B062}
-.term-title{margin-left:auto;font-size:.72rem;color:#6B7280}
-.term-body{padding:1.4rem 1.5rem 1.7rem;display:flex;flex-direction:column;gap:.55rem}
-.term-body .ps{color:#57B062}
+.term-title{margin-left:auto;font-size:.74rem;color:#8B93A1}
+.term-body{padding:1.3rem 1.4rem 1.5rem;display:flex;flex-direction:column;gap:.5rem}
+.term-body .ps1{color:#57B062}
 .term-body .cmd{color:#fff}
-.term-body a{color:#7FB1FF}
+.term-body a{color:#8FBBFF}
 .term-body a:hover{color:#fff}
-.out{color:#9AA1AD;padding-left:1.2rem}
+.out{color:#A9B0BC;padding-left:1.2rem;overflow-wrap:anywhere}
+.submit{margin-top:1.4rem;border:1px solid var(--line-strong);border-radius:var(--r);padding:1.2rem 1.3rem;display:grid;gap:.8rem}
+.submit h3{font-family:var(--mono);font-size:.95rem}
+.submit label{font-family:var(--mono);font-size:.78rem;color:var(--ink-mute);display:block;margin-bottom:.25rem}
+.submit input,.submit select,.submit textarea{width:100%;font:inherit;font-size:.95rem;padding:.55rem .7rem;border:1px solid var(--line-strong);border-radius:var(--r);background:var(--paper);color:var(--ink)}
+.submit textarea{min-height:8rem;resize:vertical;font-family:var(--mono);font-size:.88rem}
+.submit-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+@media(max-width:640px){.submit-row{grid-template-columns:1fr}}
+.submit button{justify-self:start;cursor:pointer;font-family:var(--mono)}
 
-footer{padding:2.4rem 0 3rem;text-align:center}
+/* ============ SIDEBAR ============ */
+.side{display:flex;flex-direction:column;gap:1.1rem;position:sticky;top:76px}
+@media(max-width:940px){.side{position:static}}
+.box{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.box-h{font-family:var(--mono);font-size:.82rem;font-weight:700;padding:.55rem .9rem;border-bottom:1px solid var(--line);background:var(--paper-2);color:var(--blue)}
+.box-b{padding:.85rem .9rem;font-size:.9rem;color:var(--ink-soft)}
+.box-b p + p{margin-top:.5rem}
+.handle{font-family:var(--mono);font-weight:700;font-size:1.15rem;color:var(--blue)}
+.rank{font-family:var(--mono);font-size:.8rem;color:var(--blue);font-weight:600}
+.kv{font-family:var(--mono);font-size:.8rem;line-height:1.8;margin-top:.5rem}
+.kv span{color:var(--ink-mute)}
+.links{display:flex;flex-wrap:wrap;gap:.3rem .8rem;margin-top:.6rem;font-family:var(--mono);font-size:.8rem}
+.mini{list-style:none;font-family:var(--mono);font-size:.82rem}
+.mini li{display:flex;justify-content:space-between;gap:.5rem;padding:.12rem 0}
+.mini a{color:var(--ink)}
+.mini .okmark{color:var(--green);font-weight:700;visibility:hidden}
+.mini li.solved .okmark{visibility:visible}
+.progress{height:6px;border-radius:999px;background:var(--line);overflow:hidden;margin:.6rem 0 .2rem}
+.progress i{display:block;height:100%;width:0;background:var(--green);transition:width .3s}
+.kbd{font-family:var(--mono);font-size:.74rem;border:1px solid var(--line-strong);border-bottom-width:2px;border-radius:4px;padding:0 .35rem;color:var(--ink);background:var(--paper)}
+.keys{display:grid;grid-template-columns:auto 1fr;gap:.4rem .7rem;font-size:.84rem;align-items:center}
+.no-js-only{display:none}
+html:not(.js) .js-only{display:none}
+
+footer{max-width:var(--maxw);margin:0 auto;padding:0 1.4rem 2.6rem;text-align:center}
 footer p{font-family:var(--mono);font-size:.78rem;color:var(--ink-mute)}
+footer .acc{color:var(--green);font-weight:700}
+@media print{.topbar,.side,.ps-nav,.actions,.submit{display:none}.js .view{display:block}.layout{display:block}}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<!-- ============ NAV ============ -->
-<nav>
+<header class="topbar">
   <div class="nav-in">
-    <a class="logo" href="#home">gedawy@alexandria:~<span class="p">$</span><span class="c">_</span></a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">menu</button>
+    <a class="logo" href="#problems">gedawy@alexandria:~<span class="p">$</span><span class="c">_</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">menu</button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#experience">./experience</a></li>
-      <li><a href="#projects">./projects</a></li>
-      <li><a href="#teaching">./teaching</a></li>
-      <li><a href="#standings">./standings</a></li>
-      <li><a href="#skills">./skills</a></li>
-      <li><a href="#contact">./contact</a></li>
+      <li><a href="#problems" data-nav="problems">./problems</a></li>
+      <li><a href="#B" data-nav="B">./experience</a></li>
+      <li><a href="#C" data-nav="C">./projects</a></li>
+      <li><a href="#D" data-nav="D">./teaching</a></li>
+      <li><a href="#E" data-nav="E">./standings</a></li>
+      <li><a href="#G" data-nav="G">./contact</a></li>
       <li><a class="nav-cta" href="resume/Omar_Elgedawy_SWE_DS.pdf" target="_blank" rel="noopener">resume.pdf</a></li>
     </ul>
   </div>
-</nav>
+</header>
 
-<!-- ============ HERO — PROBLEM A ============ -->
-<section class="hero" id="home">
-  <div class="wrap">
-    <div class="statement rv">
-      <span class="verdict">ACCEPTED ✓</span>
-      <p class="prob-eyebrow">PROBLEM A.</p>
-      <h1>Omar <span class="accent">Elgedawy</span></h1>
-      <p class="limits">
-        <span><b>time limit:</b> 30 seconds per recruiter</span>
-        <span><b>memory limit:</b> 1 page</span>
-        <span><b>input:</b> hard problems</span>
-        <span><b>output:</b> shipped solutions</span>
-      </p>
-      <p class="hero-text">
-        AI student at AAST (full scholarship) and <strong>Codeforces Expert — top 5% globally</strong>.
-        I build real-time C++ computer-vision systems, train and evaluate LLMs in Arabic and English,
-        and turn complete beginners into contest-ready programmers. <strong>RoboCup @Home national champion</strong> (1st in Egypt, 2026)
-        and founder of the AAST ICPC Club. Currently aiming at SWE &amp; data-science internships.
-      </p>
-      <div class="io-grid">
-        <div class="io-cell"><div class="io-k">problems_solved</div><div class="io-v">2500<span class="u">+</span></div></div>
-        <div class="io-cell"><div class="io-k">codeforces_rank</div><div class="io-v">Expert <span class="u">top 5%</span></div></div>
-        <div class="io-cell"><div class="io-k">students_trained</div><div class="io-v">420<span class="u">+</span></div></div>
-        <div class="io-cell"><div class="io-k">robocup_egypt</div><div class="io-v">1st <span class="u">2026</span></div></div>
-      </div>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#experience">view submissions →</a>
-        <a class="btn btn-ghost" href="https://github.com/Omar123098" target="_blank" rel="noopener">github</a>
-        <a class="btn btn-ghost" href="https://codeforces.com/profile/Gedawy" target="_blank" rel="noopener">codeforces</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/omarelgedawy/" target="_blank" rel="noopener">linkedin</a>
-      </div>
+<div class="layout">
+<main id="main" tabindex="-1">
+
+<!-- ============ CONTEST DASHBOARD ============ -->
+<section id="problems" class="view active" aria-labelledby="round-title">
+  <div class="round">
+    <p class="round-meta"><span class="live">Running</span><span>Personal Round #1 (Div. 1)</span><span>Alexandria, Egypt</span></p>
+    <h1 id="round-title">Omar Elgedawy</h1>
+    <p class="round-sub">Software engineer and data scientist. I build real-time C++ computer vision, research quantum machine learning for markets, and coach competitive programmers. Open a problem below to see the work.</p>
+    <div class="io-grid">
+      <div class="io-cell"><div class="io-k">problems_solved</div><div class="io-v">3000<span class="u">+ all judges</span></div></div>
+      <div class="io-cell"><div class="io-k">codeforces</div><div class="io-v">Expert <span class="u">top 5%</span></div></div>
+      <div class="io-cell"><div class="io-k">students_trained</div><div class="io-v">450<span class="u">+</span></div></div>
+      <div class="io-cell"><div class="io-k">robocup_@home</div><div class="io-v">1st <span class="u">Egypt 2026</span></div></div>
+    </div>
+    <div class="actions">
+      <a class="btn btn-primary" href="#A">Open problem A</a>
+      <a class="btn btn-ghost" href="resume/Omar_Elgedawy_SWE_DS.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+      <a class="btn btn-ghost" href="https://github.com/Omar123098" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-ghost" href="https://codeforces.com/profile/Gedawy" target="_blank" rel="noopener">Codeforces</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/omarelgedawy/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>
+
+  <div class="ptable-wrap">
+    <div class="ptable-head"><h2>Problems</h2><span id="solvedLabel">7 problems</span></div>
+    <table class="ptable">
+      <tbody>
+        <tr data-p="A"><td class="p-id"><a href="#A">A</a></td><td class="p-name"><a href="#A">About</a><small>Who I am and what I'm looking for</small></td><td class="p-tags">intro, constructive</td><td class="p-diff d-gray">1000</td><td class="p-ok" aria-hidden="true"></td></tr>
+        <tr data-p="B"><td class="p-id"><a href="#B">B</a></td><td class="p-name"><a href="#B">Experience</a><small>Quantum finance research, real-time C++ CV, LLM training</small></td><td class="p-tags">c++, research, rlhf</td><td class="p-diff d-orange">2100</td><td class="p-ok" aria-hidden="true"></td></tr>
+        <tr data-p="C"><td class="p-id"><a href="#C">C</a></td><td class="p-name"><a href="#C">Projects</a><small>RoboCup @Home robot, shells, forecasting, full-stack</small></td><td class="p-tags">robotics, ml, systems</td><td class="p-diff d-violet">1900</td><td class="p-ok" aria-hidden="true"></td></tr>
+        <tr data-p="D"><td class="p-id"><a href="#D">D</a></td><td class="p-name"><a href="#D">Teaching &amp; Community</a><small>450+ students, from first line of C++ to ECPC</small></td><td class="p-tags">greedy, mentorship</td><td class="p-diff d-blue">1600</td><td class="p-ok" aria-hidden="true"></td></tr>
+        <tr data-p="E"><td class="p-id"><a href="#E">E</a></td><td class="p-name"><a href="#E">Standings</a><small>RoboCup, ACPC, EOI, IIOT results</small></td><td class="p-tags">implementation, medals</td><td class="p-diff d-red">2400</td><td class="p-ok" aria-hidden="true"></td></tr>
+        <tr data-p="F"><td class="p-id"><a href="#F">F</a></td><td class="p-name"><a href="#F">Skills</a><small>Languages, CV, ML, quantum, systems</small></td><td class="p-tags">data structures</td><td class="p-diff d-cyan">1400</td><td class="p-ok" aria-hidden="true"></td></tr>
+        <tr data-p="G"><td class="p-id"><a href="#G">G</a></td><td class="p-name"><a href="#G">Contact</a><small>Send a submission, get a reply</small></td><td class="p-tags">interactive</td><td class="p-diff d-gray">800</td><td class="p-ok" aria-hidden="true"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ A. ABOUT ============ -->
+<section id="A" class="view" aria-labelledby="A-title">
+  <article class="ps">
+    <div class="ps-crumb"><a href="#problems">Problems</a><span>A / 7</span></div>
+    <div class="ps-header">
+      <h2 class="ps-title" id="A-title" tabindex="-1">A. About</h2>
+      <div class="ps-limits">
+        <div class="ps-limit"><b>time limit per test:</b> 30 seconds per recruiter</div>
+        <div class="ps-limit"><b>memory limit per test:</b> 1 page</div>
+        <div class="ps-limit"><b>input:</b> standard input</div>
+        <div class="ps-limit"><b>output:</b> standard output</div>
+      </div>
+      <div class="judge js-only" data-tests="3" aria-live="polite"></div>
+    </div>
+    <div class="ps-body">
+      <h3 class="ps-sec">Statement</h3>
+      <p>I'm Omar Elgedawy, <strong>Gedawy</strong> on Codeforces. I study artificial intelligence at AAST in Alamein on a full scholarship, and I work across three things: real-time C++ computer vision, quantum machine learning research for financial markets, and training and evaluating LLMs in Arabic and English.</p>
+      <p>I'm a <strong>Codeforces Expert (top 5% globally)</strong> with 3000+ problems solved across judges, a <strong>RoboCup @Home national champion</strong> (1st in Egypt, 2026), and the founder of the AAST ICPC Club, where beginners become contest-ready programmers.</p>
+      <h3 class="ps-sec">Input</h3>
+      <p>A single line: an open SWE or data-science internship, or a junior role. Remote, or on-site in MENA/EMEA.</p>
+      <h3 class="ps-sec">Output</h3>
+      <p>An engineer who reads the constraints first, then ships something that passes every test.</p>
+      <h3 class="ps-sec">Examples</h3>
+      <div class="samples">
+        <div class="sample"><div><div class="lbl">input</div><pre>build a face-effects engine
+target: real time</pre></div><div><div class="lbl">output</div><pre>40+ FPS, 6+ layers
+14 filters shipped</pre></div></div>
+        <div class="sample"><div><div class="lbl">input</div><pre>robot, find my guest</pre></div><div><div class="lbl">output</div><pre>1st place, Egypt
+international qualifier</pre></div></div>
+        <div class="sample"><div><div class="lbl">input</div><pre>300+ students
+no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at ECPC
+1 team at ACPC</pre></div></div>
+      </div>
+      <h3 class="ps-sec">Note</h3>
+      <p>Right now I'm a research intern in the Quantum Finance Group at Nile University. The full resume is one click away in the top bar.</p>
+    </div>
+    <nav class="ps-nav" aria-label="Problem navigation"><a href="#problems" class="muted">Problems</a><a href="#B">B. Experience</a></nav>
+  </article>
 </section>
 
 <!-- ============ B. EXPERIENCE ============ -->
-<section id="experience" class="alt">
-  <div class="wrap">
-    <div class="sec-head rv"><span class="sec-letter">B</span><h2>Experience</h2></div>
-    <p class="sec-sub rv">// my submissions to the real world — all verdicts green</p>
-
-    <div class="sub-list">
-      <article class="sub rv">
-        <div class="sub-top">
-          <div><h3>C++ Software Engineer — Computer Vision</h3><span class="org">Auvnet · Dubai, UAE · Remote (Contract)</span></div>
-          <span class="badge b-green">DELIVERED</span>
-        </div>
-        <p class="sub-meta"><span>Dec 2025 — Apr 2026</span></p>
-        <ul>
-          <li>Delivered a production real-time facial-effects engine sustaining <strong>40+ FPS across 6+ concurrent rendering layers</strong>, by architecting a modular C++ pipeline (OpenCV, MediaPipe) behind a plug-and-play SOLID/OOP layer architecture.</li>
-          <li>Shipped <strong>14 visual filters</strong> by mapping <strong>468 facial landmarks</strong> to custom HSV/RGB transforms and texture-warping algorithms, each independently configurable via JSON parameter files.</li>
-          <li>Met the real-time frame budget by eliminating redundant per-frame heap allocations through custom memory management and buffer reuse.</li>
-        </ul>
-        <div class="tags"><span class="tag">C++</span><span class="tag">OpenCV</span><span class="tag">MediaPipe</span><span class="tag">SOLID</span><span class="tag">Real-time</span></div>
-      </article>
-
-      <article class="sub rv">
-        <div class="sub-top">
-          <div><h3>AI Trainer &amp; Data Annotator</h3><span class="org">DataAnnotation · Remote (Part-time)</span></div>
-          <span class="badge b-green">DELIVERED</span>
-        </div>
-        <p class="sub-meta"><span>Apr 2025 — Mar 2026</span></p>
-        <ul>
-          <li>Improved frontier-LLM instruction-following, reasoning, and safety by evaluating and ranking side-by-side model responses with RLHF-style preference judgments.</li>
-          <li>Authored and stress-tested <strong>200+ complex prompts in English and Arabic</strong> — algorithmic reasoning, edge cases, adversarial framing — surfacing failure modes adopted into alignment pipelines.</li>
-          <li>Debugged and optimized AI-generated C++, C, and Python against rubric-based correctness benchmarks.</li>
-        </ul>
-        <div class="tags"><span class="tag">RLHF</span><span class="tag">Prompt Engineering</span><span class="tag">LLM Evaluation</span><span class="tag">Arabic/English</span></div>
-      </article>
-
-      <article class="sub rv">
-        <div class="sub-top">
-          <div><h3>Competitive Programming Instructor &amp; Coach</h3><span class="org">Coach Academy · Cairo, Egypt · Remote</span></div>
-          <span class="badge b-blue">ONGOING</span>
-        </div>
-        <p class="sub-meta"><span>Jan 2025 — Present</span></p>
-        <ul>
-          <li>Took <strong>40+ students from zero background to contest-ready</strong>; qualified <strong>20+ to the ECPC</strong> through targeted problem sets, mock contests, and editorial sessions.</li>
-          <li>Raised average student Codeforces ratings by <strong>400+ points</strong> per cycle while reviewing 50+ C++ submissions weekly.</li>
-        </ul>
-        <div class="tags"><span class="tag">C++</span><span class="tag">DSA</span><span class="tag">Curriculum Design</span><span class="tag">Mentorship</span></div>
-      </article>
-
-      <article class="sub rv">
-        <div class="sub-top">
-          <div><h3>Robotics Programming Instructor</h3><span class="org">ZHub Robotics Center · Alexandria, Egypt · On-site</span></div>
-          <span class="badge b-green">DELIVERED</span>
-        </div>
-        <p class="sub-meta"><span>Jun 2025 — Sep 2025</span></p>
-        <ul>
-          <li>Designed a 2-level C/C++/Python curriculum from scratch for <strong>30 students (ages 10–16)</strong>, enabling them to independently program and debug their own robotics projects.</li>
-        </ul>
-        <div class="tags"><span class="tag">C/C++</span><span class="tag">Python</span><span class="tag">Robotics</span><span class="tag">Curriculum Design</span></div>
-      </article>
-
-      <article class="sub rv">
-        <div class="sub-top">
-          <div><h3>Freelance AI Training Data Specialist</h3><span class="org">NEAR Protocol (via Nearcrowd) · Remote</span></div>
-          <span class="badge b-green">DELIVERED</span>
-        </div>
-        <p class="sub-meta"><span>Sep 2022 — Oct 2024</span></p>
-        <ul>
-          <li>Ramped up on an undocumented proprietary platform with a custom DSL and <strong>zero formal onboarding</strong>; authored 30+ original logic puzzles.</li>
-          <li>Solved and documented <strong>120+ C++ contest problems</strong> and wrote <strong>40+ LaTeX tutorials</strong> on advanced DSA, powering downstream AI training datasets.</li>
-          <li>Recovered <strong>60+ failed Codeforces solutions</strong> into verified ground truth via root-cause analysis and annotated fixes.</li>
-        </ul>
-        <div class="tags"><span class="tag">C++</span><span class="tag">LaTeX</span><span class="tag">AI Training Data</span><span class="tag">Self-directed</span></div>
-      </article>
-    </div>
-
-    <div class="edu-note rv">
-      <div>
-        <div class="deg">BSc in Artificial Intelligence — Arab Academy for Science, Technology &amp; Maritime Transport (AAST)</div>
-        <div class="meta">Full scholarship · GPA 3.72 · Alamein, Egypt</div>
+<section id="B" class="view" aria-labelledby="B-title">
+  <article class="ps">
+    <div class="ps-crumb"><a href="#problems">Problems</a><span>B / 7</span></div>
+    <div class="ps-header">
+      <h2 class="ps-title" id="B-title" tabindex="-1">B. Experience</h2>
+      <div class="ps-limits">
+        <div class="ps-limit"><b>time limit per test:</b> Sep 2022 to now</div>
+        <div class="ps-limit"><b>memory limit per test:</b> 6 roles</div>
+        <div class="ps-limit"><b>input:</b> real requirements</div>
+        <div class="ps-limit"><b>output:</b> working software</div>
       </div>
-      <div class="meta">Sep 2024 — Jul 2028</div>
+      <div class="judge js-only" data-tests="6" aria-live="polite"></div>
     </div>
-  </div>
+    <div class="ps-body">
+      <div class="sub-list">
+        <div class="sub now">
+          <div class="sub-top">
+            <div><h3>Research Intern, Quantum Finance Group</h3><span class="org">Nile University, Center for Informatics Science · Cairo · Hybrid</span></div>
+            <span class="badge b-orange">RUNNING</span>
+          </div>
+          <p class="sub-meta">Aug 2026 – Present</p>
+          <ul>
+            <li>Implementing a <strong>quantum machine learning feature-engineering pipeline</strong> for market-direction prediction, reproducing a peer-reviewed quantum finance paper that combines quantum feature maps with classical ML models.</li>
+            <li>Extending the published method and building a <strong>backtesting framework</strong> to benchmark quantum-enhanced features against classical baselines, with source code on GitHub.</li>
+          </ul>
+          <div class="tags"><span class="tag">Qiskit</span><span class="tag">Quantum ML</span><span class="tag">Python</span><span class="tag">Backtesting</span></div>
+        </div>
+
+        <div class="sub">
+          <div class="sub-top">
+            <div><h3>C++ Software Engineer, Computer Vision</h3><span class="org">Auvnet · Dubai, UAE · Remote contract</span></div>
+            <span class="badge b-green">ACCEPTED</span>
+          </div>
+          <p class="sub-meta">Dec 2025 – May 2026</p>
+          <ul>
+            <li>Delivered a production real-time facial-effects engine sustaining <strong>40+ FPS across 6+ concurrent rendering layers</strong>, built as a modular C++ pipeline (OpenCV, MediaPipe) on a plug-and-play SOLID/OOP layer architecture.</li>
+            <li>Shipped <strong>14 visual filters</strong> by mapping <strong>468 facial landmarks</strong> to custom HSV/RGB transforms and texture-warping algorithms, each configurable through JSON parameter files.</li>
+            <li>Met the real-time frame budget by removing redundant per-frame heap allocations through custom memory management and buffer reuse.</li>
+          </ul>
+          <div class="tags"><span class="tag">C++</span><span class="tag">OpenCV</span><span class="tag">MediaPipe</span><span class="tag">SOLID</span><span class="tag">Real-time</span></div>
+        </div>
+
+        <div class="sub">
+          <div class="sub-top">
+            <div><h3>AI Trainer &amp; Data Annotator</h3><span class="org">DataAnnotation · Remote · Part-time</span></div>
+            <span class="badge b-green">ACCEPTED</span>
+          </div>
+          <p class="sub-meta">Apr 2025 – Mar 2026</p>
+          <ul>
+            <li>Improved frontier-LLM instruction following, reasoning, and safety by ranking side-by-side model responses with RLHF-style preference judgments.</li>
+            <li>Authored and stress-tested <strong>200+ complex prompts in English and Arabic</strong> covering algorithmic reasoning, edge cases, and adversarial framing, surfacing failure modes used in alignment pipelines.</li>
+            <li>Debugged and optimized AI-generated C++, C, and Python against rubric-based correctness benchmarks.</li>
+          </ul>
+          <div class="tags"><span class="tag">RLHF</span><span class="tag">Prompt Engineering</span><span class="tag">LLM Evaluation</span><span class="tag">Arabic/English</span></div>
+        </div>
+
+        <div class="sub">
+          <div class="sub-top">
+            <div><h3>Competitive Programming Instructor &amp; Coach</h3><span class="org">Coach Academy · Cairo, Egypt · Remote</span></div>
+            <span class="badge b-green">ACCEPTED</span>
+          </div>
+          <p class="sub-meta">Jan 2025 – Dec 2025</p>
+          <ul>
+            <li>Took <strong>40+ students from zero background to contest-ready</strong> and qualified <strong>20+ to the ECPC</strong> through targeted problem sets, mock contests, and editorial sessions.</li>
+            <li>Raised average student Codeforces ratings by <strong>400+ points</strong> per cycle while reviewing 50+ C++ submissions a week.</li>
+          </ul>
+          <div class="tags"><span class="tag">C++</span><span class="tag">DSA</span><span class="tag">Curriculum Design</span><span class="tag">Mentorship</span></div>
+        </div>
+
+        <div class="sub">
+          <div class="sub-top">
+            <div><h3>Robotics Programming Instructor</h3><span class="org">ZHub Robotics Center · Alexandria, Egypt · On-site</span></div>
+            <span class="badge b-green">ACCEPTED</span>
+          </div>
+          <p class="sub-meta">Jun 2025 – Sep 2025</p>
+          <ul>
+            <li>Designed a 2-level C/C++/Python curriculum from scratch for <strong>30 students (ages 10–16)</strong>, who went on to program and debug their own robotics projects.</li>
+          </ul>
+          <div class="tags"><span class="tag">C/C++</span><span class="tag">Python</span><span class="tag">Robotics</span><span class="tag">Curriculum Design</span></div>
+        </div>
+
+        <div class="sub">
+          <div class="sub-top">
+            <div><h3>Freelance AI Training Data Specialist</h3><span class="org">NEAR Protocol (via Nearcrowd) · Remote</span></div>
+            <span class="badge b-green">ACCEPTED</span>
+          </div>
+          <p class="sub-meta">Sep 2022 – Oct 2024</p>
+          <ul>
+            <li>Ramped up on an undocumented proprietary platform with a custom DSL and <strong>no formal onboarding</strong>; authored 30+ original logic puzzles.</li>
+            <li>Solved and documented <strong>120+ C++ contest problems</strong> and wrote <strong>40+ LaTeX tutorials</strong> on advanced DSA for AI training datasets.</li>
+            <li>Turned <strong>60+ failed Codeforces solutions</strong> into verified ground truth through root-cause analysis and annotated fixes.</li>
+          </ul>
+          <div class="tags"><span class="tag">C++</span><span class="tag">LaTeX</span><span class="tag">AI Training Data</span><span class="tag">Self-directed</span></div>
+        </div>
+      </div>
+
+      <div class="edu-note">
+        <div>
+          <div class="deg">BSc in Artificial Intelligence, Arab Academy for Science, Technology &amp; Maritime Transport (AAST)</div>
+          <div class="meta">Full scholarship · GPA 3.61 · Alamein, Egypt</div>
+        </div>
+        <div class="meta">Sep 2024 – Jul 2028</div>
+      </div>
+    </div>
+    <nav class="ps-nav" aria-label="Problem navigation"><a href="#A">A. About</a><a href="#C">C. Projects</a></nav>
+  </article>
 </section>
 
 <!-- ============ C. PROJECTS ============ -->
-<section id="projects">
-  <div class="wrap">
-    <div class="sec-head rv"><span class="sec-letter">C</span><h2>Projects</h2></div>
-    <p class="sec-sub rv">// constructive solutions — full sources on GitHub</p>
-
-    <div class="proj-grid">
-      <article class="proj rv">
-        <span class="win">★ 1st IN EGYPT — INTL. QUALIFIER</span>
-        <div class="proj-top"><h3><a href="https://github.com/Omar123098/RoboCup-home" target="_blank" rel="noopener">Autonomous Service Robot — RoboCup @Home</a></h3><span class="yr">2026</span></div>
-        <p>Real-time person-detection and spatial-tracking module integrating YOLO with a ROS navigation stack, letting the robot autonomously find and interact with guests in unknown rooms.</p>
-        <div class="tags"><span class="tag">YOLO</span><span class="tag">ROS</span><span class="tag">Python</span><span class="tag">OpenCV</span></div>
-      </article>
-
-      <article class="proj rv">
-        <div class="proj-top"><h3><a href="https://www.kaggle.com/code/elgedawy/temperature-prediction" target="_blank" rel="noopener">Delhi Temperature Forecasting</a></h3><span class="yr">2026</span></div>
-        <p>End-to-end time-series pipeline — lag features, rolling statistics, seasonal decomposition — with a temporally cross-validated Random Forest cutting RMSE 28% below a linear baseline.</p>
-        <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Scikit-learn</span><span class="tag">Time Series</span></div>
-      </article>
-
-      <article class="proj rv">
-        <div class="proj-top"><h3><a href="https://github.com/Omar123098/Shell" target="_blank" rel="noopener">Windows Shell in C++</a></h3><span class="yr">2025</span></div>
-        <p>A shell built from scratch on native Windows APIs: readline-style editing, persistent cross-session history, tab completion, and robust I/O redirection with pipes and file redirects.</p>
-        <div class="tags"><span class="tag">C++</span><span class="tag">Windows API</span><span class="tag">Systems</span></div>
-      </article>
-
-      <article class="proj rv">
-        <div class="proj-top"><h3><a href="https://github.com/Omar123098/Ecommerce" target="_blank" rel="noopener">E-Commerce Marketplace</a></h3><span class="yr">2025</span></div>
-        <p>Full-stack Django marketplace with auth, listings with image uploads, checkout, live inventory tracking, watchlists, and dashboards on a normalized PostgreSQL schema.</p>
-        <div class="tags"><span class="tag">Django</span><span class="tag">PostgreSQL</span><span class="tag">Full-stack</span></div>
-      </article>
-
-      <article class="proj rv">
-        <div class="proj-top"><h3><a href="https://www.kaggle.com/code/elgedawy/notebook7fa279bb2f" target="_blank" rel="noopener">Student Performance Analytics</a></h3><span class="yr">2026</span></div>
-        <p>Full exploratory analysis of student academic data — correlation analysis and multivariate visualizations surfacing the strongest performance predictors.</p>
-        <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Seaborn</span><span class="tag">EDA</span></div>
-      </article>
-
-      <article class="proj rv">
-        <div class="proj-top"><h3><a href="https://github.com/Omar123098/Digital-Clock" target="_blank" rel="noopener">Digital Clock with AM/PM</a></h3><span class="yr">2025</span></div>
-        <p>12-hour clock with AM/PM toggling designed with D flip-flops and a 555 timer in Proteus, then prototyped on breadboard with 7490 counters and 7-segment displays.</p>
-        <div class="tags"><span class="tag">Digital Logic</span><span class="tag">Proteus</span><span class="tag">Hardware</span></div>
-      </article>
+<section id="C" class="view" aria-labelledby="C-title">
+  <article class="ps">
+    <div class="ps-crumb"><a href="#problems">Problems</a><span>C / 7</span></div>
+    <div class="ps-header">
+      <h2 class="ps-title" id="C-title" tabindex="-1">C. Projects</h2>
+      <div class="ps-limits">
+        <div class="ps-limit"><b>time limit per test:</b> one semester</div>
+        <div class="ps-limit"><b>memory limit per test:</b> one repository</div>
+        <div class="ps-limit"><b>input:</b> an idea</div>
+        <div class="ps-limit"><b>output:</b> source on GitHub</div>
+      </div>
+      <div class="judge js-only" data-tests="6" aria-live="polite"></div>
     </div>
-  </div>
+    <div class="ps-body">
+      <div class="grid">
+        <div class="proj feature">
+          <span class="win">1st in Egypt · international qualifier</span>
+          <div class="proj-top"><h3><a href="https://github.com/Omar123098/RoboCup-home" target="_blank" rel="noopener">Autonomous Service Robot, RoboCup @Home</a></h3><span class="yr">2026</span></div>
+          <p>A full ROS software stack for the "find my guest" task: the robot maps the house, drives to the guest room, talks to each guest, then returns and reports to the host. I led the vision and person-tracking system.</p>
+          <ul>
+            <li>Autonomous mapping, localization, and room-to-room navigation on a ROS nav stack</li>
+            <li>Speech recognition and text-to-speech for asking each guest's name</li>
+            <li>Real-time person detection and tracking with a state machine driving each step</li>
+            <li>Gemini-powered visual analysis extracting guest features (clothing, hair)</li>
+            <li>Nearby-object detection with bounding boxes and relative-position descriptions</li>
+            <li>A spoken summary per guest: name, two features, and where they are</li>
+          </ul>
+          <div class="tags"><span class="tag">ROS</span><span class="tag">Python</span><span class="tag">YOLO</span><span class="tag">Gemini API</span><span class="tag">OpenCV</span><span class="tag">Speech</span></div>
+        </div>
+
+        <div class="proj">
+          <div class="proj-top"><h3><a href="https://www.kaggle.com/code/elgedawy/temperature-prediction" target="_blank" rel="noopener">Delhi Temperature Forecasting</a></h3><span class="yr">2026</span></div>
+          <p>End-to-end time-series pipeline with lag features, rolling statistics, and seasonal decomposition. A temporally cross-validated Random Forest cuts RMSE 28% below a linear baseline.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Scikit-learn</span><span class="tag">Time Series</span></div>
+        </div>
+
+        <div class="proj">
+          <div class="proj-top"><h3><a href="https://github.com/Omar123098/Shell" target="_blank" rel="noopener">Windows Shell in C++</a></h3><span class="yr">2025</span></div>
+          <p>A shell built from scratch on native Windows APIs: readline-style editing, persistent history across sessions, tab completion, and I/O redirection with pipes and file redirects.</p>
+          <div class="tags"><span class="tag">C++</span><span class="tag">Windows API</span><span class="tag">Systems</span></div>
+        </div>
+
+        <div class="proj">
+          <div class="proj-top"><h3><a href="https://github.com/Omar123098/Ecommerce" target="_blank" rel="noopener">E-Commerce Marketplace</a></h3><span class="yr">2025</span></div>
+          <p>Full-stack Django marketplace with auth, listings with image uploads, checkout, live inventory, watchlists, and dashboards on a normalized PostgreSQL schema.</p>
+          <div class="tags"><span class="tag">Django</span><span class="tag">PostgreSQL</span><span class="tag">Full-stack</span></div>
+        </div>
+
+        <div class="proj">
+          <div class="proj-top"><h3><a href="https://www.kaggle.com/code/elgedawy/notebook7fa279bb2f" target="_blank" rel="noopener">Student Performance Analytics</a></h3><span class="yr">2026</span></div>
+          <p>Exploratory analysis of student academic data, with correlation analysis and multivariate visualizations that surface the strongest performance predictors.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Seaborn</span><span class="tag">EDA</span></div>
+        </div>
+
+        <div class="proj">
+          <div class="proj-top"><h3><a href="https://github.com/Omar123098/Digital-Clock" target="_blank" rel="noopener">Digital Clock with AM/PM</a></h3><span class="yr">2025</span></div>
+          <p>12-hour clock with AM/PM toggling, designed with D flip-flops and a 555 timer in Proteus, then built on a breadboard with 7490 counters and 7-segment displays.</p>
+          <div class="tags"><span class="tag">Digital Logic</span><span class="tag">Proteus</span><span class="tag">Hardware</span></div>
+        </div>
+      </div>
+    </div>
+    <nav class="ps-nav" aria-label="Problem navigation"><a href="#B">B. Experience</a><a href="#D">D. Teaching &amp; Community</a></nav>
+  </article>
 </section>
 
-<!-- ============ D. TEACHING & COMMUNITY ============ -->
-<section id="teaching" class="alt">
-  <div class="wrap">
-    <div class="sec-head rv"><span class="sec-letter">D</span><h2>Teaching &amp; Community</h2></div>
-    <p class="sec-sub rv">// 420+ students trained across schools, universities, and academies</p>
-
-    <div class="teach-grid">
-      <article class="teach rv">
-        <h3><a href="https://www.facebook.com/AASTcpc" target="_blank" rel="noopener">AAST ICPC Club</a></h3>
-        <div class="role">Founder · President · Training Head</div>
-        <div class="when">Sep 2024 — Present · Alamein</div>
-        <p>Founded AAST's first ICPC club and built a 3-level curriculum from C++ basics to advanced algorithms. Mentored <span class="num">300+ students</span>; qualified <span class="num">4 teams to ECPC</span> and <span class="num">1 to ACPC</span> in the first cycle.</p>
-      </article>
-
-      <article class="teach rv">
-        <h3><a href="https://www.facebook.com/FCDSICPC/" target="_blank" rel="noopener">FCDS ICPC Community — Alexandria University</a></h3>
-        <div class="role">Member · Instructor</div>
-        <div class="when">Oct 2024 — May 2025 · Alexandria</div>
-        <p>Delivered advanced sessions on <span class="num">DP, backtracking, number theory, and recursion</span> to 35+ undergraduates; authored editorials that became reusable training material for later cohorts.</p>
-      </article>
-
-      <article class="teach rv">
-        <h3>Victoria College CP Club</h3>
-        <div class="role">Founder · Lead Instructor</div>
-        <div class="when">May 2023 — Oct 2023 · Alexandria</div>
-        <p>Founded the school's first CP club with a 2-level curriculum for <span class="num">50 students (ages 10–16)</span>, producing its first cohort of EOI-eligible olympiad competitors.</p>
-      </article>
+<!-- ============ D. TEACHING ============ -->
+<section id="D" class="view" aria-labelledby="D-title">
+  <article class="ps">
+    <div class="ps-crumb"><a href="#problems">Problems</a><span>D / 7</span></div>
+    <div class="ps-header">
+      <h2 class="ps-title" id="D-title" tabindex="-1">D. Teaching &amp; Community</h2>
+      <div class="ps-limits">
+        <div class="ps-limit"><b>time limit per test:</b> one training season</div>
+        <div class="ps-limit"><b>memory limit per test:</b> 450+ students</div>
+        <div class="ps-limit"><b>input:</b> complete beginners</div>
+        <div class="ps-limit"><b>output:</b> contest-ready programmers</div>
+      </div>
+      <div class="judge js-only" data-tests="3" aria-live="polite"></div>
     </div>
-  </div>
+    <div class="ps-body">
+      <p style="margin-bottom:1.2rem">450+ students trained across university clubs, academies, and schools, counting Coach Academy and ZHub from problem B.</p>
+      <div class="grid">
+        <div class="teach">
+          <h3><a href="https://www.facebook.com/AASTcpc" target="_blank" rel="noopener">AAST ICPC Club</a></h3>
+          <div class="role">Founder · President · Training Head</div>
+          <div class="when">Sep 2024 – Present · Alamein</div>
+          <p>Founded AAST's first ICPC club and built a 3-level curriculum from C++ basics to advanced algorithms. Mentored <span class="num">300+ students</span> and qualified <span class="num">4 teams to ECPC</span> and <span class="num">1 to ACPC</span> in the first cycle.</p>
+        </div>
+        <div class="teach">
+          <h3><a href="https://www.facebook.com/FCDSICPC/" target="_blank" rel="noopener">FCDS ICPC Community, Alexandria University</a></h3>
+          <div class="role">Member · Instructor</div>
+          <div class="when">Oct 2024 – May 2025 · Alexandria</div>
+          <p>Taught advanced sessions on <span class="num">DP, backtracking, number theory, and recursion</span> to 35+ undergraduates and wrote editorials reused as training material for later cohorts.</p>
+        </div>
+        <div class="teach">
+          <h3>Victoria College CP Club</h3>
+          <div class="role">Founder · Lead Instructor</div>
+          <div class="when">May 2023 – Oct 2023 · Alexandria</div>
+          <p>Founded the school's first CP club with a 2-level curriculum for <span class="num">50 students (ages 10–16)</span>, producing its first cohort of EOI-eligible olympiad competitors.</p>
+        </div>
+      </div>
+    </div>
+    <nav class="ps-nav" aria-label="Problem navigation"><a href="#C">C. Projects</a><a href="#E">E. Standings</a></nav>
+  </article>
 </section>
 
 <!-- ============ E. STANDINGS ============ -->
-<section id="standings">
-  <div class="wrap">
-    <div class="sec-head rv"><span class="sec-letter">E</span><h2>Standings</h2></div>
-    <p class="sec-sub rv">// final results table — sorted by bragging rights</p>
-
-    <div class="tbl-scroll rv">
-      <table class="standings">
-        <thead><tr><th>#</th><th>Contest</th><th>Result</th><th>Year</th></tr></thead>
-        <tbody>
-          <tr><td class="rk">1</td><td>RoboCup @Home — Egypt</td><td class="res gold">National Champion · Intl. Qualifier</td><td class="yr-td">2026</td></tr>
-          <tr><td class="rk">2</td><td><a href="https://codeforces.com/profile/Gedawy" target="_blank" rel="noopener">Codeforces</a></td><td class="res blue">Expert — top 5% globally · 2500+ solved</td><td class="yr-td">—</td></tr>
-          <tr><td class="rk">3</td><td>African &amp; Arab Collegiate Programming Contest (ACPC)</td><td class="res silver">6th Place · 5× Qualifier</td><td class="yr-td">2024</td></tr>
-          <tr><td class="rk">4</td><td>Egyptian Olympiad in Informatics (EOI)</td><td class="res bronze">2× Bronze Medalist</td><td class="yr-td">2020, 2023</td></tr>
-          <tr><td class="rk">5</td><td>International Informatics Olympiad in Teams (IIOT)</td><td class="res gold">National Champion · Finalist</td><td class="yr-td">2022</td></tr>
-          <tr><td class="rk">6</td><td>ECPC Teens</td><td class="res silver">Silver Medal · 4th Place</td><td class="yr-td">2021</td></tr>
-        </tbody>
-      </table>
+<section id="E" class="view" aria-labelledby="E-title">
+  <article class="ps">
+    <div class="ps-crumb"><a href="#problems">Problems</a><span>E / 7</span></div>
+    <div class="ps-header">
+      <h2 class="ps-title" id="E-title" tabindex="-1">E. Standings</h2>
+      <div class="ps-limits">
+        <div class="ps-limit"><b>time limit per test:</b> 5 hours per contest</div>
+        <div class="ps-limit"><b>memory limit per test:</b> one keyboard per team</div>
+        <div class="ps-limit"><b>input:</b> contests since 2020</div>
+        <div class="ps-limit"><b>output:</b> final results table</div>
+      </div>
+      <div class="judge js-only" data-tests="6" aria-live="polite"></div>
     </div>
-  </div>
+    <div class="ps-body">
+      <div class="tbl-scroll">
+        <table class="standings">
+          <thead><tr><th scope="col">#</th><th scope="col">Contest</th><th scope="col">Result</th><th scope="col">Year</th></tr></thead>
+          <tbody>
+            <tr><td class="rk">1</td><td>RoboCup @Home, Egypt</td><td class="res d-red">National Champion · Intl. Qualifier</td><td class="yr-td">2026</td></tr>
+            <tr><td class="rk">2</td><td><a href="https://codeforces.com/profile/Gedawy" target="_blank" rel="noopener">Codeforces</a></td><td class="res d-blue">Expert, top 5% globally · 3000+ solved across all judges</td><td class="yr-td">live</td></tr>
+            <tr><td class="rk">3</td><td>African &amp; Arab Collegiate Programming Contest (ACPC)</td><td class="res d-orange">6th Place · 5× Qualifier</td><td class="yr-td">2024</td></tr>
+            <tr><td class="rk">4</td><td>Egyptian Olympiad in Informatics (EOI)</td><td class="res d-violet">2× Bronze Medalist</td><td class="yr-td">2020, 2023</td></tr>
+            <tr><td class="rk">5</td><td>International Informatics Olympiad in Teams (IIOT)</td><td class="res d-red">National Champion · Finalist</td><td class="yr-td">2022</td></tr>
+            <tr><td class="rk">6</td><td>ECPC Teens</td><td class="res d-orange">Silver Medal · 4th Place</td><td class="yr-td">2021</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <nav class="ps-nav" aria-label="Problem navigation"><a href="#D">D. Teaching &amp; Community</a><a href="#F">F. Skills</a></nav>
+  </article>
 </section>
 
 <!-- ============ F. SKILLS ============ -->
-<section id="skills" class="alt">
-  <div class="wrap">
-    <div class="sec-head rv"><span class="sec-letter">F</span><h2>Skills</h2></div>
-    <p class="sec-sub rv">// constraints I work comfortably within</p>
-
-    <div class="skill-rows rv">
-      <div class="skill-row"><div class="skill-k">languages</div><div class="skill-v"><span class="tag">C++</span><span class="tag">C</span><span class="tag">Python</span><span class="tag">SQL</span></div></div>
-      <div class="skill-row"><div class="skill-k">systems &amp; backend</div><div class="skill-v"><span class="tag">OOP &amp; SOLID</span><span class="tag">Systems Programming</span><span class="tag">Windows API</span><span class="tag">Django</span><span class="tag">PostgreSQL</span><span class="tag">Git/GitHub</span><span class="tag">Linux</span></div></div>
-      <div class="skill-row"><div class="skill-k">cv &amp; robotics</div><div class="skill-v"><span class="tag">OpenCV</span><span class="tag">MediaPipe</span><span class="tag">YOLO</span><span class="tag">ROS</span><span class="tag">Autonomous Navigation</span><span class="tag">Digital Logic</span></div></div>
-      <div class="skill-row"><div class="skill-k">data science &amp; ml</div><div class="skill-v"><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Scikit-learn</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span><span class="tag">EDA</span><span class="tag">Feature Engineering</span><span class="tag">Time-Series Forecasting</span></div></div>
-      <div class="skill-row"><div class="skill-k">ai training</div><div class="skill-v"><span class="tag">RLHF</span><span class="tag">Prompt Engineering</span><span class="tag">LLM Evaluation</span><span class="tag">Code Annotation</span><span class="tag">Red-Teaming</span><span class="tag">Arabic/English Annotation</span></div></div>
-      <div class="skill-row"><div class="skill-k">cs fundamentals</div><div class="skill-v"><span class="tag">Data Structures &amp; Algorithms</span><span class="tag">Dynamic Programming</span><span class="tag">Graph Theory</span><span class="tag">Number Theory</span><span class="tag">LaTeX</span></div></div>
-      <div class="skill-row"><div class="skill-k">spoken</div><div class="skill-v"><span class="tag">Arabic — native</span><span class="tag">English — fluent</span></div></div>
+<section id="F" class="view" aria-labelledby="F-title">
+  <article class="ps">
+    <div class="ps-crumb"><a href="#problems">Problems</a><span>F / 7</span></div>
+    <div class="ps-header">
+      <h2 class="ps-title" id="F-title" tabindex="-1">F. Skills</h2>
+      <div class="ps-limits">
+        <div class="ps-limit"><b>time limit per test:</b> as long as it takes to learn</div>
+        <div class="ps-limit"><b>memory limit per test:</b> unbounded</div>
+        <div class="ps-limit"><b>input:</b> a problem</div>
+        <div class="ps-limit"><b>output:</b> the right tool for it</div>
+      </div>
+      <div class="judge js-only" data-tests="4" aria-live="polite"></div>
     </div>
-  </div>
+    <div class="ps-body">
+      <div class="skill-rows">
+        <div class="skill-row"><div class="skill-k">languages</div><div class="skill-v"><span class="tag">C++</span><span class="tag">C</span><span class="tag">Python</span><span class="tag">SQL</span></div></div>
+        <div class="skill-row"><div class="skill-k">systems &amp; backend</div><div class="skill-v"><span class="tag">OOP &amp; SOLID</span><span class="tag">Systems Programming</span><span class="tag">Windows API</span><span class="tag">Django</span><span class="tag">PostgreSQL</span><span class="tag">Git/GitHub</span><span class="tag">Linux</span></div></div>
+        <div class="skill-row"><div class="skill-k">cv &amp; robotics</div><div class="skill-v"><span class="tag">OpenCV</span><span class="tag">MediaPipe</span><span class="tag">YOLO</span><span class="tag">ROS</span><span class="tag">Gemini API</span><span class="tag">Autonomous Navigation</span><span class="tag">Digital Logic</span></div></div>
+        <div class="skill-row"><div class="skill-k">data science &amp; ml</div><div class="skill-v"><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Scikit-learn</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span><span class="tag">EDA</span><span class="tag">Feature Engineering</span><span class="tag">Time-Series Forecasting</span></div></div>
+        <div class="skill-row"><div class="skill-k">quantum &amp; research</div><div class="skill-v"><span class="tag">Qiskit</span><span class="tag">Quantum Computing</span><span class="tag">Quantum ML</span><span class="tag">Backtesting</span><span class="tag">Paper Reproduction</span></div></div>
+        <div class="skill-row"><div class="skill-k">ai training</div><div class="skill-v"><span class="tag">RLHF</span><span class="tag">Prompt Engineering</span><span class="tag">LLM Evaluation</span><span class="tag">Code Annotation</span><span class="tag">Red-Teaming</span><span class="tag">Arabic/English Annotation</span></div></div>
+        <div class="skill-row"><div class="skill-k">cs fundamentals</div><div class="skill-v"><span class="tag">Data Structures &amp; Algorithms</span><span class="tag">Dynamic Programming</span><span class="tag">Graph Theory</span><span class="tag">Number Theory</span><span class="tag">LaTeX</span></div></div>
+        <div class="skill-row"><div class="skill-k">spoken</div><div class="skill-v"><span class="tag">Arabic, native</span><span class="tag">English, fluent</span></div></div>
+      </div>
+    </div>
+    <nav class="ps-nav" aria-label="Problem navigation"><a href="#E">E. Standings</a><a href="#G">G. Contact</a></nav>
+  </article>
 </section>
 
 <!-- ============ G. CONTACT ============ -->
-<section id="contact">
-  <div class="wrap">
-    <div class="sec-head rv"><span class="sec-letter">G</span><h2>Contact</h2></div>
-    <p class="sec-sub rv">// the only problem here is unsolved until you say hi</p>
+<section id="G" class="view" aria-labelledby="G-title">
+  <article class="ps">
+    <div class="ps-crumb"><a href="#problems">Problems</a><span>G / 7</span></div>
+    <div class="ps-header">
+      <h2 class="ps-title" id="G-title" tabindex="-1">G. Contact</h2>
+      <div class="ps-limits">
+        <div class="ps-limit"><b>time limit per test:</b> one message</div>
+        <div class="ps-limit"><b>memory limit per test:</b> your inbox</div>
+        <div class="ps-limit"><b>input:</b> your message</div>
+        <div class="ps-limit"><b>output:</b> a reply</div>
+      </div>
+      <div class="judge js-only" data-tests="2" aria-live="polite"></div>
+    </div>
+    <div class="ps-body">
+      <div class="term">
+        <div class="term-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="term-title">gedawy@alexandria: ~/contact</span></div>
+        <div class="term-body">
+          <div><span class="ps1">$</span> <span class="cmd">cat contact.txt</span></div>
+          <div class="out">email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ <a href="mailto:omarelgedawy123098@gmail.com">omarelgedawy123098@gmail.com</a></div>
+          <div class="out">github&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ <a href="https://github.com/Omar123098" target="_blank" rel="noopener">github.com/Omar123098</a></div>
+          <div class="out">linkedin&nbsp;&nbsp;&nbsp;→ <a href="https://www.linkedin.com/in/omarelgedawy/" target="_blank" rel="noopener">linkedin.com/in/omarelgedawy</a></div>
+          <div class="out">codeforces → <a href="https://codeforces.com/profile/Gedawy" target="_blank" rel="noopener">codeforces.com/profile/Gedawy</a></div>
+          <div class="out">kaggle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ <a href="https://www.kaggle.com/elgedawy" target="_blank" rel="noopener">kaggle.com/elgedawy</a></div>
+          <div><span class="ps1">$</span> <span class="cmd">./status</span></div>
+          <div class="out">open to SWE &amp; data-science internships and junior roles · remote or MENA/EMEA</div>
+          <div><span class="ps1">$</span> <span class="cmd c">_</span></div>
+        </div>
+      </div>
 
-    <div class="term rv">
-      <div class="term-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="term-title">gedawy@alexandria: ~/contact</span></div>
-      <div class="term-body">
-        <div><span class="ps">$</span> <span class="cmd">cat contact.txt</span></div>
-        <div class="out">email&nbsp;&nbsp;&nbsp;&nbsp;→ <a href="mailto:omarelgedawy123098@gmail.com">omarelgedawy123098@gmail.com</a></div>
-        <div class="out">phone&nbsp;&nbsp;&nbsp;&nbsp;→ <a href="tel:+201226167393">+20 122 616 7393</a></div>
-        <div class="out">github&nbsp;&nbsp;&nbsp;→ <a href="https://github.com/Omar123098" target="_blank" rel="noopener">github.com/Omar123098</a></div>
-        <div class="out">linkedin&nbsp;→ <a href="https://www.linkedin.com/in/omarelgedawy/" target="_blank" rel="noopener">linkedin.com/in/omarelgedawy</a></div>
-        <div class="out">codeforces → <a href="https://codeforces.com/profile/Gedawy" target="_blank" rel="noopener">codeforces.com/profile/Gedawy</a></div>
-        <div><span class="ps">$</span> <span class="cmd">./status</span></div>
-        <div class="out">open to SWE &amp; data-science internships/Junior — remote or MENA/EMEA</div>
-        <div><span class="ps">$</span> <span class="c cmd">_</span></div>
+      <form class="submit" id="submitForm" action="mailto:omarelgedawy123098@gmail.com" method="post" enctype="text/plain">
+        <h3>Submit a message</h3>
+        <div class="submit-row">
+          <div><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></div>
+          <div><label for="f-topic">Problem</label>
+            <select id="f-topic" name="topic">
+              <option>Internship opportunity</option>
+              <option>Full-time role</option>
+              <option>Research collaboration</option>
+              <option>Teaching or community</option>
+              <option>Something else</option>
+            </select>
+          </div>
+        </div>
+        <div><label for="f-msg">Message</label><textarea id="f-msg" name="message" required></textarea></div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+    </div>
+    <nav class="ps-nav" aria-label="Problem navigation"><a href="#F">F. Skills</a><a href="#problems">Back to problems</a></nav>
+  </article>
+</section>
+</main>
+
+<!-- ============ SIDEBAR ============ -->
+<aside class="side" aria-label="Contest sidebar">
+  <div class="box">
+    <div class="box-h">→ Pay attention</div>
+    <div class="box-b">
+      <p>Currently a research intern in quantum finance at Nile University.</p>
+      <p>Open to SWE and data-science internships. <a href="resume/Omar_Elgedawy_SWE_DS.pdf" target="_blank" rel="noopener">Download resume</a></p>
+    </div>
+  </div>
+  <div class="box">
+    <div class="box-h">→ Contestant</div>
+    <div class="box-b">
+      <div class="handle">Gedawy</div>
+      <div class="rank">Expert · top 5% globally</div>
+      <div class="kv">
+        <div><span>name:</span> Omar Elgedawy</div>
+        <div><span>from:</span> Alexandria, Egypt</div>
+        <div><span>org:</span> AAST, BSc AI, 2028</div>
+      </div>
+      <div class="links">
+        <a href="https://github.com/Omar123098" target="_blank" rel="noopener">github</a>
+        <a href="https://codeforces.com/profile/Gedawy" target="_blank" rel="noopener">codeforces</a>
+        <a href="https://www.linkedin.com/in/omarelgedawy/" target="_blank" rel="noopener">linkedin</a>
+        <a href="https://www.kaggle.com/elgedawy" target="_blank" rel="noopener">kaggle</a>
       </div>
     </div>
   </div>
-</section>
+  <div class="box">
+    <div class="box-h">→ Your progress</div>
+    <div class="box-b">
+      <ul class="mini" id="miniList">
+        <li data-p="A"><a href="#A">A. About</a><span class="okmark">✓</span></li>
+        <li data-p="B"><a href="#B">B. Experience</a><span class="okmark">✓</span></li>
+        <li data-p="C"><a href="#C">C. Projects</a><span class="okmark">✓</span></li>
+        <li data-p="D"><a href="#D">D. Teaching</a><span class="okmark">✓</span></li>
+        <li data-p="E"><a href="#E">E. Standings</a><span class="okmark">✓</span></li>
+        <li data-p="F"><a href="#F">F. Skills</a><span class="okmark">✓</span></li>
+        <li data-p="G"><a href="#G">G. Contact</a><span class="okmark">✓</span></li>
+      </ul>
+      <div class="js-only">
+        <div class="progress" aria-hidden="true"><i id="progBar"></i></div>
+        <div class="kv" id="progText" style="margin-top:0">solved 0 / 7</div>
+      </div>
+    </div>
+  </div>
+  <div class="box js-only">
+    <div class="box-h">→ Shortcuts</div>
+    <div class="box-b keys">
+      <span class="kbd">A</span><span>to <span class="kbd">G</span> open a problem</span>
+      <span class="kbd">←</span><span>previous problem</span>
+      <span class="kbd">→</span><span>next problem</span>
+      <span class="kbd">Esc</span><span>back to the list</span>
+    </div>
+  </div>
+</aside>
+</div>
 
 <footer>
-  <p>© <span id="yr"></span> Omar Elgedawy · built by hand, judged by you · verdict: <span style="color:var(--green);font-weight:700">accepted</span></p>
+  <p>© <span id="yr">2026</span> Omar Elgedawy · built by hand, judged by you · verdict: <span class="acc">Accepted</span></p>
 </footer>
 
 <script>
-// mobile nav
-const t=document.getElementById('navToggle'),l=document.getElementById('navLinks');
-t.addEventListener('click',()=>{const o=l.classList.toggle('open');t.setAttribute('aria-expanded',o)});
-l.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{l.classList.remove('open');t.setAttribute('aria-expanded','false')}));
-// reveal on scroll
-const rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const els=document.querySelectorAll('.rv');
-if(rm||!('IntersectionObserver'in window)){els.forEach(e=>e.classList.add('in'));}
-else{
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
-  els.forEach(e=>io.observe(e));
-}
-// year
-document.getElementById('yr').textContent=new Date().getFullYear();
+(function(){
+  const order=['A','B','C','D','E','F','G'];
+  const legacy={home:'problems',experience:'B',projects:'C',teaching:'D',standings:'E',skills:'F',contact:'G',about:'A'};
+  const views=[...document.querySelectorAll('.view')];
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const titles={problems:'Omar Elgedawy · Software Engineer & Data Scientist'};
+  order.forEach(p=>{titles[p]=document.getElementById(p+'-title').textContent+' · Omar Elgedawy'});
+
+  // solved state (per visitor, this tab only)
+  let solved=new Set();
+  try{solved=new Set(JSON.parse(sessionStorage.getItem('solved')||'[]'))}catch(e){}
+  function paintSolved(){
+    document.querySelectorAll('[data-p]').forEach(el=>{
+      const s=solved.has(el.dataset.p);
+      el.classList.toggle('solved',s);
+      const ok=el.querySelector('.p-ok'); if(ok) ok.textContent=s?'✓':'';
+    });
+    const n=solved.size;
+    document.getElementById('progBar').style.width=(n/7*100)+'%';
+    document.getElementById('progText').textContent=n===7?'solved 7 / 7 · full score':'solved '+n+' / 7';
+    document.getElementById('solvedLabel').textContent=n?n+' / 7 solved':'7 problems';
+  }
+  function markSolved(p){solved.add(p);try{sessionStorage.setItem('solved',JSON.stringify([...solved]))}catch(e){};paintSolved()}
+
+  // judge run when a problem opens
+  let timer=null;
+  function judge(p){
+    const el=document.querySelector('#'+p+' .judge'); if(!el) return;
+    clearInterval(timer);
+    const tests=+el.dataset.tests||3;
+    if(reduce||solved.has(p)){el.className='judge js-only ok';el.textContent='Accepted';markSolved(p);return}
+    let t=1; el.className='judge js-only'; el.textContent='Running on test '+t;
+    timer=setInterval(()=>{
+      t++;
+      if(t>tests){clearInterval(timer);el.className='judge js-only ok';el.textContent='Accepted';markSolved(p)}
+      else el.textContent='Running on test '+t;
+    },170);
+  }
+
+  function current(){
+    let h=decodeURIComponent(location.hash.slice(1));
+    if(h in legacy){h=legacy[h];history.replaceState(null,'','#'+h)}
+    h=h.length===1?h.toUpperCase():h;
+    return order.includes(h)?h:'problems';
+  }
+  function route(fromLoad){
+    const id=current();
+    views.forEach(v=>v.classList.toggle('active',v.id===id));
+    document.querySelectorAll('[data-nav]').forEach(a=>{a.toggleAttribute('aria-current',a.dataset.nav===id);if(a.dataset.nav===id)a.setAttribute('aria-current','page')});
+    document.title=titles[id];
+    window.scrollTo(0,0);
+    if(id!=='problems'){
+      judge(id);
+      if(!fromLoad){const t=document.getElementById(id+'-title');t.focus({preventScroll:true})}
+    }
+  }
+  window.addEventListener('hashchange',()=>route(false));
+
+  // whole problem row is clickable
+  document.querySelectorAll('.ptable tbody tr').forEach(tr=>tr.addEventListener('click',e=>{if(!e.target.closest('a'))location.hash=tr.dataset.p}));
+
+  // keyboard shortcuts
+  document.addEventListener('keydown',e=>{
+    if(e.ctrlKey||e.metaKey||e.altKey||e.target.closest('input,textarea,select,button')) return;
+    const k=e.key, id=current();
+    if(/^[a-g]$/i.test(k)){location.hash=k.toUpperCase();return}
+    if(k==='Escape'){location.hash='problems';return}
+    const i=order.indexOf(id);
+    if(i<0) return;
+    if(k==='ArrowRight'&&i<6) location.hash=order[i+1];
+    if(k==='ArrowLeft') location.hash=i>0?order[i-1]:'problems';
+  });
+
+  // mobile nav
+  const t=document.getElementById('navToggle'),l=document.getElementById('navLinks');
+  t.addEventListener('click',()=>{const o=l.classList.toggle('open');t.setAttribute('aria-expanded',o)});
+  l.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{l.classList.remove('open');t.setAttribute('aria-expanded','false')}));
+
+  // contact form opens the visitor's mail app with the message filled in
+  document.getElementById('submitForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    const f=e.target;
+    const subject=f.topic.value+' · from '+f.name.value;
+    location.href='mailto:omarelgedawy123098@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(f.message.value+'\n\n'+f.name.value);
+  });
+
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  paintSolved();
+  route(true);
+})();
 </script>
 </body>
 </html>
