@@ -4,21 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Omar Elgedawy · Software Engineer &amp; Data Scientist</title>
-<meta name="description" content="Omar Elgedawy (Gedawy): C++ software engineer and data scientist, quantum finance research intern at Nile University, Codeforces Expert (top 5%), RoboCup @Home national champion, and founder of the AAST ICPC Club.">
+<meta name="description" content="Omar Elgedawy (Gedawy): AI student specializing in data science at AAST, C++ software engineer, Codeforces Expert (top 5%), RoboCup @Home national champion, founder of the AAST ICPC Club, and creator of Arabic videos on the math behind AI.">
 <meta name="theme-color" content="#FBFAF6">
 <link rel="canonical" href="https://omar123098.github.io/portfolio/">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://omar123098.github.io/portfolio/">
 <meta property="og:title" content="Omar Elgedawy · Software Engineer &amp; Data Scientist">
-<meta property="og:description" content="Codeforces Expert, RoboCup @Home national champion, quantum finance research intern. Open the problems to see the work.">
+<meta property="og:description" content="Codeforces Expert, RoboCup @Home national champion, data science student and Arabic math-for-AI YouTuber. Open the problems to see the work.">
 <meta property="og:image" content="https://omar123098.github.io/portfolio/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js')</script>
 <style>
 :root{
@@ -44,12 +44,14 @@
   --gray:#6E6E6E;
   --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
   --sans:'IBM Plex Sans',-apple-system,Segoe UI,sans-serif;
+  --arabic:'IBM Plex Sans Arabic','IBM Plex Sans',Tahoma,sans-serif;
   --maxw:1180px;
   --r:6px;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-padding-top:80px}
 body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;font-size:16.5px;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
 ::selection{background:var(--blue);color:#fff}
 a{color:var(--blue);text-decoration:none}
 a:hover{text-decoration:underline}
@@ -67,23 +69,25 @@ a:hover{text-decoration:underline}
 .logo:hover{text-decoration:none}
 .logo .p{color:var(--blue)}
 .logo .c{color:var(--green)}
-.nav-links{display:flex;list-style:none;gap:.15rem;align-items:center}
-.nav-links a{font-family:var(--mono);font-size:.82rem;color:var(--ink-soft);padding:.4rem .55rem;border-radius:var(--r);display:block}
+.nav-links{display:flex;list-style:none;gap:.1rem;align-items:center}
+.nav-links a{font-family:var(--mono);font-size:.8rem;color:var(--ink-soft);padding:.4rem .5rem;border-radius:var(--r);display:block}
 .nav-links a:hover{color:var(--blue);background:var(--blue-soft);text-decoration:none}
 .nav-links a[aria-current="page"]{color:var(--ink);background:var(--paper-2);font-weight:600}
-.nav-cta{font-weight:600;border:1.5px solid var(--ink);color:var(--ink)!important;padding:.38rem .8rem!important}
+.nav-cta{font-weight:600;border:1.5px solid var(--ink);color:var(--ink)!important;padding:.38rem .8rem!important;margin-left:.3rem}
 .nav-cta:hover{background:var(--ink)!important;color:var(--paper)!important}
 .nav-toggle{display:none;background:none;border:1.5px solid var(--line-strong);border-radius:var(--r);font-family:var(--mono);font-size:.85rem;padding:.35rem .6rem;cursor:pointer;color:var(--ink)}
-@media(max-width:940px){
+@media(max-width:1120px){
   .nav-links{display:none;position:absolute;top:60px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;padding:.6rem 1rem 1rem}
   .nav-links.open{display:flex}
   .nav-links a{padding:.6rem .55rem}
+  .nav-cta{margin:.4rem 0 0}
   .nav-toggle{display:block}
 }
 
 /* ============ LAYOUT ============ */
 .layout{max-width:var(--maxw);margin:0 auto;padding:2rem 1.4rem 3rem;display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:1.8rem;align-items:start}
-@media(max-width:940px){.layout{grid-template-columns:1fr;padding-top:1.4rem}}
+@media(max-width:940px){.layout{grid-template-columns:1fr;padding:1.4rem 1rem 2.5rem}}
+#main{outline:none;min-width:0}
 .view{margin-bottom:2rem}
 .js .view{display:none}
 .js .view.active{display:block}
@@ -96,16 +100,16 @@ a:hover{text-decoration:underline}
 h1{font-family:var(--mono);font-weight:700;font-size:clamp(2.1rem,5.4vw,3.2rem);letter-spacing:-.035em;line-height:1.08;margin:.7rem 0 .5rem}
 .round-sub{color:var(--ink-soft);max-width:44rem;font-size:1.02rem}
 .io-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:1.5rem}
-.io-cell{background:var(--card);padding:.85rem 1.05rem}
+.io-cell{background:var(--card);padding:.85rem 1.05rem;min-width:0}
 .io-k{font-family:var(--mono);font-size:.72rem;color:var(--ink-mute)}
 .io-v{font-family:var(--mono);font-size:1.22rem;font-weight:700;color:var(--ink)}
 .io-v .u{font-size:.76rem;font-weight:500;color:var(--ink-mute)}
-@media(max-width:640px){.io-grid{grid-template-columns:1fr 1fr}.round{padding:1.5rem 1.3rem}}
+@media(max-width:640px){.io-grid{grid-template-columns:1fr 1fr}.round{padding:1.5rem 1.2rem}}
 .actions{display:flex;gap:.7rem;margin-top:1.5rem;flex-wrap:wrap}
-.btn{font-family:var(--mono);font-size:.86rem;font-weight:600;border-radius:var(--r);padding:.6rem 1.05rem;display:inline-flex;align-items:center;gap:.5rem;border:1.5px solid transparent}
+.btn{font-family:var(--mono);font-size:.86rem;font-weight:600;border-radius:var(--r);padding:.6rem 1.05rem;display:inline-flex;align-items:center;gap:.5rem;border:1.5px solid transparent;cursor:pointer}
 .btn-primary{background:var(--blue);color:#fff}
 .btn-primary:hover{background:var(--blue-deep);text-decoration:none}
-.btn-ghost{border-color:var(--line-strong);color:var(--ink)}
+.btn-ghost{border-color:var(--line-strong);color:var(--ink);background:transparent}
 .btn-ghost:hover{border-color:var(--ink);text-decoration:none}
 
 .ptable-wrap{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
@@ -113,7 +117,7 @@ h1{font-family:var(--mono);font-weight:700;font-size:clamp(2.1rem,5.4vw,3.2rem);
 .ptable-head h2{font-family:var(--mono);font-size:.95rem;font-weight:700}
 .ptable-head span{font-family:var(--mono);font-size:.78rem;color:var(--ink-mute)}
 .ptable{width:100%;border-collapse:collapse}
-.ptable td{padding:.85rem 1.1rem;border-bottom:1px solid var(--line);vertical-align:middle}
+.ptable td{padding:.8rem 1.1rem;border-bottom:1px solid var(--line);vertical-align:middle}
 .ptable tr:last-child td{border-bottom:none}
 .ptable tbody tr{cursor:pointer}
 .ptable tbody tr:hover td{background:var(--blue-soft)}
@@ -127,23 +131,24 @@ h1{font-family:var(--mono);font-weight:700;font-size:clamp(2.1rem,5.4vw,3.2rem);
 .p-diff{font-family:var(--mono);font-weight:700;font-size:.82rem;white-space:nowrap;width:4.5rem;text-align:right}
 .p-ok{width:2.2rem;text-align:center;font-family:var(--mono);font-weight:700;color:var(--green)}
 .d-gray{color:var(--gray)}.d-green{color:var(--green)}.d-cyan{color:var(--cyan)}.d-blue{color:var(--blue)}.d-violet{color:var(--violet)}.d-orange{color:var(--orange)}.d-red{color:var(--red)}
-@media(max-width:640px){.p-tags{display:none}.ptable td{padding:.75rem .7rem}}
+@media(max-width:640px){.p-tags{display:none}.ptable td{padding:.75rem .65rem}.p-id{width:2rem}.p-ok{width:1.4rem}}
 
 /* ============ PROBLEM STATEMENT ============ */
 .ps{background:var(--card);border:1px solid var(--line-strong);border-radius:10px;overflow:hidden}
 .ps-crumb{font-family:var(--mono);font-size:.8rem;color:var(--ink-mute);padding:.75rem 1.4rem;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 .ps-header{text-align:center;padding:1.9rem 1.4rem 1.4rem;border-bottom:1px solid var(--line)}
-.ps-title{font-family:var(--mono);font-size:clamp(1.45rem,3.4vw,1.9rem);font-weight:700;letter-spacing:-.02em;outline:none}
+.ps-title{font-family:var(--mono);font-size:clamp(1.4rem,3.4vw,1.9rem);font-weight:700;letter-spacing:-.02em;outline:none}
 .ps-limit{font-family:var(--mono);font-size:.8rem;color:var(--ink-soft);line-height:1.6}
 .ps-limit b{font-weight:600;color:var(--ink)}
 .ps-limits{margin-top:.6rem}
 .judge{display:inline-flex;align-items:center;gap:.5rem;margin-top:1rem;font-family:var(--mono);font-size:.82rem;font-weight:600;padding:.3rem .8rem;border-radius:999px;border:1px solid var(--line-strong);color:var(--ink-mute);min-height:2rem}
+.judge:empty{visibility:hidden}
 .judge.ok{color:var(--green);border-color:var(--green);background:var(--green-soft)}
 .judge.ok::before{content:"✓"}
 .ps-body{padding:1.8rem 2rem 1.6rem}
-@media(max-width:640px){.ps-body{padding:1.4rem 1.1rem}}
-.ps-sec{font-family:var(--mono);font-size:1rem;font-weight:700;margin:1.6rem 0 .6rem}
-.ps-sec:first-child{margin-top:0}
+@media(max-width:640px){.ps-body{padding:1.4rem 1.05rem}.ps-header{padding:1.5rem 1rem 1.2rem}.ps-crumb{padding:.7rem 1rem}}
+.ps-sec{font-family:var(--mono);font-size:1rem;font-weight:700;margin:1.7rem 0 .6rem}
+.ps-body > .ps-sec:first-child{margin-top:0}
 .ps-body > p{color:var(--ink-soft);max-width:44rem}
 .ps-body > p + p{margin-top:.8rem}
 .ps-body strong{color:var(--ink)}
@@ -151,7 +156,6 @@ h1{font-family:var(--mono);font-weight:700;font-size:clamp(2.1rem,5.4vw,3.2rem);
 .ps-nav a{color:var(--ink);font-weight:600}
 .ps-nav .muted{color:var(--ink-mute)}
 
-/* examples (sample tests) */
 .samples{display:grid;gap:1rem}
 .sample{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line-strong);border-radius:var(--r);overflow:hidden}
 .sample > div{min-width:0}
@@ -160,28 +164,44 @@ h1{font-family:var(--mono);font-weight:700;font-size:clamp(2.1rem,5.4vw,3.2rem);
 .sample > div + div{border-left:1px solid var(--line-strong)}
 @media(max-width:640px){.sample{grid-template-columns:1fr}.sample > div + div{border-left:none;border-top:1px solid var(--line-strong)}}
 
+/* ============ EDUCATION ============ */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-bottom:1.6rem}
+.facts > div{background:var(--card);padding:.75rem .95rem;min-width:0}
+@media(max-width:640px){.facts{grid-template-columns:1fr 1fr}}
+.legend{display:flex;flex-wrap:wrap;gap:.4rem 1rem;font-family:var(--mono);font-size:.76rem;color:var(--ink-mute);margin-bottom:.9rem}
+.terms{border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.term{display:grid;grid-template-columns:5.5rem 1fr;border-bottom:1px solid var(--line)}
+.term:last-child{border-bottom:none}
+.term-k{font-family:var(--mono);font-size:.78rem;font-weight:700;padding:.75rem .8rem;background:var(--paper-2);border-right:1px solid var(--line);color:var(--ink)}
+.term-k span{display:block;font-weight:500;color:var(--ink-mute);font-size:.72rem}
+.term.now .term-k{background:var(--orange-soft);color:var(--orange)}
+.term-v{display:flex;flex-wrap:wrap;gap:.4rem;padding:.7rem .8rem;align-items:flex-start;min-width:0}
+@media(max-width:640px){.term{grid-template-columns:1fr}.term-k{border-right:none;border-bottom:1px solid var(--line);padding:.5rem .8rem}.term-k span{display:inline;margin-left:.5rem}}
+.course{font-family:var(--mono);font-size:.74rem;border-radius:999px;padding:.18rem .62rem;border:1px solid;line-height:1.5}
+.course.ac{color:var(--green);background:var(--green-soft);border-color:#B7DEC4}
+.course.ac::before{content:"✓ "}
+.course.run{color:var(--orange);background:var(--orange-soft);border-color:#EDCB9A;font-weight:600}
+.course.run::before{content:"● "}
+.course.lock{color:var(--ink-mute);background:transparent;border-color:var(--line-strong);border-style:dashed}
+
 /* ============ EXPERIENCE ============ */
 .sub-list{display:flex;flex-direction:column;gap:1rem}
 .sub{border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:var(--r);padding:1.3rem 1.5rem;background:var(--card)}
-.sub.now{border-left-color:var(--orange)}
-.sub-top{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;flex-wrap:wrap}
+@media(max-width:640px){.sub{padding:1.1rem 1rem}}
+.sub-top{display:flex;justify-content:space-between;gap:.6rem 1rem;align-items:flex-start;flex-wrap:wrap}
 .sub h3{font-size:1.05rem;font-weight:700;line-height:1.35}
 .org{font-family:var(--mono);font-size:.84rem;color:var(--blue);font-weight:600}
 .badge{font-family:var(--mono);font-size:.72rem;font-weight:700;padding:.2rem .6rem;border-radius:999px;white-space:nowrap;border:1px solid currentColor}
 .b-green{background:var(--green-soft);color:var(--green)}
-.b-orange{background:var(--orange-soft);color:var(--orange)}
 .sub-meta{font-family:var(--mono);font-size:.78rem;color:var(--ink-mute);margin:.3rem 0 .8rem}
 .sub ul{padding-left:1.15rem;color:var(--ink-soft);display:flex;flex-direction:column;gap:.4rem;font-size:.95rem}
 .sub li::marker{color:var(--blue)}
 .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.9rem}
 .tag{font-family:var(--mono);font-size:.72rem;color:var(--ink-soft);background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:.16rem .6rem}
-.edu-note{margin-top:1.6rem;border:1px dashed var(--line-strong);border-radius:var(--r);padding:1rem 1.3rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-.edu-note .deg{font-weight:600}
-.edu-note .meta{font-family:var(--mono);font-size:.8rem;color:var(--ink-mute)}
 
 /* ============ PROJECTS / TEACHING ============ */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem}
-.proj{border:1px solid var(--line);border-radius:var(--r);padding:1.3rem 1.4rem;display:flex;flex-direction:column;gap:.6rem;background:var(--card)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr));gap:1rem}
+.proj{border:1px solid var(--line);border-radius:var(--r);padding:1.3rem 1.4rem;display:flex;flex-direction:column;gap:.6rem;background:var(--card);min-width:0}
 .proj.feature{grid-column:1/-1;border-color:var(--line-strong)}
 .proj-top{display:flex;justify-content:space-between;align-items:flex-start;gap:.8rem}
 .proj h3{font-size:1.02rem;font-weight:700;line-height:1.35}
@@ -193,12 +213,33 @@ h1{font-family:var(--mono);font-weight:700;font-size:clamp(2.1rem,5.4vw,3.2rem);
 @media(min-width:700px){.proj.feature ul{grid-template-columns:1fr 1fr;column-gap:2rem}}
 .proj li::marker{color:var(--red)}
 .win{font-family:var(--mono);font-size:.74rem;font-weight:700;color:var(--red);background:var(--red-soft);border:1px solid currentColor;border-radius:999px;padding:.16rem .6rem;align-self:flex-start}
-.teach{border:1px solid var(--line);border-top:4px solid var(--green);border-radius:var(--r);padding:1.3rem 1.4rem;background:var(--card)}
+.teach{border:1px solid var(--line);border-top:4px solid var(--green);border-radius:var(--r);padding:1.3rem 1.4rem;background:var(--card);min-width:0}
 .teach h3{font-size:1rem;font-weight:700}
 .teach .role{font-family:var(--mono);font-size:.78rem;color:var(--green);font-weight:600}
 .teach .when{font-family:var(--mono);font-size:.74rem;color:var(--ink-mute);margin:.2rem 0 .6rem}
 .teach p{font-size:.92rem;color:var(--ink-soft)}
 .num{font-family:var(--mono);font-weight:700;color:var(--ink)}
+
+/* ============ VIDEOS ============ */
+.yt{position:relative;display:block;aspect-ratio:16/9;border-radius:var(--r);overflow:hidden;background:var(--ink);border:1px solid var(--line-strong)}
+.yt img{width:100%;height:100%;object-fit:cover}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.yt-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--mono);font-weight:700;font-size:.95rem;color:#fff;background:var(--red);border-radius:999px;padding:.7rem 1.3rem;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+.yt:hover .yt-play{background:#A02813}
+.yt:hover{text-decoration:none}
+.vid-meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 1rem;align-items:baseline;margin:.9rem 0 .2rem}
+.vid-meta h3{font-size:1.15rem;font-weight:700}
+.vid-meta span{font-family:var(--mono);font-size:.78rem;color:var(--ink-mute)}
+.vid-links{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+.chapters{list-style:none;counter-reset:ch;display:grid;gap:.35rem;margin-top:.2rem}
+.chapters li{counter-increment:ch;display:grid;grid-template-columns:2rem 1fr;color:var(--ink-soft);font-size:.95rem}
+.chapters li::before{content:counter(ch);font-family:var(--mono);font-weight:700;color:var(--blue)}
+.quote{border-left:4px solid var(--line-strong);background:var(--paper-2);border-radius:0 var(--r) var(--r) 0;padding:1rem 1.2rem;font-family:var(--arabic);color:var(--ink);line-height:1.9;font-size:1.02rem}
+.quote[dir="rtl"]{border-left:none;border-right:4px solid var(--line-strong);border-radius:var(--r) 0 0 var(--r)}
+.quote-src{font-family:var(--mono);font-size:.76rem;color:var(--ink-mute);margin-top:.5rem}
+.series{display:grid;gap:.5rem}
+.series div{display:flex;justify-content:space-between;gap:1rem;align-items:center;flex-wrap:wrap;border:1px solid var(--line);border-radius:var(--r);padding:.6rem .9rem}
+.series b{font-weight:600}
 
 /* ============ STANDINGS ============ */
 .tbl-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r)}
@@ -219,12 +260,13 @@ h1{font-family:var(--mono);font-weight:700;font-size:clamp(2.1rem,5.4vw,3.2rem);
 @media(max-width:640px){.skill-row{grid-template-columns:1fr;gap:.45rem}}
 
 /* ============ CONTACT ============ */
-.term{background:var(--ink);color:#D7DBE2;border-radius:10px;font-family:var(--mono);font-size:.9rem;overflow:hidden}
+.term-win{background:var(--ink);color:#D7DBE2;border-radius:10px;font-family:var(--mono);font-size:.9rem;overflow:hidden}
 .term-bar{display:flex;gap:.45rem;padding:.75rem 1.1rem;border-bottom:1px solid #2A2F3A;align-items:center}
-.dot{width:.7rem;height:.7rem;border-radius:50%}
+.dot{width:.7rem;height:.7rem;border-radius:50%;flex:none}
 .dot:nth-child(1){background:#E0584B}.dot:nth-child(2){background:#E0A33E}.dot:nth-child(3){background:#57B062}
-.term-title{margin-left:auto;font-size:.74rem;color:#8B93A1}
+.term-title{margin-left:auto;font-size:.74rem;color:#8B93A1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .term-body{padding:1.3rem 1.4rem 1.5rem;display:flex;flex-direction:column;gap:.5rem}
+@media(max-width:640px){.term-win{font-size:.8rem}.term-body{padding:1.1rem 1rem 1.2rem}}
 .term-body .ps1{color:#57B062}
 .term-body .cmd{color:#fff}
 .term-body a{color:#8FBBFF}
@@ -236,8 +278,9 @@ h1{font-family:var(--mono);font-weight:700;font-size:clamp(2.1rem,5.4vw,3.2rem);
 .submit input,.submit select,.submit textarea{width:100%;font:inherit;font-size:.95rem;padding:.55rem .7rem;border:1px solid var(--line-strong);border-radius:var(--r);background:var(--paper);color:var(--ink)}
 .submit textarea{min-height:8rem;resize:vertical;font-family:var(--mono);font-size:.88rem}
 .submit-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
-@media(max-width:640px){.submit-row{grid-template-columns:1fr}}
-.submit button{justify-self:start;cursor:pointer;font-family:var(--mono)}
+@media(max-width:640px){.submit-row{grid-template-columns:1fr}.submit{padding:1rem}}
+.submit button{justify-self:start}
+.form-note{font-family:var(--mono);font-size:.76rem;color:var(--ink-mute)}
 
 /* ============ SIDEBAR ============ */
 .side{display:flex;flex-direction:column;gap:1.1rem;position:sticky;top:76px}
@@ -252,21 +295,21 @@ h1{font-family:var(--mono);font-weight:700;font-size:clamp(2.1rem,5.4vw,3.2rem);
 .kv span{color:var(--ink-mute)}
 .links{display:flex;flex-wrap:wrap;gap:.3rem .8rem;margin-top:.6rem;font-family:var(--mono);font-size:.8rem}
 .mini{list-style:none;font-family:var(--mono);font-size:.82rem}
-.mini li{display:flex;justify-content:space-between;gap:.5rem;padding:.12rem 0}
-.mini a{color:var(--ink)}
-.mini .okmark{color:var(--green);font-weight:700;visibility:hidden}
+.mini li{display:flex;justify-content:space-between;gap:.5rem}
+.mini a{color:var(--ink);display:block;padding:.14rem 0;flex:1}
+.mini .okmark{color:var(--green);font-weight:700;visibility:hidden;padding:.14rem 0}
 .mini li.solved .okmark{visibility:visible}
 .progress{height:6px;border-radius:999px;background:var(--line);overflow:hidden;margin:.6rem 0 .2rem}
 .progress i{display:block;height:100%;width:0;background:var(--green);transition:width .3s}
 .kbd{font-family:var(--mono);font-size:.74rem;border:1px solid var(--line-strong);border-bottom-width:2px;border-radius:4px;padding:0 .35rem;color:var(--ink);background:var(--paper)}
 .keys{display:grid;grid-template-columns:auto 1fr;gap:.4rem .7rem;font-size:.84rem;align-items:center}
-.no-js-only{display:none}
+@media(hover:none){.box.shortcuts{display:none}}
 html:not(.js) .js-only{display:none}
 
 footer{max-width:var(--maxw);margin:0 auto;padding:0 1.4rem 2.6rem;text-align:center}
 footer p{font-family:var(--mono);font-size:.78rem;color:var(--ink-mute)}
 footer .acc{color:var(--green);font-weight:700}
-@media print{.topbar,.side,.ps-nav,.actions,.submit{display:none}.js .view{display:block}.layout{display:block}}
+@media print{.topbar,.side,.ps-nav,.actions,.submit,.judge{display:none}.js .view{display:block}.layout{display:block}}
 </style>
 </head>
 <body>
@@ -278,11 +321,12 @@ footer .acc{color:var(--green);font-weight:700}
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">menu</button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#problems" data-nav="problems">./problems</a></li>
-      <li><a href="#B" data-nav="B">./experience</a></li>
-      <li><a href="#C" data-nav="C">./projects</a></li>
-      <li><a href="#D" data-nav="D">./teaching</a></li>
-      <li><a href="#E" data-nav="E">./standings</a></li>
-      <li><a href="#G" data-nav="G">./contact</a></li>
+      <li><a href="#B" data-nav="B">./education</a></li>
+      <li><a href="#C" data-nav="C">./experience</a></li>
+      <li><a href="#D" data-nav="D">./projects</a></li>
+      <li><a href="#F" data-nav="F">./videos</a></li>
+      <li><a href="#G" data-nav="G">./standings</a></li>
+      <li><a href="#I" data-nav="I">./contact</a></li>
       <li><a class="nav-cta" href="resume/Omar_Elgedawy_SWE_DS.pdf" target="_blank" rel="noopener">resume.pdf</a></li>
     </ul>
   </div>
@@ -296,7 +340,7 @@ footer .acc{color:var(--green);font-weight:700}
   <div class="round">
     <p class="round-meta"><span class="live">Running</span><span>Personal Round #1 (Div. 1)</span><span>Alexandria, Egypt</span></p>
     <h1 id="round-title">Omar Elgedawy</h1>
-    <p class="round-sub">Software engineer and data scientist. I build real-time C++ computer vision, research quantum machine learning for markets, and coach competitive programmers. Open a problem below to see the work.</p>
+    <p class="round-sub">Software engineer and data scientist in the making. I build real-time C++ computer vision, study data science at AAST, coach competitive programmers, and explain the math behind AI in Arabic on YouTube. Open a problem below to see the work.</p>
     <div class="io-grid">
       <div class="io-cell"><div class="io-k">problems_solved</div><div class="io-v">3000<span class="u">+ all judges</span></div></div>
       <div class="io-cell"><div class="io-k">codeforces</div><div class="io-v">Expert <span class="u">top 5%</span></div></div>
@@ -309,20 +353,23 @@ footer .acc{color:var(--green);font-weight:700}
       <a class="btn btn-ghost" href="https://github.com/Omar123098" target="_blank" rel="noopener">GitHub</a>
       <a class="btn btn-ghost" href="https://codeforces.com/profile/Gedawy" target="_blank" rel="noopener">Codeforces</a>
       <a class="btn btn-ghost" href="https://www.linkedin.com/in/omarelgedawy/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://www.youtube.com/@gedawy292" target="_blank" rel="noopener">YouTube</a>
     </div>
   </div>
 
   <div class="ptable-wrap">
-    <div class="ptable-head"><h2>Problems</h2><span id="solvedLabel">7 problems</span></div>
+    <div class="ptable-head"><h2>Problems</h2><span id="solvedLabel">9 problems</span></div>
     <table class="ptable">
       <tbody>
         <tr data-p="A"><td class="p-id"><a href="#A">A</a></td><td class="p-name"><a href="#A">About</a><small>Who I am and what I'm looking for</small></td><td class="p-tags">intro, constructive</td><td class="p-diff d-gray">1000</td><td class="p-ok" aria-hidden="true"></td></tr>
-        <tr data-p="B"><td class="p-id"><a href="#B">B</a></td><td class="p-name"><a href="#B">Experience</a><small>Quantum finance research, real-time C++ CV, LLM training</small></td><td class="p-tags">c++, research, rlhf</td><td class="p-diff d-orange">2100</td><td class="p-ok" aria-hidden="true"></td></tr>
-        <tr data-p="C"><td class="p-id"><a href="#C">C</a></td><td class="p-name"><a href="#C">Projects</a><small>RoboCup @Home robot, shells, forecasting, full-stack</small></td><td class="p-tags">robotics, ml, systems</td><td class="p-diff d-violet">1900</td><td class="p-ok" aria-hidden="true"></td></tr>
-        <tr data-p="D"><td class="p-id"><a href="#D">D</a></td><td class="p-name"><a href="#D">Teaching &amp; Community</a><small>450+ students, from first line of C++ to ECPC</small></td><td class="p-tags">greedy, mentorship</td><td class="p-diff d-blue">1600</td><td class="p-ok" aria-hidden="true"></td></tr>
-        <tr data-p="E"><td class="p-id"><a href="#E">E</a></td><td class="p-name"><a href="#E">Standings</a><small>RoboCup, ACPC, EOI, IIOT results</small></td><td class="p-tags">implementation, medals</td><td class="p-diff d-red">2400</td><td class="p-ok" aria-hidden="true"></td></tr>
-        <tr data-p="F"><td class="p-id"><a href="#F">F</a></td><td class="p-name"><a href="#F">Skills</a><small>Languages, CV, ML, quantum, systems</small></td><td class="p-tags">data structures</td><td class="p-diff d-cyan">1400</td><td class="p-ok" aria-hidden="true"></td></tr>
-        <tr data-p="G"><td class="p-id"><a href="#G">G</a></td><td class="p-name"><a href="#G">Contact</a><small>Send a submission, get a reply</small></td><td class="p-tags">interactive</td><td class="p-diff d-gray">800</td><td class="p-ok" aria-hidden="true"></td></tr>
+        <tr data-p="B"><td class="p-id"><a href="#B">B</a></td><td class="p-name"><a href="#B">Education</a><small>Data Science track, Excellent GPA, top 5 in my department</small></td><td class="p-tags">math, dp over terms</td><td class="p-diff d-cyan">1400</td><td class="p-ok" aria-hidden="true"></td></tr>
+        <tr data-p="C"><td class="p-id"><a href="#C">C</a></td><td class="p-name"><a href="#C">Experience</a><small>Real-time C++ CV, quantum finance research, LLM training</small></td><td class="p-tags">c++, research, rlhf</td><td class="p-diff d-orange">2100</td><td class="p-ok" aria-hidden="true"></td></tr>
+        <tr data-p="D"><td class="p-id"><a href="#D">D</a></td><td class="p-name"><a href="#D">Projects</a><small>RoboCup @Home robot, a C++ shell, forecasting, full-stack</small></td><td class="p-tags">robotics, ml, systems</td><td class="p-diff d-violet">1900</td><td class="p-ok" aria-hidden="true"></td></tr>
+        <tr data-p="E"><td class="p-id"><a href="#E">E</a></td><td class="p-name"><a href="#E">Teaching &amp; Community</a><small>450+ students, from first line of C++ to ECPC</small></td><td class="p-tags">greedy, mentorship</td><td class="p-diff d-blue">1600</td><td class="p-ok" aria-hidden="true"></td></tr>
+        <tr data-p="F"><td class="p-id"><a href="#F">F</a></td><td class="p-name"><a href="#F">Videos</a><small>"But what is dy/dx", the math behind AI in Arabic</small></td><td class="p-tags">calculus, interactive</td><td class="p-diff d-green">1200</td><td class="p-ok" aria-hidden="true"></td></tr>
+        <tr data-p="G"><td class="p-id"><a href="#G">G</a></td><td class="p-name"><a href="#G">Standings</a><small>RoboCup, ACPC, EOI, IIOT results</small></td><td class="p-tags">implementation, medals</td><td class="p-diff d-red">2400</td><td class="p-ok" aria-hidden="true"></td></tr>
+        <tr data-p="H"><td class="p-id"><a href="#H">H</a></td><td class="p-name"><a href="#H">Skills</a><small>Languages, CV, ML, data, systems</small></td><td class="p-tags">data structures</td><td class="p-diff d-cyan">1500</td><td class="p-ok" aria-hidden="true"></td></tr>
+        <tr data-p="I"><td class="p-id"><a href="#I">I</a></td><td class="p-name"><a href="#I">Contact</a><small>Send a submission, get a reply</small></td><td class="p-tags">interactive</td><td class="p-diff d-gray">800</td><td class="p-ok" aria-hidden="true"></td></tr>
       </tbody>
     </table>
   </div>
@@ -331,7 +378,7 @@ footer .acc{color:var(--green);font-weight:700}
 <!-- ============ A. ABOUT ============ -->
 <section id="A" class="view" aria-labelledby="A-title">
   <article class="ps">
-    <div class="ps-crumb"><a href="#problems">Problems</a><span>A / 7</span></div>
+    <div class="ps-crumb"><a href="#problems">Problems</a><span>A / 9</span></div>
     <div class="ps-header">
       <h2 class="ps-title" id="A-title" tabindex="-1">A. About</h2>
       <div class="ps-limits">
@@ -344,8 +391,8 @@ footer .acc{color:var(--green);font-weight:700}
     </div>
     <div class="ps-body">
       <h3 class="ps-sec">Statement</h3>
-      <p>I'm Omar Elgedawy, <strong>Gedawy</strong> on Codeforces. I study artificial intelligence at AAST in Alamein on a full scholarship, and I work across three things: real-time C++ computer vision, quantum machine learning research for financial markets, and training and evaluating LLMs in Arabic and English.</p>
-      <p>I'm a <strong>Codeforces Expert (top 5% globally)</strong> with 3000+ problems solved across judges, a <strong>RoboCup @Home national champion</strong> (1st in Egypt, 2026), and the founder of the AAST ICPC Club, where beginners become contest-ready programmers.</p>
+      <p>I'm Omar Elgedawy, <strong>Gedawy</strong> on Codeforces. I study artificial intelligence at AAST in Alamein on a full scholarship, specializing in <strong>data science</strong>, with an Excellent GPA and a top-5 rank in my department. I build real-time C++ computer vision, have trained and evaluated LLMs in Arabic and English, and recently finished a research internship in quantum finance at Nile University.</p>
+      <p>I'm a <strong>Codeforces Expert (top 5% globally)</strong> with 3000+ problems solved across judges, a <strong>RoboCup @Home national champion</strong> (1st in Egypt, 2026), and the founder of the AAST ICPC Club. I like explaining things, so I also make Arabic videos on the math behind AI.</p>
       <h3 class="ps-sec">Input</h3>
       <p>A single line: an open SWE or data-science internship, or a junior role. Remote, or on-site in MENA/EMEA.</p>
       <h3 class="ps-sec">Output</h3>
@@ -360,20 +407,71 @@ international qualifier</pre></div></div>
         <div class="sample"><div><div class="lbl">input</div><pre>300+ students
 no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at ECPC
 1 team at ACPC</pre></div></div>
+        <div class="sample"><div><div class="lbl">input</div><pre>why does backprop work?
+(in Arabic, please)</pre></div><div><div class="lbl">output</div><pre>a 1-hour video
++ an interactive notebook</pre></div></div>
       </div>
       <h3 class="ps-sec">Note</h3>
-      <p>Right now I'm a research intern in the Quantum Finance Group at Nile University. The full resume is one click away in the top bar.</p>
+      <p>Right now I'm in term 5 of the Data Science track and growing an Arabic YouTube series. The full resume is one click away in the top bar.</p>
     </div>
-    <nav class="ps-nav" aria-label="Problem navigation"><a href="#problems" class="muted">Problems</a><a href="#B">B. Experience</a></nav>
+    <nav class="ps-nav" aria-label="Problem navigation"><a href="#problems" class="muted">Problems</a><a href="#B">B. Education</a></nav>
   </article>
 </section>
 
-<!-- ============ B. EXPERIENCE ============ -->
+<!-- ============ B. EDUCATION ============ -->
 <section id="B" class="view" aria-labelledby="B-title">
   <article class="ps">
-    <div class="ps-crumb"><a href="#problems">Problems</a><span>B / 7</span></div>
+    <div class="ps-crumb"><a href="#problems">Problems</a><span>B / 9</span></div>
     <div class="ps-header">
-      <h2 class="ps-title" id="B-title" tabindex="-1">B. Experience</h2>
+      <h2 class="ps-title" id="B-title" tabindex="-1">B. Education</h2>
+      <div class="ps-limits">
+        <div class="ps-limit"><b>time limit per test:</b> 8 terms</div>
+        <div class="ps-limit"><b>memory limit per test:</b> one full scholarship</div>
+        <div class="ps-limit"><b>input:</b> the Data Science course map</div>
+        <div class="ps-limit"><b>output:</b> BSc in AI, 2028</div>
+      </div>
+      <div class="judge js-only" data-tests="5" aria-live="polite"></div>
+    </div>
+    <div class="ps-body">
+      <div class="facts">
+        <div><div class="io-k">degree</div><div class="io-v" style="font-size:1rem">BSc AI <span class="u">AAST Alamein</span></div></div>
+        <div><div class="io-k">track</div><div class="io-v" style="font-size:1rem">Data Science</div></div>
+        <div><div class="io-k">standing</div><div class="io-v" style="font-size:1rem">Excellent <span class="u">GPA 3.61</span></div></div>
+        <div><div class="io-k">department_rank</div><div class="io-v" style="font-size:1rem">Top 5</div></div>
+      </div>
+
+      <h3 class="ps-sec">Statement</h3>
+      <p>I'm in <strong>term 5 of 8</strong> of the BSc in Artificial Intelligence at the Arab Academy for Science, Technology &amp; Maritime Transport (AAST) in Alamein, on a <strong>full scholarship</strong> and specializing in the <strong>Data Science</strong> track. My GPA is in the Excellent band and I rank in the top 5 of my department. Expected graduation: July 2028.</p>
+      <p>On campus I'm the person classmates come to when something doesn't click. I recorded <strong>Intro to Computing</strong> videos on YouTube for my colleagues and spent a lot of time helping people through coursework. That habit is exactly what led me to found the <strong>AAST ICPC Club</strong> in my first year and to keep posting videos. I've built close relationships with my professors and TAs, and I'm happiest when a study group I started ends up teaching itself.</p>
+
+      <h3 class="ps-sec">Relevant coursework</h3>
+      <div class="tags" style="margin-top:0">
+        <span class="tag">Machine Learning</span><span class="tag">Deep Learning (now)</span><span class="tag">Fundamentals of Data Science</span><span class="tag">Statistics for Data Science (now)</span><span class="tag">Probability &amp; Statistics</span><span class="tag">Linear Algebra</span><span class="tag">Calculus</span><span class="tag">Discrete Mathematics</span><span class="tag">Data Structures &amp; Algorithms</span><span class="tag">Object Oriented Programming</span><span class="tag">Database Systems Design</span><span class="tag">Advanced Database (now)</span><span class="tag">Image Processing &amp; Pattern Recognition (now)</span><span class="tag">Fundamentals of AI</span><span class="tag">Programming for AI</span><span class="tag">Operating Systems</span><span class="tag">Computer Networks</span><span class="tag">Computer Organization</span>
+      </div>
+
+      <h3 class="ps-sec">Course map</h3>
+      <div class="legend"><span class="course ac">passed</span><span class="course run">this term</span><span class="course lock">upcoming</span></div>
+      <div class="terms">
+        <div class="term"><div class="term-k">Term 1<span>Fall 2024</span></div><div class="term-v"><span class="course ac">Math Essentials</span><span class="course ac">Introduction to Computing</span><span class="course ac">Physics</span><span class="course ac">Fundamentals of Electronics</span><span class="course ac">Problem Solving &amp; Programming</span><span class="course ac">Academic English</span><span class="course ac">Humanities Elective I</span></div></div>
+        <div class="term"><div class="term-k">Term 2<span>Spring 2025</span></div><div class="term-v"><span class="course ac">Calculus</span><span class="course ac">Discrete Mathematics</span><span class="course ac">Digital Logic Design</span><span class="course ac">Data Structures &amp; Algorithms</span><span class="course ac">Communication &amp; Presentation Skills</span><span class="course ac">Academic Writing</span><span class="course ac">Humanities Elective II</span></div></div>
+        <div class="term"><div class="term-k">Term 3<span>Fall 2025</span></div><div class="term-v"><span class="course ac">Probability &amp; Statistics</span><span class="course ac">Linear Algebra</span><span class="course ac">Fundamentals of AI</span><span class="course ac">Computer Organization</span><span class="course ac">Database Systems Design</span><span class="course ac">Object Oriented Programming</span></div></div>
+        <div class="term"><div class="term-k">Term 4<span>Spring 2026</span></div><div class="term-v"><span class="course ac">Fundamentals of Data Science</span><span class="course ac">Machine Learning</span><span class="course ac">Embedded Systems &amp; IoT</span><span class="course ac">Operating Systems</span><span class="course ac">Computer Networks</span><span class="course ac">Programming for AI</span></div></div>
+        <div class="term now"><div class="term-k">Term 5<span>Fall 2026</span></div><div class="term-v"><span class="course run">Image Processing &amp; Pattern Recognition</span><span class="course run">Deep Learning</span><span class="course run">Statistics for Data Science</span><span class="course run">Data Security</span><span class="course run">Advanced Database</span></div></div>
+        <div class="term"><div class="term-k">Term 6<span>Spring 2027</span></div><div class="term-v"><span class="course lock">Computer Vision</span><span class="course lock">Time Series Data Analysis</span><span class="course lock">Data Mining</span><span class="course lock">Software Engineering</span><span class="course lock">Major Elective I</span></div></div>
+        <div class="term"><div class="term-k">Term 7<span>Fall 2027</span></div><div class="term-v"><span class="course lock">Project I</span><span class="course lock">Natural Language Processing</span><span class="course lock">Big Data Analytics</span><span class="course lock">Cloud Computing</span><span class="course lock">Major Elective II</span></div></div>
+        <div class="term"><div class="term-k">Term 8<span>Spring 2028</span></div><div class="term-v"><span class="course lock">Project II</span><span class="course lock">Deep Generative Models</span><span class="course lock">Information Retrieval &amp; Search Engines</span><span class="course lock">High-Performance Computing</span><span class="course lock">Major Elective III</span></div></div>
+      </div>
+    </div>
+    <nav class="ps-nav" aria-label="Problem navigation"><a href="#A">A. About</a><a href="#C">C. Experience</a></nav>
+  </article>
+</section>
+
+<!-- ============ C. EXPERIENCE ============ -->
+<section id="C" class="view" aria-labelledby="C-title">
+  <article class="ps">
+    <div class="ps-crumb"><a href="#problems">Problems</a><span>C / 9</span></div>
+    <div class="ps-header">
+      <h2 class="ps-title" id="C-title" tabindex="-1">C. Experience</h2>
       <div class="ps-limits">
         <div class="ps-limit"><b>time limit per test:</b> Sep 2022 to now</div>
         <div class="ps-limit"><b>memory limit per test:</b> 6 roles</div>
@@ -384,17 +482,17 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
     </div>
     <div class="ps-body">
       <div class="sub-list">
-        <div class="sub now">
+        <div class="sub">
           <div class="sub-top">
-            <div><h3>Research Intern, Quantum Finance Group</h3><span class="org">Nile University, Center for Informatics Science · Cairo · Hybrid</span></div>
-            <span class="badge b-orange">RUNNING</span>
+            <div><h3>Research Intern, Quantum Finance</h3><span class="org">Nile University, Center for Informatics Science · Cairo · Hybrid</span></div>
+            <span class="badge b-green">ACCEPTED</span>
           </div>
-          <p class="sub-meta">Aug 2026 – Present</p>
+          <p class="sub-meta">Aug 2026 – Sep 2026</p>
           <ul>
-            <li>Implementing a <strong>quantum machine learning feature-engineering pipeline</strong> for market-direction prediction, reproducing a peer-reviewed quantum finance paper that combines quantum feature maps with classical ML models.</li>
-            <li>Extending the published method and building a <strong>backtesting framework</strong> to benchmark quantum-enhanced features against classical baselines, with source code on GitHub.</li>
+            <li>Conducted a technical review of a peer-reviewed quantum finance paper on <strong>institutional bond fill-probability prediction</strong>, building working knowledge of quantum feature maps and how they plug into classical classifiers (XGBoost, Random Forest, MLP).</li>
+            <li>Specified the reproduction methodology and <strong>Qiskit implementation architecture</strong>: data preprocessing, quantum feature extraction, and a rolling backtesting protocol to benchmark quantum-enhanced features against classical baselines.</li>
           </ul>
-          <div class="tags"><span class="tag">Qiskit</span><span class="tag">Quantum ML</span><span class="tag">Python</span><span class="tag">Backtesting</span></div>
+          <div class="tags"><span class="tag">Qiskit</span><span class="tag">Quantum ML</span><span class="tag">XGBoost</span><span class="tag">Backtesting</span><span class="tag">Python</span></div>
         </div>
 
         <div class="sub">
@@ -464,25 +562,17 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
           <div class="tags"><span class="tag">C++</span><span class="tag">LaTeX</span><span class="tag">AI Training Data</span><span class="tag">Self-directed</span></div>
         </div>
       </div>
-
-      <div class="edu-note">
-        <div>
-          <div class="deg">BSc in Artificial Intelligence, Arab Academy for Science, Technology &amp; Maritime Transport (AAST)</div>
-          <div class="meta">Full scholarship · GPA 3.61 · Alamein, Egypt</div>
-        </div>
-        <div class="meta">Sep 2024 – Jul 2028</div>
-      </div>
     </div>
-    <nav class="ps-nav" aria-label="Problem navigation"><a href="#A">A. About</a><a href="#C">C. Projects</a></nav>
+    <nav class="ps-nav" aria-label="Problem navigation"><a href="#B">B. Education</a><a href="#D">D. Projects</a></nav>
   </article>
 </section>
 
-<!-- ============ C. PROJECTS ============ -->
-<section id="C" class="view" aria-labelledby="C-title">
+<!-- ============ D. PROJECTS ============ -->
+<section id="D" class="view" aria-labelledby="D-title">
   <article class="ps">
-    <div class="ps-crumb"><a href="#problems">Problems</a><span>C / 7</span></div>
+    <div class="ps-crumb"><a href="#problems">Problems</a><span>D / 9</span></div>
     <div class="ps-header">
-      <h2 class="ps-title" id="C-title" tabindex="-1">C. Projects</h2>
+      <h2 class="ps-title" id="D-title" tabindex="-1">D. Projects</h2>
       <div class="ps-limits">
         <div class="ps-limit"><b>time limit per test:</b> one semester</div>
         <div class="ps-limit"><b>memory limit per test:</b> one repository</div>
@@ -539,16 +629,16 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
         </div>
       </div>
     </div>
-    <nav class="ps-nav" aria-label="Problem navigation"><a href="#B">B. Experience</a><a href="#D">D. Teaching &amp; Community</a></nav>
+    <nav class="ps-nav" aria-label="Problem navigation"><a href="#C">C. Experience</a><a href="#E">E. Teaching &amp; Community</a></nav>
   </article>
 </section>
 
-<!-- ============ D. TEACHING ============ -->
-<section id="D" class="view" aria-labelledby="D-title">
+<!-- ============ E. TEACHING ============ -->
+<section id="E" class="view" aria-labelledby="E-title">
   <article class="ps">
-    <div class="ps-crumb"><a href="#problems">Problems</a><span>D / 7</span></div>
+    <div class="ps-crumb"><a href="#problems">Problems</a><span>E / 9</span></div>
     <div class="ps-header">
-      <h2 class="ps-title" id="D-title" tabindex="-1">D. Teaching &amp; Community</h2>
+      <h2 class="ps-title" id="E-title" tabindex="-1">E. Teaching &amp; Community</h2>
       <div class="ps-limits">
         <div class="ps-limit"><b>time limit per test:</b> one training season</div>
         <div class="ps-limit"><b>memory limit per test:</b> 450+ students</div>
@@ -558,7 +648,7 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
       <div class="judge js-only" data-tests="3" aria-live="polite"></div>
     </div>
     <div class="ps-body">
-      <p style="margin-bottom:1.2rem">450+ students trained across university clubs, academies, and schools, counting Coach Academy and ZHub from problem B.</p>
+      <p style="margin-bottom:1.2rem">450+ students trained across university clubs, academies, and schools, counting Coach Academy and ZHub from problem C. Small groups and large ones, kids and adults, onsite and online.</p>
       <div class="grid">
         <div class="teach">
           <h3><a href="https://www.facebook.com/AASTcpc" target="_blank" rel="noopener">AAST ICPC Club</a></h3>
@@ -580,16 +670,71 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
         </div>
       </div>
     </div>
-    <nav class="ps-nav" aria-label="Problem navigation"><a href="#C">C. Projects</a><a href="#E">E. Standings</a></nav>
+    <nav class="ps-nav" aria-label="Problem navigation"><a href="#D">D. Projects</a><a href="#F">F. Videos</a></nav>
   </article>
 </section>
 
-<!-- ============ E. STANDINGS ============ -->
-<section id="E" class="view" aria-labelledby="E-title">
+<!-- ============ F. VIDEOS ============ -->
+<section id="F" class="view" aria-labelledby="F-title">
   <article class="ps">
-    <div class="ps-crumb"><a href="#problems">Problems</a><span>E / 7</span></div>
+    <div class="ps-crumb"><a href="#problems">Problems</a><span>F / 9</span></div>
     <div class="ps-header">
-      <h2 class="ps-title" id="E-title" tabindex="-1">E. Standings</h2>
+      <h2 class="ps-title" id="F-title" tabindex="-1">F. Videos</h2>
+      <div class="ps-limits">
+        <div class="ps-limit"><b>time limit per test:</b> about 1 hour</div>
+        <div class="ps-limit"><b>memory limit per test:</b> one laptop pen</div>
+        <div class="ps-limit"><b>input:</b> a topic Arabic content explains poorly</div>
+        <div class="ps-limit"><b>output:</b> intuition, not just formulas</div>
+      </div>
+      <div class="judge js-only" data-tests="3" aria-live="polite"></div>
+    </div>
+    <div class="ps-body">
+      <a class="yt" href="https://www.youtube.com/watch?v=C_-AxTT9lzQ" target="_blank" rel="noopener" data-yt="C_-AxTT9lzQ" aria-label="Play But what is dy/dx on YouTube">
+        <img src="https://i.ytimg.com/vi/C_-AxTT9lzQ/hqdefault.jpg" alt="Thumbnail of the video But what is dy/dx" loading="lazy" width="480" height="360" onerror="this.style.visibility='hidden'">
+        <span class="yt-play">▶ Play</span>
+      </a>
+      <div class="vid-meta"><h3>But what is dy/dx</h3><span>Episode 1 · Calculus · Arabic · ~1 hour</span></div>
+      <p style="color:var(--ink-soft)">The gap between knowing the derivative formulas and understanding what a derivative actually means, and why AI needs it. Watch it before a calculus or ML/DL course and the rest of the course feels a lot more comfortable.</p>
+      <div class="vid-links">
+        <a class="btn btn-primary" href="https://www.youtube.com/watch?v=C_-AxTT9lzQ" target="_blank" rel="noopener">Watch on YouTube</a>
+        <a class="btn btn-ghost" href="https://github.com/Omar123098/Explaining-Calculus/blob/main/but_what_is_dydx.ipynb" target="_blank" rel="noopener">Interactive notebook</a>
+        <a class="btn btn-ghost" href="https://www.youtube.com/@gedawy292" target="_blank" rel="noopener">Channel @gedawy292</a>
+      </div>
+
+      <h3 class="ps-sec">What the episode covers</h3>
+      <ol class="chapters">
+        <li>What dy/dx means: slope, limits, and why the formulas work</li>
+        <li>Multivariate functions and partial derivatives</li>
+        <li>The chain rule, built up through several examples</li>
+        <li>Fitting a line to points with gradient descent</li>
+        <li>Backpropagation as the chain rule, applied intuitively</li>
+      </ol>
+
+      <h3 class="ps-sec">Why I started</h3>
+      <p>I've explained concepts for years, always to a room: small groups and large ones, kids and adults, onsite and online, with slides and live interaction. Videos are the new format. I posted the idea on Twitter first, and enough people liked it that I started with calculus:</p>
+      <blockquote class="quote" dir="rtl" lang="ar">
+        بفكر اعمل قناه عاليوتيوب اشرح فيها اي حاجة جديدة اتعلمها… وأي حاجة احس اني لو شرحتها بطريقة معينة ممكن تفرق مع حد، او لو شرحتها انا هفهمها بطريقة احسن، او انا مهتم اشرحها.
+        <div class="quote-src" dir="ltr">me, on Twitter, right after buying a good pen for my laptop screen</div>
+      </blockquote>
+
+      <h3 class="ps-sec">The series</h3>
+      <div class="series">
+        <div><b>Calculus</b><span class="course ac">episode 1 out</span></div>
+        <div><span><b>Data Structures</b> (the less famous ones)</span><span class="course lock">planned</span></div>
+        <div><b>Counting &amp; Probability</b><span class="course lock">planned</span></div>
+      </div>
+      <p style="margin-top:1rem">Before this, I recorded Intro to Computing videos for my classmates at AAST. Feedback and topic ideas are welcome: recording alone in front of a laptop camera is very different from a live room.</p>
+    </div>
+    <nav class="ps-nav" aria-label="Problem navigation"><a href="#E">E. Teaching &amp; Community</a><a href="#G">G. Standings</a></nav>
+  </article>
+</section>
+
+<!-- ============ G. STANDINGS ============ -->
+<section id="G" class="view" aria-labelledby="G-title">
+  <article class="ps">
+    <div class="ps-crumb"><a href="#problems">Problems</a><span>G / 9</span></div>
+    <div class="ps-header">
+      <h2 class="ps-title" id="G-title" tabindex="-1">G. Standings</h2>
       <div class="ps-limits">
         <div class="ps-limit"><b>time limit per test:</b> 5 hours per contest</div>
         <div class="ps-limit"><b>memory limit per test:</b> one keyboard per team</div>
@@ -613,16 +758,16 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
         </table>
       </div>
     </div>
-    <nav class="ps-nav" aria-label="Problem navigation"><a href="#D">D. Teaching &amp; Community</a><a href="#F">F. Skills</a></nav>
+    <nav class="ps-nav" aria-label="Problem navigation"><a href="#F">F. Videos</a><a href="#H">H. Skills</a></nav>
   </article>
 </section>
 
-<!-- ============ F. SKILLS ============ -->
-<section id="F" class="view" aria-labelledby="F-title">
+<!-- ============ H. SKILLS ============ -->
+<section id="H" class="view" aria-labelledby="H-title">
   <article class="ps">
-    <div class="ps-crumb"><a href="#problems">Problems</a><span>F / 7</span></div>
+    <div class="ps-crumb"><a href="#problems">Problems</a><span>H / 9</span></div>
     <div class="ps-header">
-      <h2 class="ps-title" id="F-title" tabindex="-1">F. Skills</h2>
+      <h2 class="ps-title" id="H-title" tabindex="-1">H. Skills</h2>
       <div class="ps-limits">
         <div class="ps-limit"><b>time limit per test:</b> as long as it takes to learn</div>
         <div class="ps-limit"><b>memory limit per test:</b> unbounded</div>
@@ -634,25 +779,26 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
     <div class="ps-body">
       <div class="skill-rows">
         <div class="skill-row"><div class="skill-k">languages</div><div class="skill-v"><span class="tag">C++</span><span class="tag">C</span><span class="tag">Python</span><span class="tag">SQL</span></div></div>
-        <div class="skill-row"><div class="skill-k">systems &amp; backend</div><div class="skill-v"><span class="tag">OOP &amp; SOLID</span><span class="tag">Systems Programming</span><span class="tag">Windows API</span><span class="tag">Django</span><span class="tag">PostgreSQL</span><span class="tag">Git/GitHub</span><span class="tag">Linux</span></div></div>
+        <div class="skill-row"><div class="skill-k">data science &amp; ml</div><div class="skill-v"><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Scikit-learn</span><span class="tag">XGBoost</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span><span class="tag">EDA</span><span class="tag">Feature Engineering</span><span class="tag">Time-Series Forecasting</span></div></div>
         <div class="skill-row"><div class="skill-k">cv &amp; robotics</div><div class="skill-v"><span class="tag">OpenCV</span><span class="tag">MediaPipe</span><span class="tag">YOLO</span><span class="tag">ROS</span><span class="tag">Gemini API</span><span class="tag">Autonomous Navigation</span><span class="tag">Digital Logic</span></div></div>
-        <div class="skill-row"><div class="skill-k">data science &amp; ml</div><div class="skill-v"><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Scikit-learn</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span><span class="tag">EDA</span><span class="tag">Feature Engineering</span><span class="tag">Time-Series Forecasting</span></div></div>
-        <div class="skill-row"><div class="skill-k">quantum &amp; research</div><div class="skill-v"><span class="tag">Qiskit</span><span class="tag">Quantum Computing</span><span class="tag">Quantum ML</span><span class="tag">Backtesting</span><span class="tag">Paper Reproduction</span></div></div>
+        <div class="skill-row"><div class="skill-k">systems &amp; backend</div><div class="skill-v"><span class="tag">OOP &amp; SOLID</span><span class="tag">Systems Programming</span><span class="tag">Windows API</span><span class="tag">Django</span><span class="tag">PostgreSQL</span><span class="tag">Git/GitHub</span><span class="tag">Linux</span></div></div>
+        <div class="skill-row"><div class="skill-k">quantum &amp; research</div><div class="skill-v"><span class="tag">Qiskit</span><span class="tag">Quantum ML</span><span class="tag">Backtesting</span><span class="tag">Paper Reproduction</span></div></div>
         <div class="skill-row"><div class="skill-k">ai training</div><div class="skill-v"><span class="tag">RLHF</span><span class="tag">Prompt Engineering</span><span class="tag">LLM Evaluation</span><span class="tag">Code Annotation</span><span class="tag">Red-Teaming</span><span class="tag">Arabic/English Annotation</span></div></div>
         <div class="skill-row"><div class="skill-k">cs fundamentals</div><div class="skill-v"><span class="tag">Data Structures &amp; Algorithms</span><span class="tag">Dynamic Programming</span><span class="tag">Graph Theory</span><span class="tag">Number Theory</span><span class="tag">LaTeX</span></div></div>
+        <div class="skill-row"><div class="skill-k">teaching</div><div class="skill-v"><span class="tag">Curriculum Design</span><span class="tag">Video Lessons (OBS, OpenShot)</span><span class="tag">Jupyter Notebooks</span><span class="tag">Mentorship</span></div></div>
         <div class="skill-row"><div class="skill-k">spoken</div><div class="skill-v"><span class="tag">Arabic, native</span><span class="tag">English, fluent</span></div></div>
       </div>
     </div>
-    <nav class="ps-nav" aria-label="Problem navigation"><a href="#E">E. Standings</a><a href="#G">G. Contact</a></nav>
+    <nav class="ps-nav" aria-label="Problem navigation"><a href="#G">G. Standings</a><a href="#I">I. Contact</a></nav>
   </article>
 </section>
 
-<!-- ============ G. CONTACT ============ -->
-<section id="G" class="view" aria-labelledby="G-title">
+<!-- ============ I. CONTACT ============ -->
+<section id="I" class="view" aria-labelledby="I-title">
   <article class="ps">
-    <div class="ps-crumb"><a href="#problems">Problems</a><span>G / 7</span></div>
+    <div class="ps-crumb"><a href="#problems">Problems</a><span>I / 9</span></div>
     <div class="ps-header">
-      <h2 class="ps-title" id="G-title" tabindex="-1">G. Contact</h2>
+      <h2 class="ps-title" id="I-title" tabindex="-1">I. Contact</h2>
       <div class="ps-limits">
         <div class="ps-limit"><b>time limit per test:</b> one message</div>
         <div class="ps-limit"><b>memory limit per test:</b> your inbox</div>
@@ -662,7 +808,7 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
       <div class="judge js-only" data-tests="2" aria-live="polite"></div>
     </div>
     <div class="ps-body">
-      <div class="term">
+      <div class="term-win">
         <div class="term-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="term-title">gedawy@alexandria: ~/contact</span></div>
         <div class="term-body">
           <div><span class="ps1">$</span> <span class="cmd">cat contact.txt</span></div>
@@ -670,6 +816,7 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
           <div class="out">github&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ <a href="https://github.com/Omar123098" target="_blank" rel="noopener">github.com/Omar123098</a></div>
           <div class="out">linkedin&nbsp;&nbsp;&nbsp;→ <a href="https://www.linkedin.com/in/omarelgedawy/" target="_blank" rel="noopener">linkedin.com/in/omarelgedawy</a></div>
           <div class="out">codeforces → <a href="https://codeforces.com/profile/Gedawy" target="_blank" rel="noopener">codeforces.com/profile/Gedawy</a></div>
+          <div class="out">youtube&nbsp;&nbsp;&nbsp;&nbsp;→ <a href="https://www.youtube.com/@gedawy292" target="_blank" rel="noopener">youtube.com/@gedawy292</a></div>
           <div class="out">kaggle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ <a href="https://www.kaggle.com/elgedawy" target="_blank" rel="noopener">kaggle.com/elgedawy</a></div>
           <div><span class="ps1">$</span> <span class="cmd">./status</span></div>
           <div class="out">open to SWE &amp; data-science internships and junior roles · remote or MENA/EMEA</div>
@@ -686,16 +833,17 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
               <option>Internship opportunity</option>
               <option>Full-time role</option>
               <option>Research collaboration</option>
-              <option>Teaching or community</option>
+              <option>Videos or teaching</option>
               <option>Something else</option>
             </select>
           </div>
         </div>
         <div><label for="f-msg">Message</label><textarea id="f-msg" name="message" required></textarea></div>
         <button class="btn btn-primary" type="submit">Submit</button>
+        <p class="form-note">Submitting opens your email app with the message filled in.</p>
       </form>
     </div>
-    <nav class="ps-nav" aria-label="Problem navigation"><a href="#F">F. Skills</a><a href="#problems">Back to problems</a></nav>
+    <nav class="ps-nav" aria-label="Problem navigation"><a href="#H">H. Skills</a><a href="#problems">Back to problems</a></nav>
   </article>
 </section>
 </main>
@@ -705,7 +853,7 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
   <div class="box">
     <div class="box-h">→ Pay attention</div>
     <div class="box-b">
-      <p>Currently a research intern in quantum finance at Nile University.</p>
+      <p>New on YouTube: <a href="#F">But what is dy/dx</a>, the math behind AI, in Arabic.</p>
       <p>Open to SWE and data-science internships. <a href="resume/Omar_Elgedawy_SWE_DS.pdf" target="_blank" rel="noopener">Download resume</a></p>
     </div>
   </div>
@@ -717,12 +865,14 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
       <div class="kv">
         <div><span>name:</span> Omar Elgedawy</div>
         <div><span>from:</span> Alexandria, Egypt</div>
-        <div><span>org:</span> AAST, BSc AI, 2028</div>
+        <div><span>org:</span> AAST, AI (Data Science)</div>
+        <div><span>term:</span> 5 of 8, class of 2028</div>
       </div>
       <div class="links">
         <a href="https://github.com/Omar123098" target="_blank" rel="noopener">github</a>
         <a href="https://codeforces.com/profile/Gedawy" target="_blank" rel="noopener">codeforces</a>
         <a href="https://www.linkedin.com/in/omarelgedawy/" target="_blank" rel="noopener">linkedin</a>
+        <a href="https://www.youtube.com/@gedawy292" target="_blank" rel="noopener">youtube</a>
         <a href="https://www.kaggle.com/elgedawy" target="_blank" rel="noopener">kaggle</a>
       </div>
     </div>
@@ -732,23 +882,25 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
     <div class="box-b">
       <ul class="mini" id="miniList">
         <li data-p="A"><a href="#A">A. About</a><span class="okmark">✓</span></li>
-        <li data-p="B"><a href="#B">B. Experience</a><span class="okmark">✓</span></li>
-        <li data-p="C"><a href="#C">C. Projects</a><span class="okmark">✓</span></li>
-        <li data-p="D"><a href="#D">D. Teaching</a><span class="okmark">✓</span></li>
-        <li data-p="E"><a href="#E">E. Standings</a><span class="okmark">✓</span></li>
-        <li data-p="F"><a href="#F">F. Skills</a><span class="okmark">✓</span></li>
-        <li data-p="G"><a href="#G">G. Contact</a><span class="okmark">✓</span></li>
+        <li data-p="B"><a href="#B">B. Education</a><span class="okmark">✓</span></li>
+        <li data-p="C"><a href="#C">C. Experience</a><span class="okmark">✓</span></li>
+        <li data-p="D"><a href="#D">D. Projects</a><span class="okmark">✓</span></li>
+        <li data-p="E"><a href="#E">E. Teaching</a><span class="okmark">✓</span></li>
+        <li data-p="F"><a href="#F">F. Videos</a><span class="okmark">✓</span></li>
+        <li data-p="G"><a href="#G">G. Standings</a><span class="okmark">✓</span></li>
+        <li data-p="H"><a href="#H">H. Skills</a><span class="okmark">✓</span></li>
+        <li data-p="I"><a href="#I">I. Contact</a><span class="okmark">✓</span></li>
       </ul>
       <div class="js-only">
         <div class="progress" aria-hidden="true"><i id="progBar"></i></div>
-        <div class="kv" id="progText" style="margin-top:0">solved 0 / 7</div>
+        <div class="kv" id="progText" style="margin-top:0">solved 0 / 9</div>
       </div>
     </div>
   </div>
-  <div class="box js-only">
+  <div class="box shortcuts js-only">
     <div class="box-h">→ Shortcuts</div>
     <div class="box-b keys">
-      <span class="kbd">A</span><span>to <span class="kbd">G</span> open a problem</span>
+      <span class="kbd">A</span><span>to <span class="kbd">I</span> open a problem</span>
       <span class="kbd">←</span><span>previous problem</span>
       <span class="kbd">→</span><span>next problem</span>
       <span class="kbd">Esc</span><span>back to the list</span>
@@ -763,94 +915,134 @@ no C++ background</pre></div><div><div class="lbl">output</div><pre>4 teams at E
 
 <script>
 (function(){
-  const order=['A','B','C','D','E','F','G'];
-  const legacy={home:'problems',experience:'B',projects:'C',teaching:'D',standings:'E',skills:'F',contact:'G',about:'A'};
-  const views=[...document.querySelectorAll('.view')];
-  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const titles={problems:'Omar Elgedawy · Software Engineer & Data Scientist'};
-  order.forEach(p=>{titles[p]=document.getElementById(p+'-title').textContent+' · Omar Elgedawy'});
+  var order=['A','B','C','D','E','F','G','H','I'];
+  var total=order.length;
+  var legacy={home:'problems',about:'A',education:'B',experience:'C',projects:'D',teaching:'E',videos:'F',youtube:'F',standings:'G',skills:'H',contact:'I'};
+  var views=[].slice.call(document.querySelectorAll('.view'));
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var titles={problems:'Omar Elgedawy · Software Engineer & Data Scientist'};
+  order.forEach(function(p){titles[p]=document.getElementById(p+'-title').textContent+' · Omar Elgedawy'});
+  var cur='problems', timer=null;
 
-  // solved state (per visitor, this tab only)
-  let solved=new Set();
-  try{solved=new Set(JSON.parse(sessionStorage.getItem('solved')||'[]'))}catch(e){}
+  // which view a hash points to
+  function resolve(h){
+    h=(h||'').replace(/^#/,'');
+    try{h=decodeURIComponent(h)}catch(e){}
+    if(Object.prototype.hasOwnProperty.call(legacy,h.toLowerCase())) return legacy[h.toLowerCase()];
+    if(h.length===1&&order.indexOf(h.toUpperCase())>=0) return h.toUpperCase();
+    return 'problems';
+  }
+
+  // solved state, per visitor and tab; storage can be unavailable (private mode, sandboxed previews)
+  var solved={};
+  try{(JSON.parse(sessionStorage.getItem('solved')||'[]')||[]).forEach(function(p){if(order.indexOf(p)>=0)solved[p]=1})}catch(e){}
+  function count(){return Object.keys(solved).length}
   function paintSolved(){
-    document.querySelectorAll('[data-p]').forEach(el=>{
-      const s=solved.has(el.dataset.p);
+    [].forEach.call(document.querySelectorAll('[data-p]'),function(el){
+      var s=!!solved[el.dataset.p];
       el.classList.toggle('solved',s);
-      const ok=el.querySelector('.p-ok'); if(ok) ok.textContent=s?'✓':'';
+      var ok=el.querySelector('.p-ok'); if(ok) ok.textContent=s?'✓':'';
     });
-    const n=solved.size;
-    document.getElementById('progBar').style.width=(n/7*100)+'%';
-    document.getElementById('progText').textContent=n===7?'solved 7 / 7 · full score':'solved '+n+' / 7';
-    document.getElementById('solvedLabel').textContent=n?n+' / 7 solved':'7 problems';
+    var n=count();
+    document.getElementById('progBar').style.width=(n/total*100)+'%';
+    document.getElementById('progText').textContent=n===total?'solved '+total+' / '+total+' · full score':'solved '+n+' / '+total;
+    document.getElementById('solvedLabel').textContent=n?n+' / '+total+' solved':total+' problems';
   }
-  function markSolved(p){solved.add(p);try{sessionStorage.setItem('solved',JSON.stringify([...solved]))}catch(e){};paintSolved()}
+  function markSolved(p){solved[p]=1;try{sessionStorage.setItem('solved',JSON.stringify(Object.keys(solved)))}catch(e){}paintSolved()}
 
-  // judge run when a problem opens
-  let timer=null;
+  // short judge run when a problem opens
   function judge(p){
-    const el=document.querySelector('#'+p+' .judge'); if(!el) return;
+    var el=document.querySelector('#'+p+' .judge'); if(!el) return;
     clearInterval(timer);
-    const tests=+el.dataset.tests||3;
-    if(reduce||solved.has(p)){el.className='judge js-only ok';el.textContent='Accepted';markSolved(p);return}
-    let t=1; el.className='judge js-only'; el.textContent='Running on test '+t;
-    timer=setInterval(()=>{
-      t++;
-      if(t>tests){clearInterval(timer);el.className='judge js-only ok';el.textContent='Accepted';markSolved(p)}
-      else el.textContent='Running on test '+t;
-    },170);
+    var tests=+el.getAttribute('data-tests')||3;
+    function done(){el.className='judge js-only ok';el.textContent='Accepted';markSolved(p)}
+    if(reduce||solved[p]){done();return}
+    var t=1; el.className='judge js-only'; el.textContent='Running on test '+t;
+    timer=setInterval(function(){t++; if(t>tests){clearInterval(timer);done()} else el.textContent='Running on test '+t},170);
   }
 
-  function current(){
-    let h=decodeURIComponent(location.hash.slice(1));
-    if(h in legacy){h=legacy[h];history.replaceState(null,'','#'+h)}
-    h=h.length===1?h.toUpperCase():h;
-    return order.includes(h)?h:'problems';
-  }
-  function route(fromLoad){
-    const id=current();
-    views.forEach(v=>v.classList.toggle('active',v.id===id));
-    document.querySelectorAll('[data-nav]').forEach(a=>{a.toggleAttribute('aria-current',a.dataset.nav===id);if(a.dataset.nav===id)a.setAttribute('aria-current','page')});
+  function show(id,focus){
+    cur=id;
+    views.forEach(function(v){v.classList.toggle('active',v.id===id)});
+    [].forEach.call(document.querySelectorAll('[data-nav]'),function(a){
+      if(a.getAttribute('data-nav')===id) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');
+    });
     document.title=titles[id];
     window.scrollTo(0,0);
     if(id!=='problems'){
       judge(id);
-      if(!fromLoad){const t=document.getElementById(id+'-title');t.focus({preventScroll:true})}
-    }
+      if(focus){var t=document.getElementById(id+'-title'); if(t) t.focus({preventScroll:true})}
+    } else if(focus){document.getElementById('main').focus({preventScroll:true})}
   }
-  window.addEventListener('hashchange',()=>route(false));
 
-  // whole problem row is clickable
-  document.querySelectorAll('.ptable tbody tr').forEach(tr=>tr.addEventListener('click',e=>{if(!e.target.closest('a'))location.hash=tr.dataset.p}));
+  // navigate without relying on native anchor jumps (some embedded previews block them)
+  function go(id){
+    if(id===cur){window.scrollTo(0,0);return}
+    try{history.pushState({id:id},'','#'+id)}catch(e){}
+    show(id,true);
+  }
+  window.addEventListener('popstate',function(){show(resolve(location.hash),true)});
+  window.addEventListener('hashchange',function(){var id=resolve(location.hash); if(id!==cur) show(id,true)});
 
-  // keyboard shortcuts
-  document.addEventListener('keydown',e=>{
-    if(e.ctrlKey||e.metaKey||e.altKey||e.target.closest('input,textarea,select,button')) return;
-    const k=e.key, id=current();
-    if(/^[a-g]$/i.test(k)){location.hash=k.toUpperCase();return}
-    if(k==='Escape'){location.hash='problems';return}
-    const i=order.indexOf(id);
-    if(i<0) return;
-    if(k==='ArrowRight'&&i<6) location.hash=order[i+1];
-    if(k==='ArrowLeft') location.hash=i>0?order[i-1]:'problems';
+  document.addEventListener('click',function(e){
+    if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey) return;
+    var a=e.target.closest&&e.target.closest('a[href^="#"]');
+    if(a){
+      var h=a.getAttribute('href');
+      if(h==='#main') return;
+      e.preventDefault();
+      closeMenu();
+      go(resolve(h));
+      return;
+    }
+    var tr=e.target.closest&&e.target.closest('.ptable tbody tr');
+    if(tr) go(tr.getAttribute('data-p'));
   });
 
-  // mobile nav
-  const t=document.getElementById('navToggle'),l=document.getElementById('navLinks');
-  t.addEventListener('click',()=>{const o=l.classList.toggle('open');t.setAttribute('aria-expanded',o)});
-  l.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{l.classList.remove('open');t.setAttribute('aria-expanded','false')}));
+  // keyboard shortcuts
+  document.addEventListener('keydown',function(e){
+    if(e.ctrlKey||e.metaKey||e.altKey) return;
+    if(e.target.closest&&e.target.closest('input,textarea,select,button,[contenteditable]')) return;
+    var k=e.key;
+    if(/^[a-i]$/i.test(k)){go(k.toUpperCase());return}
+    if(k==='Escape'){go('problems');return}
+    var i=order.indexOf(cur); if(i<0) return;
+    if(k==='ArrowRight'&&i<total-1) go(order[i+1]);
+    if(k==='ArrowLeft') go(i>0?order[i-1]:'problems');
+  });
+
+  // mobile menu
+  var tg=document.getElementById('navToggle'),nl=document.getElementById('navLinks');
+  function closeMenu(){nl.classList.remove('open');tg.setAttribute('aria-expanded','false')}
+  tg.addEventListener('click',function(){var o=nl.classList.toggle('open');tg.setAttribute('aria-expanded',o?'true':'false')});
+
+  // play the video in place instead of loading YouTube up front
+  [].forEach.call(document.querySelectorAll('.yt[data-yt]'),function(a){
+    a.addEventListener('click',function(e){
+      if(e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey) return;
+      e.preventDefault();
+      var f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+a.getAttribute('data-yt')+'?autoplay=1&rel=0';
+      f.title='But what is dy/dx';
+      f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      f.allowFullscreen=true;
+      a.replaceWith((function(){var d=document.createElement('div');d.className='yt';d.appendChild(f);return d})());
+    });
+  });
 
   // contact form opens the visitor's mail app with the message filled in
-  document.getElementById('submitForm').addEventListener('submit',e=>{
+  document.getElementById('submitForm').addEventListener('submit',function(e){
     e.preventDefault();
-    const f=e.target;
-    const subject=f.topic.value+' · from '+f.name.value;
+    var f=e.target;
+    var subject=f.topic.value+' · from '+f.name.value;
     location.href='mailto:omarelgedawy123098@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(f.message.value+'\n\n'+f.name.value);
   });
 
   document.getElementById('yr').textContent=new Date().getFullYear();
   paintSolved();
-  route(true);
+  var start=resolve(location.hash);
+  if(location.hash&&location.hash.length>1&&location.hash.slice(1)!==start){try{history.replaceState(null,'','#'+start)}catch(e){}}
+  show(start,false);
 })();
 </script>
 </body>
